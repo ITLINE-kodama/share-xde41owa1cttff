@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja" class="gate-on">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JMRA 産業ビジョンLP ワイヤーフレーム（PC/SP）</title>
+<style>
+  :root{
+    --ink:#16202E; --sub:#6b7480; --navy:#0B4DA2; --navy-d:#072C5C; --accent:#FF7A2F;
+    --line:#DCE3EC; --bg:#eef1f6; --paper:#ffffff; --wire:#e4e8ef; --wire-line:#c6cede; --wire-txt:#7b8494;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Noto Sans JP","Yu Gothic",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;}
+  .wrap{max-width:1180px;margin:0 auto;padding:40px 24px 90px;}
+  /* doc header */
+  header.doc{border-bottom:3px solid var(--navy);padding-bottom:20px;margin-bottom:26px;}
+  .doc .en{color:var(--navy);font-size:12px;letter-spacing:.25em;font-weight:700;}
+  .doc h1{font-size:25px;margin-top:6px;line-height:1.45;}
+  .doc .meta{color:var(--sub);font-size:12.5px;margin-top:9px;}
+  /* memo */
+  .memo{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:10px;padding:18px 22px;margin-bottom:20px;font-size:13px;}
+  .memo h3{font-size:14px;color:var(--navy);margin-bottom:8px;}
+  .memo dl{display:grid;grid-template-columns:130px 1fr;gap:4px 14px;}
+  .memo dt{font-weight:700;color:var(--navy-d);}
+  .memo dd{color:#374151;}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 18px;font-size:12px;margin-bottom:34px;color:var(--sub);}
+  .legend b{color:var(--ink);}
+  .chip{display:inline-block;background:var(--wire);border:1px dashed var(--wire-line);border-radius:4px;padding:0 8px;color:var(--wire-txt);font-weight:600;font-size:11px;}
+  /* device columns */
+  .devs{display:grid;grid-template-columns:1fr 340px;gap:26px;align-items:start;}
+  @media(max-width:900px){.devs{grid-template-columns:1fr;}}
+  .dev-label{font-size:11.5px;font-weight:700;letter-spacing:.15em;color:var(--navy);margin-bottom:8px;}
+  .browser{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(20,40,80,.06);}
+  .bar{height:34px;background:#f0f2f6;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 12px;}
+  .bar i{width:10px;height:10px;border-radius:50%;background:#cfd6e2;display:inline-block;}
+  .bar .url{margin-left:10px;font-size:11px;color:#9aa4b2;font-family:Consolas,monospace;}
+  .phone{max-width:340px;border:10px solid #cbd2de;border-radius:30px;overflow:hidden;background:var(--paper);}
+  .phone .notch{height:22px;background:#cbd2de;}
+  /* wire primitives */
+  .wire-box{background:var(--wire);border:1px dashed var(--wire-line);border-radius:8px;min-height:120px;display:grid;place-items:center;color:var(--wire-txt);font-size:12px;font-weight:600;text-align:center;padding:10px;}
+  .wire-box.sm{min-height:70px;}
+  .wire-box.img{background:repeating-linear-gradient(135deg,#e4e8ef,#e4e8ef 10px,#dde2ec 10px,#dde2ec 20px);}
+  .barline{height:12px;background:#dde2ec;border-radius:6px;margin:6px 0;}
+  .barline.s{width:55%;} .barline.m{width:78%;} .barline.xs{width:35%;}
+  .btnw{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 20px;border-radius:999px;border:1.5px solid var(--navy);color:var(--navy);font-size:12px;font-weight:700;background:#fff;}
+  .btnw.fill{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .lbl{font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;}
+  .h2w{font-size:19px;font-weight:700;margin:2px 0 4px;}
+  .h2w.pc{font-size:22px;}
+  /* wf section (PC) */
+  .wf{padding:20px 22px;border-bottom:1px dashed var(--wire-line);}
+  .wf:last-child{border-bottom:0;}
+  .wf.hero{background:linear-gradient(135deg,#0B4DA2,#0a49c6);color:#fff;}
+  .wf.hero .lbl{color:#ffcfa3;}
+  .wf.hero .barline{background:rgba(255,255,255,.35);}
+  .wf.services{background:#eef2fb;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .filters{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
+  .tabw{font-size:11px;border:1px solid var(--wire-line);border-radius:999px;padding:3px 12px;background:#fff;color:#5a6675;}
+  .tabw.on{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .sortw{margin-left:auto;font-size:11px;border:1px solid var(--wire-line);border-radius:6px;padding:3px 10px;background:#fff;color:#5a6675;}
+  .card{border:1px solid var(--wire-line);border-radius:8px;padding:10px;background:#fff;}
+  .card .barline{background:#e6eaf2;}
+  .card.dark{background:#08307e;border-color:#0a49c6;}
+  .card.dark .barline{background:rgba(255,255,255,.35);}
+  .matrix{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .quad{border:1px solid var(--wire-line);border-radius:8px;min-height:82px;display:grid;place-items:center;background:#fff;color:var(--wire-txt);font-size:11px;font-weight:700;text-align:center;padding:8px;}
+  /* annotation */
+  .note{background:#fff8f2;border:1px solid #ffd9b8;border-radius:8px;padding:10px 14px;font-size:12px;color:#7a4a1e;margin:10px 0 4px;}
+  .note b{color:var(--accent-dark,#c24f00);}
+  .secblock{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin-bottom:22px;overflow:hidden;}
+  .secblock > .cap{display:flex;align-items:center;gap:10px;background:#f5f7fb;border-bottom:1px solid var(--line);padding:9px 16px;font-size:13px;font-weight:700;color:var(--navy);}
+  .secblock > .cap .no{background:var(--navy);color:#fff;border-radius:50%;width:22px;height:22px;display:grid;place-items:center;font-size:12px;}
+  .secbody{padding:14px 16px;}
+  /* footer wf */
+  .footw{background:#0e1930;color:#9aa8c0;padding:18px 22px;font-size:11px;}
+  .footw .grid4 .wire-box{background:#16233f;border-color:#2b3a5c;color:#6f80a0;}
+  footer.doc{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:#9aa4b2;font-size:11.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .navw{display:flex;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid var(--line);background:#fff;font-size:11px;color:#5a6675;}
+  .navw .logo{font-weight:800;color:var(--navy);font-size:14px;}
+  .navw .gnav{display:flex;gap:12px;margin-left:8px;flex-wrap:wrap;}
+  .navw .srch{margin-left:auto;border:1px solid var(--wire-line);border-radius:999px;padding:3px 12px;color:#9aa4b2;}
+</style>
+</head>
+<body>
+<!-- ============================================================================
+     合言葉ゲート（自己完結ブロック）
+     ----------------------------------------------------------------------------
+     ・GitHub Pages は静的配信のため Basic認証が使えない。社内標準の「合言葉ゲート」で覆う。
+     ・合言葉は平文で置かず SHA-256 のハッシュのみを持つ（ソースを見ても文字列は読めない）。
+     ・一度入れれば localStorage に記録し、次回から自動で開く。
+     ・ローカル（127.0.0.1 / localhost / file://）では検証・撮影のため自動で解除する。
+     ※ 静的サイトのクライアント側ゲートのため、これは「覗き見防止」であり
+       アクセス制御ではない。URLと合言葉の取り扱いは通常どおりご注意ください。
+     ============================================================================ -->
+<style>
+html.gate-on,html.gate-on body{overflow:hidden !important;height:100%;}
+#jmGate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
+  padding:24px;background:linear-gradient(150deg,#072C5C 0%,#0B4DA2 62%,#1C60B0 100%);
+  font-family:"Noto Sans JP","Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;}
+html:not(.gate-on) #jmGate{display:none;}
+#jmGate .jg-box{width:min(430px,100%);background:#fff;border:none;border-radius:16px;padding:38px 34px 30px;
+  box-shadow:0 30px 80px rgba(5,29,61,.4);text-align:center;margin:0;}
+#jmGate .jg-lg{height:26px;width:auto;margin:0 auto 18px;display:block;}
+#jmGate .jg-en{display:block;font-family:"Libre Baskerville","Times New Roman",serif;font-size:10.5px;
+  font-weight:700;letter-spacing:.18em;color:#0B4DA2;background:none;padding:0;margin:0;}
+#jmGate .jg-org{font-size:12px;line-height:1.7;color:#4A5666;margin-top:8px;}
+#jmGate h1{font-family:"BIZ UDPMincho","Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:19px;line-height:1.55;margin:4px 0 8px;color:#16202E;font-weight:700;letter-spacing:.04em;}
+#jmGate p{font-size:12.5px;line-height:1.85;color:#4A5666;margin-bottom:20px;}
+#jmGate form{display:flex;flex-direction:column;gap:10px;}
+#jmGate input{border:1.5px solid #DCE3EC;border-radius:999px;padding:13px 20px;font-size:14px;
+  text-align:center;font-family:inherit;color:#16202E;}
+#jmGate input:focus{outline:none;border-color:#0B4DA2;box-shadow:0 0 0 3px rgba(11,77,162,.18);}
+#jmGate button{border:none;border-radius:999px;padding:14px;font-size:14px;font-weight:700;
+  background:#0B4DA2;color:#fff;cursor:pointer;font-family:inherit;transition:background .2s;}
+#jmGate button:hover{background:#093C7E;}
+#jmGate .jg-err{color:#C0392B;font-size:12.5px;margin-top:12px;min-height:19px;}
+#jmGate .jg-note{font-size:11px;color:#7A8698;margin:18px 0 0;background:none;border:none;
+  border-top:1px solid #DCE3EC;border-radius:0;padding:14px 0 0;line-height:1.8;text-align:center;}
+</style>
+
+<div id="jmGate" role="dialog" aria-modal="true" aria-label="合言葉の入力">
+  <div class="jg-box">
+    <img class="jg-lg" src="images/logo_jmra.png" alt="" onerror="this.style.display='none'">
+    <div class="jg-en">CONFIDENTIAL</div>
+    <div class="jg-org">一般社団法人 日本マーケティング・リサーチ協会 様</div>
+    <h1>産業ビジョンLP ご提案</h1>
+    <p>ご案内した合言葉をご入力ください。<br>次回からは自動で開きます。</p>
+    <form id="jmGateForm" autocomplete="off">
+      <input type="password" id="jmGatePass" placeholder="合言葉" aria-label="合言葉" autocomplete="current-password">
+      <button type="submit">開く</button>
+    </form>
+    <div class="jg-err" id="jmGateErr" role="alert"></div>
+    <div class="jg-note">合言葉が分からない場合は、担当（株式会社インフォネット）までお問い合わせください。</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var HASH = 'a7b425549e834b906061779c946e3e9fddd5a3e487f3b2570d9313a42aded3bf';
+  var KEY  = 'jmra_vision_gate';
+  var html = document.documentElement;
+  var host = location.hostname;
+  var local = (host === '127.0.0.1' || host === 'localhost' || host === '');
+
+  function open_(){ html.classList.remove('gate-on'); }
+
+  /* ローカル（検証・スクリーンショット撮影）では素通し */
+  if (local) { open_(); return; }
+  try { if (localStorage.getItem(KEY) === HASH) { open_(); return; } } catch (e) {}
+
+  async function sha256(t){
+    var b = new TextEncoder().encode(t);
+    var d = await crypto.subtle.digest('SHA-256', b);
+    return Array.prototype.map.call(new Uint8Array(d), function(x){
+      return ('0' + x.toString(16)).slice(-2);
+    }).join('');
+  }
+
+  var form = document.getElementById('jmGateForm');
+  var input = document.getElementById('jmGatePass');
+  var err = document.getElementById('jmGateErr');
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    err.textContent = '';
+    var v = (input.value || '').trim();
+    if (!v) { err.textContent = '合言葉をご入力ください。'; return; }
+    /* crypto.subtle は https / localhost でのみ使える。使えない環境では入力を弾かない設計にはしない。 */
+    if (!(window.crypto && crypto.subtle)) { err.textContent = 'この環境では確認できませんでした。'; return; }
+    sha256(v).then(function(h){
+      if (h === HASH) {
+        try { localStorage.setItem(KEY, HASH); } catch (e) {}
+        open_();
+      } else {
+        err.textContent = '合言葉が違うようです。';
+        input.value = ''; input.focus();
+      }
+    }).catch(function(){ err.textContent = '確認できませんでした。'; });
+  });
+
+  setTimeout(function(){ try{ input.focus(); }catch(e){} }, 60);
+})();
+</script>
+<!-- ===================== 合言葉ゲート ここまで ===================== -->
+
+
+
+<div class="wrap">
+
+<header class="doc">
+  <div class="en">WIREFRAME &nbsp;/&nbsp; PC &amp; SP</div>
+  <h1>一般社団法人 日本マーケティング・リサーチ協会（JMRA）様<br>産業ビジョン ランディングページ（LP）　ワイヤーフレーム（案）</h1>
+  <div class="meta">2026年8月23日｜株式会社インフォネット（制作パートナー：株式会社ITLINE）｜サイトマップ「産業ビジョンLP（5セクション）」に準拠</div>
+</header>
+
+<!-- 要件メモ -->
+<div class="memo">
+  <h3>提案デザインメモ（このワイヤーの前提）</h3>
+  <dl>
+    <dt>現行サイト</dt><dd>https://www.jmra-net.or.jp/ （現行CMS：infoCMS。本LPを新規1ページとして追加）</dd>
+    <dt>お客様の要望</dt><dd>UIに動きのある静的1ページのLP。将来的にDB設置→その内容をLPへ反映（今回はその足がかり）</dd>
+    <dt>こだわり①</dt><dd>クリックで<b>ソート／絞り込み</b>が効く動き（＝③支援実績事例セクションに集約）</dd>
+    <dt>こだわり②</dt><dd>将来の追加改修時に<b>トンマナを揃えられる</b>設計（事例・サービスカードを繰り返しコンポーネント化）</dd>
+    <dt>作業分担</dt><dd>ワイヤー・HTML・文章は<b>JMRA様がご提供</b>／当社は<b>デザインとモックアップ</b>を担当（本WFは構成合意用の設計図）</dd>
+    <dt>トンマナ参照</dt><dd>紺 <b>#0B4DA2</b>／オレンジ <b>#FF7A2F</b>／白背景／和文=游ゴシック・Noto Sans JP（現行サイト踏襲）</dd>
+    <dt>画像</dt><dd>現サイトから抽出した画像をデザイン案に活用（本WFでは <span class="chip">画像</span> のwire-boxで位置のみ提示）</dd>
+    <dt>納期</dt><dd>2026年9月中 ／ 次アクション：8/26(水)16:00 打合せ（委員より動きの詳細を確認）</dd>
+  </dl>
+</div>
+
+<div class="legend">
+  <span><span class="chip">wire-box</span> <b>画像・未確定要素</b>の枠（位置のみ提示）</span>
+  <span><span class="btnw" style="min-height:24px;padding:0 12px;font-size:11px;">ボタン</span> CTA・操作要素</span>
+  <span>本WFはレイアウト設計図。<b>実データ・文章はJMRA様提供</b>を流し込む前提</span>
+</div>
+
+<div class="devs">
+  <!-- ===== PC 列 ===== -->
+  <div>
+    <div class="dev-label">■ PC版（コンテナ1180px）</div>
+    <div class="browser">
+      <div class="bar"><i></i><i></i><i></i><span class="url">https://www.jmra-net.or.jp/industry-vision/</span></div>
+
+      <!-- header/nav -->
+      <div class="navw">
+        <span class="logo">JMRA</span>
+        <span class="gnav"><span>JMRAのご紹介</span><span>会員について</span><span>入会案内</span><span>綱領</span><span>委員会</span><span>事業活動</span></span>
+        <span class="srch">🔍 サイト内検索</span>
+      </div>
+
+      <!-- ① hero -->
+      <div class="wf hero">
+        <div class="lbl">HERO / FIRST VIEW</div>
+        <div class="h2w pc">「調べる」から、<br>「意思をつくる」へ。</div>
+        <div class="barline m"></div><div class="barline s"></div>
+        <div style="margin-top:12px;display:flex;gap:10px;">
+          <span class="btnw fill">加盟社の事例を見る</span>
+          <span class="btnw" style="border-color:#fff;color:#fff;background:transparent;">資料をダウンロード</span>
+        </div>
+        <div class="wire-box img" style="margin-top:14px;min-height:110px;background:repeating-linear-gradient(135deg,#0a49c6,#0a49c6 10px,#0e56e0 10px,#0e56e0 20px);color:#cfe0ff;border-color:#2b6bff;">背景ビジュアル（現サイト抽出画像／リサーチをイメージ）</div>
+      </div>
+
+      <!-- ② vision -->
+      <div class="wf">
+        <div class="lbl">VISION</div>
+        <div class="h2w">産業ビジョンが目指すもの</div>
+        <div class="barline m"></div><div class="barline s"></div>
+        <div class="matrix" style="margin-top:10px;">
+          <div class="quad">予測をつくる</div>
+          <div class="quad">カタチをつくる</div>
+          <div class="quad">問いをつくる</div>
+          <div class="quad">共通価値をつくる</div>
+        </div>
+        <div style="font-size:10px;color:var(--wire-txt);text-align:center;margin-top:6px;">▲ 視野の広がりを示す4象限マトリクス図</div>
+      </div>
+
+      <!-- ③ cases -->
+      <div class="wf">
+        <div class="lbl">CASES &nbsp;— 動きの主役</div>
+        <div class="h2w">加盟各社の支援実績事例 <span style="font-size:13px;color:var(--sub);">36件</span></div>
+        <div class="filters">
+          <span class="tabw on">すべて</span><span class="tabw">消費財</span><span class="tabw">金融</span><span class="tabw">流通</span><span class="tabw">公共</span><span class="tabw">医療</span>
+          <span class="sortw">並べ替え：新着順 ▾</span>
+        </div>
+        <div class="grid3">
+          <div class="card"><div class="barline xs"></div><div class="barline"></div><div class="barline s"></div></div>
+          <div class="card"><div class="barline xs"></div><div class="barline"></div><div class="barline s"></div></div>
+          <div class="card"><div class="barline xs"></div><div class="barline"></div><div class="barline s"></div></div>
+          <div class="card"><div class="barline xs"></div><div class="barline"></div><div class="barline s"></div></div>
+          <div class="card"><div class="barline xs"></div><div class="barline"></div><div class="barline s"></div></div>
+          <div class="card"><div class="barline xs"></div><div class="barline"></div><div class="barline s"></div></div>
+        </div>
+        <div style="text-align:center;margin-top:10px;"><span class="btnw">もっと見る（残り30件）</span></div>
+      </div>
+
+      <!-- ④ services -->
+      <div class="wf services">
+        <div class="lbl">SERVICES</div>
+        <div class="h2w">加盟各社の推奨サービス <span style="font-size:13px;color:var(--sub);">12件</span></div>
+        <div class="grid4" style="margin-top:10px;">
+          <div class="card dark"><div class="barline xs"></div><div class="barline"></div></div>
+          <div class="card dark"><div class="barline xs"></div><div class="barline"></div></div>
+          <div class="card dark"><div class="barline xs"></div><div class="barline"></div></div>
+          <div class="card dark"><div class="barline xs"></div><div class="barline"></div></div>
+          <div class="card dark"><div class="barline xs"></div><div class="barline"></div></div>
+          <div class="card dark"><div class="barline xs"></div><div class="barline"></div></div>
+          <div class="card dark"><div class="barline xs"></div><div class="barline"></div></div>
+          <div class="card dark"><div class="barline xs"></div><div class="barline"></div></div>
+        </div>
+      </div>
+
+      <!-- ⑤ CTA -->
+      <div class="wf" style="text-align:center;">
+        <div class="lbl">CONTACT / DOWNLOAD</div>
+        <div class="h2w">掲載・ご相談につながる資料をご用意しています</div>
+        <div class="barline s" style="margin:6px auto;"></div>
+        <div style="margin-top:10px;display:flex;gap:10px;justify-content:center;">
+          <span class="btnw fill">資料をダウンロード</span>
+          <span class="btnw">お問い合わせ</span>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <div class="footw">
+        <div class="grid4">
+          <div class="wire-box sm">サイトマップ</div>
+          <div class="wire-box sm">各種ポリシー</div>
+          <div class="wire-box sm">SNS / Pマーク</div>
+          <div class="wire-box sm">Copyright</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SP 列 ===== -->
+  <div>
+    <div class="dev-label">■ SP版（375px）</div>
+    <div class="phone">
+      <div class="notch"></div>
+      <!-- sp header -->
+      <div class="navw" style="padding:8px 12px;">
+        <span class="logo" style="font-size:13px;">JMRA</span>
+        <span class="srch" style="margin-left:auto;">☰</span>
+      </div>
+      <!-- hero -->
+      <div class="wf hero" style="padding:16px 14px;">
+        <div class="lbl">HERO</div>
+        <div class="h2w" style="font-size:17px;">「調べる」から、「意思をつくる」へ。</div>
+        <div class="barline m"></div>
+        <div style="margin-top:10px;display:grid;gap:8px;">
+          <span class="btnw fill" style="width:100%;">事例を見る</span>
+          <span class="btnw" style="width:100%;border-color:#fff;color:#fff;background:transparent;">資料DL</span>
+        </div>
+      </div>
+      <!-- vision -->
+      <div class="wf" style="padding:16px 14px;">
+        <div class="lbl">VISION</div>
+        <div class="h2w" style="font-size:16px;">産業ビジョンが目指すもの</div>
+        <div class="matrix" style="grid-template-columns:1fr 1fr;margin-top:8px;">
+          <div class="quad" style="min-height:56px;">予測</div>
+          <div class="quad" style="min-height:56px;">カタチ</div>
+          <div class="quad" style="min-height:56px;">問い</div>
+          <div class="quad" style="min-height:56px;">共通価値</div>
+        </div>
+      </div>
+      <!-- cases -->
+      <div class="wf" style="padding:16px 14px;">
+        <div class="lbl">CASES</div>
+        <div class="h2w" style="font-size:16px;">支援実績事例 36件</div>
+        <div class="filters" style="overflow-x:auto;flex-wrap:nowrap;">
+          <span class="tabw on">すべて</span><span class="tabw">消費財</span><span class="tabw">金融</span><span class="tabw">流通</span>
+        </div>
+        <div class="sortw" style="display:inline-block;margin:4px 0;">並べ替え：新着順 ▾</div>
+        <div style="display:grid;gap:8px;">
+          <div class="card"><div class="barline xs"></div><div class="barline"></div><div class="barline s"></div></div>
+          <div class="card"><div class="barline xs"></div><div class="barline"></div><div class="barline s"></div></div>
+        </div>
+        <div style="text-align:center;margin-top:8px;"><span class="btnw" style="width:100%;">もっと見る</span></div>
+      </div>
+      <!-- services -->
+      <div class="wf services" style="padding:16px 14px;">
+        <div class="lbl">SERVICES</div>
+        <div class="h2w" style="font-size:16px;">推奨サービス 12件</div>
+        <div style="display:grid;gap:8px;margin-top:8px;">
+          <div class="card dark"><div class="barline xs"></div><div class="barline"></div></div>
+          <div class="card dark"><div class="barline xs"></div><div class="barline"></div></div>
+        </div>
+      </div>
+      <!-- cta -->
+      <div class="wf" style="padding:16px 14px;text-align:center;">
+        <div class="lbl">CONTACT</div>
+        <div class="h2w" style="font-size:15px;">資料DL・お問い合わせ</div>
+        <div style="margin-top:8px;display:grid;gap:8px;">
+          <span class="btnw fill" style="width:100%;">資料をダウンロード</span>
+          <span class="btnw" style="width:100%;">お問い合わせ</span>
+        </div>
+      </div>
+      <div class="footw" style="padding:14px;"><div class="wire-box sm" style="min-height:50px;background:#16233f;border-color:#2b3a5c;color:#6f80a0;">フッター（サイトマップ／ポリシー／SNS）</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 設計意図（セクション別） ===== -->
+<h2 style="font-size:18px;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);">セクション構成と設計意図（なぜこの順序・要素か）</h2>
+
+<div class="secblock">
+  <div class="cap"><span class="no">1</span>ヒーロー（ファーストビュー）&nbsp;<span style="font-weight:400;color:var(--sub);font-size:11px;">#hero</span></div>
+  <div class="secbody">
+    <div class="note"><b>意図：</b>キャッチ「『調べる』から、『意思をつくる』へ。」で産業ビジョンの世界観を一瞬で提示。ここで「誰に・何を約束するLPか」を明示し離脱を防ぐ。CTAを2つ（<b>事例を見る＝メイン導線／資料DL＝サブ導線</b>）上部に置き、目的の異なる来訪者を早期に振り分ける。背景は現サイト抽出画像を活用（プレースホルダ枠だけにしない）。</div>
+  </div>
+</div>
+
+<div class="secblock">
+  <div class="cap"><span class="no">2</span>産業ビジョンが目指すもの&nbsp;<span style="font-weight:400;color:var(--sub);font-size:11px;">#vision</span></div>
+  <div class="secbody">
+    <div class="note"><b>意図：</b>事例の前に「ビジョン＝なぜこの取り組みか」を置き、以降の事例・サービスの意味づけを与える。抽象的な理念を<b>4象限マトリクス図</b>（予測をつくる／カタチをつくる／問いをつくる／共通価値をつくる）で視覚化し、読ませずに直感で伝える。図はデザイン確定時に清書。</div>
+  </div>
+</div>
+
+<div class="secblock">
+  <div class="cap"><span class="no">3</span>加盟各社の支援実績事例（36件）— <span style="color:var(--accent);">動きの主役</span>&nbsp;<span style="font-weight:400;color:var(--sub);font-size:11px;">#cases</span></div>
+  <div class="secbody">
+    <div class="note"><b>意図：</b>本LP最大の見せ場かつ<b>こだわり①「クリックでソート・絞り込み」</b>の実装箇所。上部に<b>フィルタ（業種・カテゴリのタブ／チップ）</b>、右に<b>ソート（新着順・名称順など）</b>を配置し、36件のカードを絞り込み・並べ替え。1枚のカード＝「企業名・カテゴリ・概要」の繰り返しコンポーネントとし、<b>将来DB化時のデータ1件分</b>の表示単位として今から設計（こだわり②）。「もっと見る」で段階表示し初期表示を軽く。<br><span style="color:#a86a2e;">※フィルタ軸・ソートキー・件数は8/26打合せで委員より確定。</span></div>
+  </div>
+</div>
+
+<div class="secblock">
+  <div class="cap"><span class="no">4</span>加盟各社の推奨サービス（12件）&nbsp;<span style="font-weight:400;color:var(--sub);font-size:11px;">#services</span></div>
+  <div class="secbody">
+    <div class="note"><b>意図：</b>事例で関心が高まった来訪者に、具体的な「頼れるサービス」を提示し行動につなげる。事例（白背景）と<b>配色を反転（紺背景カード）</b>してリズムを付け、セクションの切り替わりを明確化。カードは事例同様の繰り返しコンポーネントで、将来のサービスDBへそのまま拡張できる構造。</div>
+  </div>
+</div>
+
+<div class="secblock">
+  <div class="cap"><span class="no">5</span>資料ダウンロード／お問い合わせ CTA&nbsp;<span style="font-weight:400;color:var(--sub);font-size:11px;">#contact</span></div>
+  <div class="secbody">
+    <div class="note"><b>意図：</b>読み終えた温度の高い来訪者を確実にコンバージョンさせる末尾CTA。<b>資料DL（情報収集段階）</b>と<b>お問い合わせ（相談段階）</b>を併置し、検討度合いに応じて選べるようにする。既存の問い合わせフォームへ連携。ヒーローのCTAと対で上下2箇所に配置し取りこぼしを防ぐ。</div>
+  </div>
+</div>
+
+<div class="memo" style="border-left-color:var(--navy);">
+  <h3>全体の設計方針（補足）</h3>
+  <dl>
+    <dt>順序の根拠</dt><dd>「世界観（誰に）→ 理念（なぜ）→ 実績（証拠）→ サービス（手段）→ 行動（CTA）」の順で、納得感を積み上げてコンバージョンに着地させる王道フロー。</dd>
+    <dt>動き（JS）</dt><dd>フィルタ／ソートはページ内で完結する静的実装（将来DB版でも同じ操作感になる共通仕様）。スクロール追従で②〜⑤へ飛べるアンカーナビも検討。</dd>
+    <dt>トンマナ統一</dt><dd>カード・ボタン・見出し様式をデザインルール化し、将来のDB化ページでも同じ見た目を再現できるようにする（こだわり②）。</dd>
+    <dt>レスポンシブ</dt><dd>PCの3〜4カラムはSPで1カラムに再構成。フィルタは横スクロールのチップ、CTAは全幅ボタンに。</dd>
+  </dl>
+</div>
+
+<footer class="doc">
+  <span>一般社団法人 日本マーケティング・リサーチ協会（JMRA）様　産業ビジョンLP ワイヤーフレーム（案）</span>
+  <span>© infoNet inc. All Rights Reserved.　CONFIDENTIAL</span>
+</footer>
+</div>
+</body>
+</html>

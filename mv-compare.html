@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja" class="gate-on">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>メインビジュアル 比較｜JMRA 産業ビジョンLP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=BIZ+UDPMincho:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0B4DA2;--navyd:#072C5C;--ink:#16202E;--gray:#4A5666;--faint:#7A8698;
+        --line:#DCE3EC;--bg:#F5F8FC;--teal:#12A5C8;--accent:#FF7A2F;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Noto Sans JP","Yu Gothic Medium",sans-serif;color:var(--ink);background:var(--bg);
+       line-height:1.9;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .mincho{font-family:"BIZ UDPMincho","Yu Mincho","Hiragino Mincho ProN",serif;letter-spacing:.04em;}
+  .serif{font-family:"Libre Baskerville","Times New Roman",serif;letter-spacing:.16em;}
+
+  header.doc{background:linear-gradient(125deg,var(--navyd) 0%,var(--navy) 66%,#1C60B0 100%);color:#fff;padding:52px 0 46px;}
+  header.doc .serif{font-size:11px;font-weight:700;color:#8FD6FF;}
+  header.doc h1{font-size:clamp(20px,2.6vw,28px);margin-top:10px;line-height:1.5;font-weight:700;}
+  header.doc p{margin-top:14px;font-size:13.5px;color:#D3E3F7;max-width:56em;}
+
+  section{padding:46px 0 6px;}
+  h2.sec{font-size:19px;display:flex;align-items:center;gap:11px;margin-bottom:8px;}
+  h2.sec::before{content:"";width:5px;height:1.1em;background:var(--navy);border-radius:3px;}
+  .lead{color:var(--gray);font-size:13.5px;margin-bottom:26px;max-width:62em;}
+
+  .mv{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+      box-shadow:0 4px 18px rgba(11,77,162,.07);margin-bottom:26px;}
+  .mv .shot{border-bottom:1px solid var(--line);position:relative;}
+  .mv .shot img{width:100%;}
+  .mv .badge{position:absolute;top:14px;left:14px;font-size:11px;font-weight:700;color:#fff;
+             border-radius:6px;padding:4px 13px;background:rgba(7,44,92,.85);backdrop-filter:blur(3px);letter-spacing:.05em;}
+  .mv .tx{padding:26px 30px 28px;display:grid;grid-template-columns:1fr 300px;gap:30px;align-items:start;}
+  .mv h3{font-size:20px;font-weight:700;}
+  .mv h3 .no{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;
+             font-size:12px;padding:2px 12px;margin-right:11px;vertical-align:3px;letter-spacing:.06em;}
+  .mv .cat{font-size:11.5px;color:var(--teal);font-weight:700;letter-spacing:.08em;margin-bottom:6px;}
+  .mv p.desc{font-size:13.5px;color:var(--gray);margin-top:12px;}
+  .spec{border-left:3px solid var(--line);padding-left:18px;font-size:12.5px;}
+  .spec dt{color:var(--faint);font-weight:700;font-size:11px;letter-spacing:.06em;margin-top:12px;}
+  .spec dt:first-child{margin-top:0;}
+  .spec dd{color:var(--gray);line-height:1.8;}
+  .mv .links{margin-top:18px;display:flex;gap:9px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;
+       border-radius:999px;padding:10px 22px;transition:.18s;}
+  .btn.p{background:var(--navy);color:#fff;}
+  .btn.p:hover{background:#093C7E;transform:translateY(-2px);}
+  .btn.o{border:1.5px solid var(--navy);color:var(--navy);}
+  .btn.o:hover{background:#EEF4FB;}
+
+  .mv.pending{border-style:dashed;background:#FBFCFE;box-shadow:none;}
+  .mv.pending .ph{height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+                  gap:10px;color:var(--faint);background:repeating-linear-gradient(45deg,#F7FAFD,#F7FAFD 12px,#F1F6FB 12px,#F1F6FB 24px);
+                  border-bottom:1px solid var(--line);}
+  .mv.pending .ph b{font-size:15px;color:var(--gray);}
+  .mv.pending .ph span{font-size:12.5px;}
+
+  .note{background:#fff;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;
+        padding:16px 20px;font-size:12.5px;color:var(--gray);line-height:1.9;margin-top:8px;}
+  .note b{color:var(--ink);}
+  table.txt{width:100%;border-collapse:collapse;background:#fff;font-size:12.5px;
+            border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(11,77,162,.07);}
+  table.txt th,table.txt td{border-bottom:1px solid var(--line);padding:11px 16px;text-align:left;vertical-align:top;}
+  table.txt th{background:var(--navy);color:#fff;font-weight:600;white-space:nowrap;}
+  table.txt tr:last-child td{border-bottom:none;}
+  table.txt td.n{white-space:nowrap;font-weight:700;color:var(--navy);}
+  footer{margin-top:50px;padding:22px 0 44px;border-top:1px solid var(--line);font-size:11.5px;color:var(--faint);}
+
+  @media(max-width:820px){ .mv .tx{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<!-- ============================================================================
+     合言葉ゲート（自己完結ブロック）
+     ----------------------------------------------------------------------------
+     ・GitHub Pages は静的配信のため Basic認証が使えない。社内標準の「合言葉ゲート」で覆う。
+     ・合言葉は平文で置かず SHA-256 のハッシュのみを持つ（ソースを見ても文字列は読めない）。
+     ・一度入れれば localStorage に記録し、次回から自動で開く。
+     ・ローカル（127.0.0.1 / localhost / file://）では検証・撮影のため自動で解除する。
+     ※ 静的サイトのクライアント側ゲートのため、これは「覗き見防止」であり
+       アクセス制御ではない。URLと合言葉の取り扱いは通常どおりご注意ください。
+     ============================================================================ -->
+<style>
+html.gate-on,html.gate-on body{overflow:hidden !important;height:100%;}
+#jmGate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
+  padding:24px;background:linear-gradient(150deg,#072C5C 0%,#0B4DA2 62%,#1C60B0 100%);
+  font-family:"Noto Sans JP","Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;}
+html:not(.gate-on) #jmGate{display:none;}
+#jmGate .jg-box{width:min(430px,100%);background:#fff;border:none;border-radius:16px;padding:38px 34px 30px;
+  box-shadow:0 30px 80px rgba(5,29,61,.4);text-align:center;margin:0;}
+#jmGate .jg-lg{height:26px;width:auto;margin:0 auto 18px;display:block;}
+#jmGate .jg-en{display:block;font-family:"Libre Baskerville","Times New Roman",serif;font-size:10.5px;
+  font-weight:700;letter-spacing:.18em;color:#0B4DA2;background:none;padding:0;margin:0;}
+#jmGate .jg-org{font-size:12px;line-height:1.7;color:#4A5666;margin-top:8px;}
+#jmGate h1{font-family:"BIZ UDPMincho","Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:19px;line-height:1.55;margin:4px 0 8px;color:#16202E;font-weight:700;letter-spacing:.04em;}
+#jmGate p{font-size:12.5px;line-height:1.85;color:#4A5666;margin-bottom:20px;}
+#jmGate form{display:flex;flex-direction:column;gap:10px;}
+#jmGate input{border:1.5px solid #DCE3EC;border-radius:999px;padding:13px 20px;font-size:14px;
+  text-align:center;font-family:inherit;color:#16202E;}
+#jmGate input:focus{outline:none;border-color:#0B4DA2;box-shadow:0 0 0 3px rgba(11,77,162,.18);}
+#jmGate button{border:none;border-radius:999px;padding:14px;font-size:14px;font-weight:700;
+  background:#0B4DA2;color:#fff;cursor:pointer;font-family:inherit;transition:background .2s;}
+#jmGate button:hover{background:#093C7E;}
+#jmGate .jg-err{color:#C0392B;font-size:12.5px;margin-top:12px;min-height:19px;}
+#jmGate .jg-note{font-size:11px;color:#7A8698;margin:18px 0 0;background:none;border:none;
+  border-top:1px solid #DCE3EC;border-radius:0;padding:14px 0 0;line-height:1.8;text-align:center;}
+</style>
+
+<div id="jmGate" role="dialog" aria-modal="true" aria-label="合言葉の入力">
+  <div class="jg-box">
+    <img class="jg-lg" src="images/logo_jmra.png" alt="" onerror="this.style.display='none'">
+    <div class="jg-en">CONFIDENTIAL</div>
+    <div class="jg-org">一般社団法人 日本マーケティング・リサーチ協会 様</div>
+    <h1>産業ビジョンLP ご提案</h1>
+    <p>ご案内した合言葉をご入力ください。<br>次回からは自動で開きます。</p>
+    <form id="jmGateForm" autocomplete="off">
+      <input type="password" id="jmGatePass" placeholder="合言葉" aria-label="合言葉" autocomplete="current-password">
+      <button type="submit">開く</button>
+    </form>
+    <div class="jg-err" id="jmGateErr" role="alert"></div>
+    <div class="jg-note">合言葉が分からない場合は、担当（株式会社インフォネット）までお問い合わせください。</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var HASH = 'a7b425549e834b906061779c946e3e9fddd5a3e487f3b2570d9313a42aded3bf';
+  var KEY  = 'jmra_vision_gate';
+  var html = document.documentElement;
+  var host = location.hostname;
+  var local = (host === '127.0.0.1' || host === 'localhost' || host === '');
+
+  function open_(){ html.classList.remove('gate-on'); }
+
+  /* ローカル（検証・スクリーンショット撮影）では素通し */
+  if (local) { open_(); return; }
+  try { if (localStorage.getItem(KEY) === HASH) { open_(); return; } } catch (e) {}
+
+  async function sha256(t){
+    var b = new TextEncoder().encode(t);
+    var d = await crypto.subtle.digest('SHA-256', b);
+    return Array.prototype.map.call(new Uint8Array(d), function(x){
+      return ('0' + x.toString(16)).slice(-2);
+    }).join('');
+  }
+
+  var form = document.getElementById('jmGateForm');
+  var input = document.getElementById('jmGatePass');
+  var err = document.getElementById('jmGateErr');
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    err.textContent = '';
+    var v = (input.value || '').trim();
+    if (!v) { err.textContent = '合言葉をご入力ください。'; return; }
+    /* crypto.subtle は https / localhost でのみ使える。使えない環境では入力を弾かない設計にはしない。 */
+    if (!(window.crypto && crypto.subtle)) { err.textContent = 'この環境では確認できませんでした。'; return; }
+    sha256(v).then(function(h){
+      if (h === HASH) {
+        try { localStorage.setItem(KEY, HASH); } catch (e) {}
+        open_();
+      } else {
+        err.textContent = '合言葉が違うようです。';
+        input.value = ''; input.focus();
+      }
+    }).catch(function(){ err.textContent = '確認できませんでした。'; });
+  });
+
+  setTimeout(function(){ try{ input.focus(); }catch(e){} }, 60);
+})();
+</script>
+<!-- ===================== 合言葉ゲート ここまで ===================== -->
+
+
+<header class="doc">
+  <div class="wrap">
+    <div class="serif">KEY VISUAL — PROPOSAL</div>
+    <h1 class="mincho">メインビジュアル ご提案</h1>
+    <p>「データ的なものではなく、インサイト産業らしいクリエイティビティを感じる画像に」というご意見を受けて、方向性の異なる案をご用意しました。<b style="color:#fff">マーケティング・リサーチやデータを直接的に表現するのではなく、インサイトを起点に新しい価値や可能性が広がっていく</b>ことを軸に構成しています。メインビジュアル以外の構成・内容はすべて同一です。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec">3つの方向性</h2>
+    <p class="lead">各案は実際に動くページとして確認いただけます。「実物を開く」から、スクロールして全体の中での見え方もご覧ください。</p>
+
+    <!-- ============ 案A ============ -->
+    <article class="mv">
+      <div class="shot"><span class="badge">MV案A</span><img src="shots/mv_a_fv.jpg" alt="メインビジュアル案A"></div>
+      <div class="tx">
+        <div>
+          <div class="cat">ABSTRACT ／ 抽象</div>
+          <h3 class="mincho"><span class="no">案A</span>ひとつの問いから、可能性が広がる</h3>
+          <p class="desc">一点から生まれた形が、にじみながら上へ外へと開いていく水彩の抽象画です。図やグラフを一切使わず、<b>「問いが立つ瞬間」と「そこから価値が広がっていく様子」</b>だけを絵として表現しました。墨のにじみと余白を活かした構成で、50年の歴史を持つ協会の品格とも無理なく重なります。</p>
+          <div class="links">
+            <a class="btn p" href="jmra-vision-a.html" target="_blank" rel="noopener">実物を開く →</a>
+          </div>
+        </div>
+        <dl class="spec">
+          <dt>印象</dt><dd>静かで上品／知性・品格</dd>
+          <dt>読みやすさ</dt><dd>◎ 左が白いため文字が最も読みやすい</dd>
+          <dt>汎用性</dt><dd>◎ 人物が写らないため、時間が経っても古びない</dd>
+          <dt>留意点</dt><dd>人の営みは直接には見えない</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- ============ 案B ============ -->
+    <article class="mv">
+      <div class="shot"><span class="badge">MV案B</span><img src="shots/mv_b_fv.jpg" alt="メインビジュアル案B"></div>
+      <div class="tx">
+        <div>
+          <div class="cat">ISOMETRIC ／ 白い3Dの世界</div>
+          <h3 class="mincho"><span class="no">案B</span>可能性が、ひらく</h3>
+          <p class="desc">白から淡いブルーへのグラデーションの上を、色のにじみがゆっくり漂う静かな背景に、<b>ひとつの起点から描かれるリボン</b>が主役のメインビジュアルです。「ひとつのインサイトから、価値と可能性がひらいていく」ことを、データもグラフも使わずに表しました。書体は参考サイト（toyota-battery.com/saiyo）と同じ <b>Kosugi（見出し）／Poppins（英字）／Noto Sans JP（本文）</b> に揃え、見出しの「調」「意」の一文字だけをJMRAブルーに。リード文は置かず、見出しと絵だけで語らせています。<br><b>動き（参考: tokyotechnology.jp）:</b> 読み込み時に、ひとつの青い起点から1本のリボンが描かれて右上へ大きくひらき、淡いリボンがもう1本、下へひらいて結び目をつくります。見出しは行ごとに立ち上がり、描き終わったあとも光がリボンを流れ、小さな粒が起点から旅立ち続けます。「データ」を直接描かず、<b>インサイトを起点に価値と可能性がひらいていく</b>ことを動きで表しています。</p>
+          <div class="links">
+            <a class="btn p" href="jmra-vision-b.html" target="_blank" rel="noopener">実物を開く →</a>
+          </div>
+        </div>
+        <dl class="spec">
+          <dt>印象</dt><dd>明るく清潔／先進的・構想力</dd>
+          <dt>読みやすさ</dt><dd>◎ 画像そのものが白いため文字が読みやすい</dd>
+          <dt>汎用性</dt><dd>◎ 人物が写らず、経年で古びない。トンマナを他ページへ展開しやすい</dd>
+          <dt>留意点</dt><dd>3Dイラストの作風を、今後の追加ビジュアルでも揃える必要がある。リード文が無いぶん、直下のVISIONセクションの導入文が「産業ビジョンとは何か」を担う</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- ============ 案C ============ -->
+    <article class="mv pending">
+      <div class="ph">
+        <b>MV案C ── ご選定中</b>
+        <span>Adobe Stock よりお選びいただいた画像を反映します</span>
+      </div>
+      <div class="tx">
+        <div>
+          <div class="cat">STOCK ／ ご選定</div>
+          <h3 class="mincho"><span class="no" style="background:#7A8698">案C</span>（画像の到着後に反映します）</h3>
+          <p class="desc">画像をお預かりしましたら、案A・案Bと同じ枠組みで組み込み、同じ形で比較できるようにいたします。ご選定の際は、<b>横位置・横幅2000px以上・左側3分の1に文字を置ける余白がある構図</b>だと、そのまま収まりやすくなります。</p>
+        </div>
+        <dl class="spec">
+          <dt>推奨サイズ</dt><dd>横 2000px 以上（16:9 前後）</dd>
+          <dt>推奨構図</dt><dd>左3分の1が明るく空いている／主題は右寄り</dd>
+          <dt>避けたいもの</dt><dd>グラフ・チャート・画面キャプチャ・文字入り</dd>
+        </dl>
+      </div>
+    </article>
+
+    <p class="note"><b>【あわせて修正した点】</b><br>
+      提供価値マップの4象限について、左下から右上へ伸びる矢印が象限カードに透けて重なり、
+      <b>「04」などの番号が見えにくくなっていた点</b>を修正しました。カードを不透明にして矢印が内側に透けないようにし、
+      あわせて番号バッジを一回り大きく・影を付けて視認性を上げています。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec">テキスト修正の目安（ご参考）</h2>
+    <p class="lead">リード文や四象限の説明文をご修正いただく際、下記の文字数に収めていただけると、カードの高さが揃い、行数のばらつきによる崩れが起きません。現在の文字数もあわせて記載します。</p>
+    <table class="txt">
+      <tr><th style="width:230px">箇所</th><th style="width:110px">現在</th><th style="width:130px">目安</th><th>補足</th></tr>
+      <tr><td>メインビジュアルのリード文</td><td class="n">106字</td><td class="n">100〜120字</td><td>4行に収まる範囲</td></tr>
+      <tr><td>産業ビジョンのリード文</td><td class="n">145字</td><td class="n">130〜160字</td><td>見出し横に置くため、これ以上増えると窮屈になります</td></tr>
+      <tr><td>各セクションのリード文</td><td class="n">59〜133字</td><td class="n">60〜140字</td><td>—</td></tr>
+      <tr><td><b>四象限の説明文（4つ）</b></td><td class="n">42〜62字</td><td class="n">45〜60字</td><td><b>4つの長さを揃えていただけると、カードの高さが揃って美しく収まります</b></td></tr>
+      <tr><td>BEFORE / SHIFT / AFTER</td><td class="n">29〜31字</td><td class="n">25〜35字</td><td>3つとも同程度に</td></tr>
+      <tr><td>リサーチ基盤の説明文</td><td class="n">62字</td><td class="n">55〜70字</td><td>—</td></tr>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">株式会社インフォネット ／ 制作パートナー 株式会社ITLINE　—　JMRA 産業ビジョンLP メインビジュアルご提案</div>
+</footer>
+
+</body>
+</html>
