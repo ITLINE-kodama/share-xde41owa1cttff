@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja" class="gate-on">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一般社団法人 日本マーケティング・リサーチ協会（JMRA）様　産業ビジョンLP 想定サイトマップ（案）</title>
+<style>
+  :root{
+    --ink:#16202E; --navy:#0B4DA2; --navy-dark:#072C5C; --accent:#FF7A2F; --accent-dark:#D95E12;
+    --line:#DCE3EC; --bg:#F5F8FC; --card:#ffffff; --new:#FF7A2F; --future:#6B4FD6; --db:#2FA37A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;}
+  .container{max-width:1180px;margin:0 auto;padding:40px 24px 80px;}
+  header.doc{border-bottom:3px solid var(--navy);padding-bottom:20px;margin-bottom:28px;}
+  .doc .en{color:var(--navy);font-size:12px;letter-spacing:.25em;font-weight:700;}
+  .doc h1{font-size:25px;margin-top:6px;line-height:1.45;}
+  .doc .meta{color:#77808e;font-size:12.5px;margin-top:10px;}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;font-size:12.5px;margin-bottom:24px;}
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .tag{display:inline-block;font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 7px;line-height:1.6;}
+  .tag.new{background:var(--new);color:#fff;}
+  .tag.keep{background:#e5eaf1;color:#5a6675;}
+  .tag.future{background:var(--future);color:#fff;}
+  .tag.db{background:var(--db);color:#fff;}
+  .tag.anchor{background:#eef2fb;color:var(--navy);border:1px solid #c7d3ec;}
+  h2.sec{font-size:19px;margin:44px 0 6px;padding-left:12px;border-left:5px solid var(--navy);}
+  h2.sec.ph2{border-left-color:var(--future);}
+  .sec-note{font-size:12.5px;color:#77808e;margin-bottom:16px;}
+  .tree{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 28px;overflow-x:auto;}
+  ul.map, ul.map ul{list-style:none;}
+  ul.map ul{margin-left:26px;padding-left:18px;border-left:2px dotted #bcc7dc;}
+  ul.map li{margin:7px 0;position:relative;}
+  ul.map ul li::before{content:"";position:absolute;left:-18px;top:14px;width:12px;height:2px;background:#bcc7dc;}
+  .node{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;background:#fff;border:1.5px solid var(--line);border-radius:7px;padding:5px 12px;font-size:13.5px;}
+  .node b{font-weight:600;}
+  .node .slug{color:#9aa4b2;font-size:11px;font-family:Consolas,monospace;}
+  .node .role{color:#7a8494;font-size:11px;}
+  .node.top{background:var(--navy);border-color:var(--navy);color:#fff;font-size:15px;padding:8px 18px;}
+  .node.top .slug,.node.top .role{color:#c9d6f2;}
+  .node.lp{background:var(--accent);border-color:var(--accent);color:#fff;font-size:15px;padding:8px 18px;}
+  .node.lp .slug,.node.lp .role{color:#ffe2cc;}
+  .node.cat{background:#fff5ee;border-color:#ffcfa3;}
+  .node.anchor{background:#f6f9ff;border-color:#cdd8ef;}
+  .node.future{background:#f2f3fd;border-color:#c3c9f0;}
+  .group-label{font-size:11.5px;font-weight:700;color:#8a93a3;letter-spacing:.15em;margin:18px 0 4px;}
+  table.list{width:100%;border-collapse:collapse;background:var(--card);font-size:12.5px;margin-top:14px;}
+  table.list th,table.list td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top;}
+  table.list th{background:#eaf0f8;font-weight:600;white-space:nowrap;}
+  table.list td.num{text-align:right;white-space:nowrap;}
+  .note-box{background:#f6f9ff;border:1px solid #c9d6ef;border-radius:10px;padding:16px 20px;font-size:13px;margin-top:26px;}
+  .note-box h3{font-size:14px;color:var(--navy);margin-bottom:6px;}
+  .note-box.ph2{background:#f3f3fd;border-color:#c6ccf1;}
+  .note-box.ph2 h3{color:var(--future);}
+  .wrap-scroll{overflow-x:auto;}
+  footer.doc{margin-top:60px;padding-top:16px;border-top:1px solid var(--line);color:#9aa4b2;font-size:11.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+</style>
+</head>
+<body>
+<!-- ============================================================================
+     合言葉ゲート（自己完結ブロック）
+     ----------------------------------------------------------------------------
+     ・GitHub Pages は静的配信のため Basic認証が使えない。社内標準の「合言葉ゲート」で覆う。
+     ・合言葉は平文で置かず SHA-256 のハッシュのみを持つ（ソースを見ても文字列は読めない）。
+     ・一度入れれば localStorage に記録し、次回から自動で開く。
+     ・ローカル（127.0.0.1 / localhost / file://）では検証・撮影のため自動で解除する。
+     ※ 静的サイトのクライアント側ゲートのため、これは「覗き見防止」であり
+       アクセス制御ではない。URLと合言葉の取り扱いは通常どおりご注意ください。
+     ============================================================================ -->
+<style>
+html.gate-on,html.gate-on body{overflow:hidden !important;height:100%;}
+#jmGate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
+  padding:24px;background:linear-gradient(150deg,#072C5C 0%,#0B4DA2 62%,#1C60B0 100%);
+  font-family:"Noto Sans JP","Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;}
+html:not(.gate-on) #jmGate{display:none;}
+#jmGate .jg-box{width:min(430px,100%);background:#fff;border:none;border-radius:16px;padding:38px 34px 30px;
+  box-shadow:0 30px 80px rgba(5,29,61,.4);text-align:center;margin:0;}
+#jmGate .jg-lg{height:26px;width:auto;margin:0 auto 18px;display:block;}
+#jmGate .jg-en{display:block;font-family:"Libre Baskerville","Times New Roman",serif;font-size:10.5px;
+  font-weight:700;letter-spacing:.18em;color:#0B4DA2;background:none;padding:0;margin:0;}
+#jmGate .jg-org{font-size:12px;line-height:1.7;color:#4A5666;margin-top:8px;}
+#jmGate h1{font-family:"BIZ UDPMincho","Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:19px;line-height:1.55;margin:4px 0 8px;color:#16202E;font-weight:700;letter-spacing:.04em;}
+#jmGate p{font-size:12.5px;line-height:1.85;color:#4A5666;margin-bottom:20px;}
+#jmGate form{display:flex;flex-direction:column;gap:10px;}
+#jmGate input{border:1.5px solid #DCE3EC;border-radius:999px;padding:13px 20px;font-size:14px;
+  text-align:center;font-family:inherit;color:#16202E;}
+#jmGate input:focus{outline:none;border-color:#0B4DA2;box-shadow:0 0 0 3px rgba(11,77,162,.18);}
+#jmGate button{border:none;border-radius:999px;padding:14px;font-size:14px;font-weight:700;
+  background:#0B4DA2;color:#fff;cursor:pointer;font-family:inherit;transition:background .2s;}
+#jmGate button:hover{background:#093C7E;}
+#jmGate .jg-err{color:#C0392B;font-size:12.5px;margin-top:12px;min-height:19px;}
+#jmGate .jg-note{font-size:11px;color:#7A8698;margin:18px 0 0;background:none;border:none;
+  border-top:1px solid #DCE3EC;border-radius:0;padding:14px 0 0;line-height:1.8;text-align:center;}
+</style>
+
+<div id="jmGate" role="dialog" aria-modal="true" aria-label="合言葉の入力">
+  <div class="jg-box">
+    <img class="jg-lg" src="images/logo_jmra.png" alt="" onerror="this.style.display='none'">
+    <div class="jg-en">CONFIDENTIAL</div>
+    <div class="jg-org">一般社団法人 日本マーケティング・リサーチ協会 様</div>
+    <h1>産業ビジョンLP ご提案</h1>
+    <p>ご案内した合言葉をご入力ください。<br>次回からは自動で開きます。</p>
+    <form id="jmGateForm" autocomplete="off">
+      <input type="password" id="jmGatePass" placeholder="合言葉" aria-label="合言葉" autocomplete="current-password">
+      <button type="submit">開く</button>
+    </form>
+    <div class="jg-err" id="jmGateErr" role="alert"></div>
+    <div class="jg-note">合言葉が分からない場合は、担当（株式会社インフォネット）までお問い合わせください。</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var HASH = 'a7b425549e834b906061779c946e3e9fddd5a3e487f3b2570d9313a42aded3bf';
+  var KEY  = 'jmra_vision_gate';
+  var html = document.documentElement;
+  var host = location.hostname;
+  var local = (host === '127.0.0.1' || host === 'localhost' || host === '');
+
+  function open_(){ html.classList.remove('gate-on'); }
+
+  /* ローカル（検証・スクリーンショット撮影）では素通し */
+  if (local) { open_(); return; }
+  try { if (localStorage.getItem(KEY) === HASH) { open_(); return; } } catch (e) {}
+
+  async function sha256(t){
+    var b = new TextEncoder().encode(t);
+    var d = await crypto.subtle.digest('SHA-256', b);
+    return Array.prototype.map.call(new Uint8Array(d), function(x){
+      return ('0' + x.toString(16)).slice(-2);
+    }).join('');
+  }
+
+  var form = document.getElementById('jmGateForm');
+  var input = document.getElementById('jmGatePass');
+  var err = document.getElementById('jmGateErr');
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    err.textContent = '';
+    var v = (input.value || '').trim();
+    if (!v) { err.textContent = '合言葉をご入力ください。'; return; }
+    /* crypto.subtle は https / localhost でのみ使える。使えない環境では入力を弾かない設計にはしない。 */
+    if (!(window.crypto && crypto.subtle)) { err.textContent = 'この環境では確認できませんでした。'; return; }
+    sha256(v).then(function(h){
+      if (h === HASH) {
+        try { localStorage.setItem(KEY, HASH); } catch (e) {}
+        open_();
+      } else {
+        err.textContent = '合言葉が違うようです。';
+        input.value = ''; input.focus();
+      }
+    }).catch(function(){ err.textContent = '確認できませんでした。'; });
+  });
+
+  setTimeout(function(){ try{ input.focus(); }catch(e){} }, 60);
+})();
+</script>
+<!-- ===================== 合言葉ゲート ここまで ===================== -->
+
+
+
+<div class="container">
+
+<header class="doc">
+  <div class="en">PROPOSED SITEMAP</div>
+  <h1>一般社団法人 日本マーケティング・リサーチ協会（JMRA）様<br>産業ビジョン ランディングページ（LP）　想定サイトマップ（案）</h1>
+  <div class="meta">2026年8月23日｜株式会社インフォネット（制作パートナー：株式会社ITLINE）｜現行サイト www.jmra-net.or.jp（現行CMS：infoCMS）｜本案件＝動きのある静的LP 1ページの制作（将来的にDB化してLPへ反映する構想の足がかり）</div>
+</header>
+
+<div class="legend">
+  <span><span class="tag new">★新規</span> 今回制作するページ</span>
+  <span><span class="tag keep">既存</span> 現行サイトの既存ページ（今回は対象外・導線のみ）</span>
+  <span><span class="tag anchor">アンカー</span> LP内のセクション（ページ内リンク）</span>
+  <span><span class="tag future">将来</span> フェーズ2（DB化）で追加予定</span>
+  <span><span class="tag db">DB</span> データベース連動</span>
+  <span>表記＝名称／<span style="font-family:Consolas,monospace;color:#9aa4b2;">URLスラッグ案</span>／役割</span>
+</div>
+
+<div class="note-box">
+  <h3>この構成にした理由（設計方針）</h3>
+  <b>① 本案件は「1ページのLP」。まずページ内のセクション（アンカー）構成として設計します。</b><br>
+　お客様のご要望は、UIに動きのある静的な1ページ。ページ全体を上から読み進める体験のため、階層ツリーではなく「ヒーロー → 産業ビジョン → 支援実績事例 → 推奨サービス → 資料・お問い合わせ」というセクション順で全体を確定させました（＝送付いただいたイメージ画像の構成に準拠）。<br><br>
+  <b>② こだわりポイント「クリックでソート・絞り込み」は、事例／サービス一覧セクションに集約します。</b><br>
+　動きの主役は「加盟各社の支援実績事例（36件）」の一覧。業種・カテゴリ・エリア等での<b>フィルタ（絞り込み）</b>と、新着・名称順などの<b>ソート（並べ替え）</b>をこのセクションに置きます。8/26打合せで委員より動きの詳細を伺い、最終確定します。<br><br>
+  <b>③ 「将来のDB化」を見据え、フェーズ2で伸びる先を同じ図に描いています。</b><br>
+　今回は静的LPですが、将来は事例・サービスをデータベース化してLPへ反映する構想。<b>フェーズ1（今回・静的LP）</b>と<b>フェーズ2（DB化で追加されるページ群）</b>を分けて図示し、トンマナ・コンポーネントを引き継げる設計であることを明示します（こだわりポイント②の「将来もトンマナを揃える」に対応）。
+</div>
+
+<h2 class="sec">サイト全体の位置づけ（既存コーポレートサイト内での本LP）</h2>
+<p class="sec-note">本LPは、既存のJMRAコーポレートサイト（infoCMS）内に新規1ページとして追加します。ヘッダー・フッター・グローバルナビは現行を流用し、トンマナを揃えます（既存ナビ＝今回は対象外・導線のみ記載）。</p>
+
+<div class="tree">
+<ul class="map">
+<li><span class="node top"><b>JMRAコーポレートサイト トップ</b><span class="slug">/</span><span class="role">現行サイト（infoCMS）</span><span class="tag keep">既存</span></span>
+  <ul>
+    <li><span class="node"><b>JMRAのご紹介</b><span class="slug">/about/</span><span class="tag keep">既存</span></span></li>
+    <li><span class="node"><b>JMRA会員について</b><span class="slug">/member/</span><span class="tag keep">既存</span></span></li>
+    <li><span class="node"><b>入会のご案内</b><span class="slug">/join/</span><span class="tag keep">既存</span></span></li>
+    <li><span class="node"><b>綱領・ガイドライン</b><span class="slug">/guideline/</span><span class="tag keep">既存</span></span></li>
+    <li><span class="node"><b>委員会活動</b><span class="slug">/committee/</span><span class="tag keep">既存</span></span></li>
+    <li><span class="node"><b>事業活動</b><span class="slug">/business/</span><span class="tag keep">既存</span></span></li>
+    <li><span class="node lp"><b>産業ビジョンLP</b><span class="slug">/industry-vision/</span><span class="role">★本案件で制作する新規1ページ</span><span class="tag new">★新規</span></span></li>
+  </ul>
+</li>
+</ul>
+</div>
+<p class="sec-note" style="margin-top:10px;">※ スラッグ <code style="font-family:Consolas,monospace;">/industry-vision/</code> は仮案。「産業ビジョン」を表す <code>/vision/</code> 等でも可。導線は、トップのバナー・グローバルナビ・関連ページ内リンクから本LPへ誘導します（8/26打合せで確定）。</p>
+
+<h2 class="sec">フェーズ1（本案件）｜産業ビジョンLP のセクション構成</h2>
+<p class="sec-note">1ページ内をアンカーで区切ったセクション構成です。お客様提供のワイヤー・HTML・文章をもとに、当社はデザインとモックアップを担当します。上から読み進める順序＝下記のとおり確定します。</p>
+
+<div class="tree">
+<ul class="map">
+<li><span class="node lp"><b>産業ビジョンLP</b><span class="slug">/industry-vision/</span><span class="role">動きのある静的1ページ</span><span class="tag new">★新規</span></span>
+  <ul>
+    <li><span class="node anchor"><b>① ヒーロー（ファーストビュー）</b><span class="slug">#hero</span><span class="role">キャッチ「『調べる』から、『意思をつくる』へ。」＋リード＋CTA2つ</span><span class="tag anchor">アンカー</span></span></li>
+    <li><span class="node anchor"><b>② 産業ビジョンが目指すもの</b><span class="slug">#vision</span><span class="role">ビジョンの説明＋視野の広がりを示す4象限マトリクス図</span><span class="tag anchor">アンカー</span></span></li>
+    <li><span class="node anchor"><b>③ 加盟各社の支援実績事例（36件）</b><span class="slug">#cases</span><span class="role">カードグリッド一覧＋<b>フィルタ／ソート</b>（＝こだわり①の動きの主役）</span><span class="tag anchor">アンカー</span>
+      <ul>
+        <li><span class="node"><b>フィルタ（絞り込み）UI</b><span class="slug">#cases（機能）</span><span class="role">業種・カテゴリ・エリア等のタブ／チップで絞り込み</span></span></li>
+        <li><span class="node"><b>ソート（並べ替え）UI</b><span class="slug">#cases（機能）</span><span class="role">新着順・名称順・カテゴリ順などクリックで切替</span></span></li>
+        <li><span class="node"><b>事例カード（36件・繰り返し要素）</b><span class="slug">#cases（要素）</span><span class="role">企業名・カテゴリ・概要。将来DB化時のデータ流し込み単位</span></span></li>
+      </ul>
+    </li>
+    <li><span class="node anchor"><b>④ 加盟各社の推奨サービス（12件）</b><span class="slug">#services</span><span class="role">紺背景のカードグリッド。サービス名・提供社・説明（繰り返し要素）</span><span class="tag anchor">アンカー</span></span></li>
+    <li><span class="node anchor"><b>⑤ 資料ダウンロード／お問い合わせ CTA</b><span class="slug">#contact</span><span class="role">「掲載につながる資料」等のDL・問い合わせ導線（末尾CTA）</span><span class="tag anchor">アンカー</span></span></li>
+  </ul>
+</li>
+</ul>
+</div>
+
+<div class="group-label">共通要素（LP内・既存を流用）</div>
+<ul class="map">
+  <li><span class="node"><b>ヘッダー</b><span class="role">JMRAロゴ／グローバルナビ／サイト内検索（現行流用）。LP内は追従アンカーナビ（②③④⑤へジャンプ）を検討</span><span class="tag keep">既存</span></span></li>
+  <li><span class="node"><b>フッター</b><span class="role">サイトマップ／各種ポリシー／SNS／Pマークバッジ（現行流用）</span><span class="tag keep">既存</span></span></li>
+  <li><span class="node"><b>お問い合わせ／資料DL</b><span class="role">LP末尾CTA＋既存フォームへ連携</span><span class="tag keep">既存</span></span></li>
+</ul>
+
+<h2 class="sec ph2">フェーズ2（将来構想）｜DB化で追加されるページ群</h2>
+<p class="sec-note">今回は静的LP。将来的にデータベースを設置し、その内容をLPへ反映する構想です。トンマナ・コンポーネント（事例カード／サービスカード）をそのまま引き継げる設計とし、下記ページ群を段階的に追加します。※本案件のスコープ外・参考図示。</p>
+
+<div class="tree">
+<ul class="map">
+<li><span class="node future" style="background:var(--future);border-color:var(--future);color:#fff;font-size:15px;padding:8px 18px;"><b>データベース化（フェーズ2）</b><span class="slug">Phase 2</span><span class="role">事例・サービスをDB管理し、LPへ自動反映</span></span>
+  <ul>
+    <li><span class="node future"><b>支援実績事例データベース（一覧）</b><span class="slug">/cases/</span><span class="role">全件検索・絞り込み・並べ替え（LPの事例を拡張）</span><span class="tag future">将来</span><span class="tag db">DB</span>
+      <ul>
+        <li><span class="node future"><b>事例詳細ページ</b><span class="slug">/cases/{id}/</span><span class="role">1事例＝1ページ。LPカードから遷移</span><span class="tag future">将来</span><span class="tag db">DB</span></span></li>
+        <li><span class="node future"><b>カテゴリ／業種別一覧</b><span class="slug">/cases/category/{cat}/</span><span class="role">分類軸ごとの一覧ページ</span><span class="tag future">将来</span><span class="tag db">DB</span></span></li>
+      </ul>
+    </li>
+    <li><span class="node future"><b>推奨サービスデータベース（一覧）</b><span class="slug">/services/</span><span class="role">サービス全件の検索・絞り込み</span><span class="tag future">将来</span><span class="tag db">DB</span>
+      <ul>
+        <li><span class="node future"><b>サービス詳細ページ</b><span class="slug">/services/{id}/</span><span class="role">1サービス＝1ページ</span><span class="tag future">将来</span><span class="tag db">DB</span></span></li>
+      </ul>
+    </li>
+    <li><span class="node future"><b>データ管理・登録（管理画面）</b><span class="slug">infoCMS拡張</span><span class="role">事例・サービスの登録／編集。会員からの投稿受付も想定</span><span class="tag future">将来</span><span class="tag db">DB</span></span></li>
+  </ul>
+</li>
+</ul>
+</div>
+
+<div class="note-box ph2">
+  <h3>フェーズ2に向けた「トンマナ統一」の考え方（こだわりポイント②への対応）</h3>
+  ・LPの<b>事例カード／サービスカード</b>を、将来DBのデータ1件分の表示単位（繰り返しコンポーネント）として今から設計します。<br>
+  ・配色（紺 #0B4DA2／オレンジ #FF7A2F）、余白、見出し様式、ボタン形状などを<b>デザインルール（簡易デザインシステム）</b>として整理し、フェーズ2でも同じ見た目を再現できるようにします。<br>
+  ・フィルタ／ソートのUIは、静的LPでも将来DB版でも同じ操作感になるよう共通仕様で設計します。
+</div>
+
+<h2 class="sec">★新規ページ（今回制作）</h2>
+<p class="sec-note">本案件で新規に制作するページは「産業ビジョンLP」1ページです（下表）。ページ内は5セクション構成。将来ページはフェーズ2で別途ご提案します。</p>
+<div class="wrap-scroll">
+<table class="list">
+  <tr><th>新規ページ</th><th>なぜ必要か（目的）</th><th>主な構成・動き</th></tr>
+  <tr>
+    <td><b>産業ビジョンLP</b><br><span style="color:#9aa4b2;font-size:11px;">/industry-vision/</span></td>
+    <td>マーケティング・リサーチ産業のビジョンと、加盟各社の支援実績・推奨サービスを1ページで訴求し、掲載・相談につなげる。将来のDB化・データ活用の足がかりとする。</td>
+    <td>ヒーロー／産業ビジョン（4象限）／支援実績事例36件（フィルタ・ソート付き）／推奨サービス12件／資料DL・問い合わせCTA。UIに動きのある静的1ページ。</td>
+  </tr>
+</table>
+</div>
+
+<h2 class="sec">ページ一覧表</h2>
+<div class="wrap-scroll">
+<table class="list">
+  <tr><th>階層／区分</th><th>ページ・セクション名</th><th>URLスラッグ案</th><th>新規/既存</th><th class="num">規模</th><th>備考</th></tr>
+  <tr><td>コーポレート（既存）</td><td>コーポレートサイト トップ・各グローバルナビ</td><td class="num" style="text-align:left">/ ほか</td><td>既存</td><td class="num">—</td><td>今回は対象外。LPへの導線のみ</td></tr>
+  <tr style="background:#fff6ee"><td><b>フェーズ1（本案件）</b></td><td><b>産業ビジョンLP</b></td><td>/industry-vision/</td><td><b>★新規</b></td><td class="num"><b>1P</b></td><td>UIに動きのある静的1ページ</td></tr>
+  <tr><td>└ セクション</td><td>① ヒーロー（ファーストビュー）</td><td>#hero</td><td>アンカー</td><td class="num">—</td><td>キャッチ＋CTA</td></tr>
+  <tr><td>└ セクション</td><td>② 産業ビジョンが目指すもの</td><td>#vision</td><td>アンカー</td><td class="num">—</td><td>4象限マトリクス図</td></tr>
+  <tr><td>└ セクション</td><td>③ 加盟各社の支援実績事例（36件）</td><td>#cases</td><td>アンカー</td><td class="num">—</td><td><b>フィルタ／ソート（動きの主役）</b></td></tr>
+  <tr><td>└ セクション</td><td>④ 加盟各社の推奨サービス（12件）</td><td>#services</td><td>アンカー</td><td class="num">—</td><td>紺背景カードグリッド</td></tr>
+  <tr><td>└ セクション</td><td>⑤ 資料DL／お問い合わせ CTA</td><td>#contact</td><td>アンカー</td><td class="num">—</td><td>末尾CTA・既存フォーム連携</td></tr>
+  <tr style="background:#f4f4fd"><td><b>フェーズ2（将来・スコープ外）</b></td><td>支援実績事例DB（一覧）</td><td>/cases/</td><td>将来／DB</td><td class="num">—</td><td>LP事例をDB化・拡張</td></tr>
+  <tr style="background:#f4f4fd"><td>└ 下層</td><td>事例詳細</td><td>/cases/{id}/</td><td>将来／DB</td><td class="num">—</td><td>1事例1ページ</td></tr>
+  <tr style="background:#f4f4fd"><td>└ 下層</td><td>カテゴリ／業種別一覧</td><td>/cases/category/{cat}/</td><td>将来／DB</td><td class="num">—</td><td>分類軸別一覧</td></tr>
+  <tr style="background:#f4f4fd"><td>フェーズ2</td><td>推奨サービスDB（一覧）</td><td>/services/</td><td>将来／DB</td><td class="num">—</td><td>サービス全件</td></tr>
+  <tr style="background:#f4f4fd"><td>└ 下層</td><td>サービス詳細</td><td>/services/{id}/</td><td>将来／DB</td><td class="num">—</td><td>1サービス1ページ</td></tr>
+  <tr style="background:#f4f4fd"><td>フェーズ2</td><td>データ管理・登録（管理画面）</td><td>infoCMS拡張</td><td>将来／DB</td><td class="num">—</td><td>登録・編集・投稿受付</td></tr>
+  <tr><td colspan="3"><b>今回制作 合計</b></td><td colspan="2" class="num"><b>新規 1ページ（LP・5セクション）</b></td><td>既存流用：ヘッダー／フッター／ナビ／検索</td></tr>
+</table>
+</div>
+
+<div class="note-box">
+  <h3>設計上の注記</h3>
+  ・本案件のスコープは<b>「産業ビジョンLP 1ページ」</b>。お客様側でワイヤー・HTML・文章をご用意され、当社（インフォネット＋制作パートナーITLINE）は<b>デザインとモックアップ</b>を担当します。<br>
+  ・現行サイト（infoCMS）へアップする前提のため、ヘッダー・フッター・グローバルナビは現行を流用し、トンマナ（紺 #0B4DA2／オレンジ #FF7A2F）を揃えます。<br>
+  ・「動き」（フィルタ・ソート）の対象・軸・件数は、<b>8/26（水）打合せ</b>にてJMRA委員よりご説明いただき最終確定します。本図の #cases セクションが対象です。<br>
+  ・フェーズ2（DB化）は将来構想として図示しています（本案件の見積・スコープには含みません）。フェーズ1のデザインをそのまま引き継げる設計とします。
+</div>
+
+<footer class="doc">
+  <span>一般社団法人 日本マーケティング・リサーチ協会（JMRA）様　産業ビジョンLP 想定サイトマップ（案）</span>
+  <span>© infoNet inc. All Rights Reserved.　CONFIDENTIAL</span>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="ja" class="gate-on">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>産業ビジョン実現委員会_モックアップページ</title>
+<meta name="description" content="「調べる」から、「意思をつくる」へ。一般社団法人 日本マーケティング・リサーチ協会が策定した、マーケティング・リサーチ産業のこれからのビジョン。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Kosugi&family=Poppins:wght@400;500;600&family=BIZ+UDPMincho:wght@400;700&family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+@charset "UTF-8";
+/* ============================================================================
+   JMRA Design Tokens v0.9
+   一般社団法人 日本マーケティング・リサーチ協会 様 ／ 産業ビジョンLP
+   ----------------------------------------------------------------------------
+   制作: 株式会社インフォネット（制作パートナー: 株式会社ITLINE）
+   2026-08 作成
+
+   【このファイルの役割】
+   JMRA様の Web 資産に「共通の基準値」を与えるための定義ファイルです。
+   本LPだけでなく、将来のデータベース化・追加改修・他ページ展開の際にも
+   このファイルを <link> するだけで同じトンマナを再現できます。
+
+   【2層構造】
+   Layer 1 (--jm-*)  : プリミティブ = 色そのもの。実装から直接使わない。
+   Layer 2 (--c-*)   : セマンティック = 役割名。実装で触ってよいのはこちら。
+   → 将来「主色を変えたい」ときは Layer 1 を1行変えるだけで全ページに波及します。
+
+   【統一ブルー #0B4DA2 の根拠】
+   現在、JMRA様のWeb資産にはブルーが4種類存在します。
+     - コーポレートサイト skin.css .................. #0066A9 / #0073BE
+     - 50周年記念特設サイト /Portals/0/50th/ ........ #0D558B / #0072BC
+     - アニュアル・カンファレンス2025 LP ............ #354FD9
+     - 各種資料上の認識 ............................. #003399
+     - 協会ロゴマーク実測（logo.png） ............... #085288
+   なかでも、最も権威のある基準は「協会ロゴマークそのものの色 #085288」です。
+   #0B4DA2 はこのロゴ色と同系（いずれも hue 約210度のネイビーブルー）でありながら、
+   Web上の可読性要件を満たすよう明度を最適化したものです。
+   #0B4DA2 はこれらの中間に位置し、
+     (1) どの既存資産とも系統が衝突しない
+     (2) 白文字とのコントラスト比 8.18:1（WCAG AAA）で、紺帯に白見出しを
+         載せる設計がすべて安全になる
+     (3) #003399 より一段明るく現代的でありながら、業界団体としての
+         信頼感（ネイビー寄り）を保つ
+   の3点から、統一色として提案するものです。
+   ========================================================================== */
+
+:root{
+
+  /* ==========================================================================
+     Layer 1 — PRIMITIVE ／ 直接使用しないでください
+     ========================================================================== */
+
+  /* --- Blue ramp（主色） --------------------------------------------------- */
+  --jm-blue-50 :#EEF4FB;
+  --jm-blue-100:#D6E4F5;
+  --jm-blue-200:#AEC8EA;
+  --jm-blue-300:#7BA4DA;
+  --jm-blue-400:#4A7FC6;
+  --jm-blue-500:#1C60B0;
+  --jm-blue-600:#0B4DA2;   /* ★ 統一色 PRIMARY ／ 白文字 8.18:1 (AAA) */
+  --jm-blue-700:#093C7E;
+  --jm-blue-800:#072C5C;   /* 濃紺面（推奨サービス・フッター） */
+  --jm-blue-900:#051D3D;
+
+  /* --- Secondary / Accent -------------------------------------------------- */
+  --jm-teal-500  :#12A5C8;  /* データ・分析の記号色。送付イメージのシアンを継承 */
+  --jm-teal-600  :#0E86A4;
+  --jm-green-500 :#2FA37A;  /* 50周年サイト #52B386 の格上げ継承 */
+  --jm-accent-500:#FF7A2F;  /* CTA。#FF6600 の明度調整継承 ※白文字は不可(3.0:1) */
+  --jm-accent-700:#D95E12;  /* 白文字を載せる必要がある場合はこちら */
+
+  /* --- Neutral ------------------------------------------------------------- */
+  --jm-ink   :#16202E;
+  --jm-ink-2 :#4A5666;
+  --jm-ink-3 :#7A8698;
+  --jm-line  :#DCE3EC;
+  --jm-bg    :#F5F8FC;
+  --jm-white :#FFFFFF;
+
+  /* --- Legacy（移行元。削除せず由来を残す） --------------------------------- */
+  --jm-legacy-corp:#0066A9;  /* /Portals/0/Skins/JMRA/skin.css 実測 */
+  --jm-legacy-50th:#0D558B;  /* /Portals/0/50th/assets/css/style.css */
+  --jm-legacy-conf:#354FD9;  /* /Portals/0/conference/2025lp/assets/css/style.css */
+  --jm-logo-blue  :#085288;  /* ★協会ロゴマーク実測値。統一色 #0B4DA2 の根拠 */
+
+  /* --- Category colors（事例カテゴリ／最大6色） ------------------------------ */
+  --jm-cat-quant :#0B4DA2;   /* 定量調査 */
+  --jm-cat-qual  :#12A5C8;   /* 定性調査 */
+  --jm-cat-data  :#6B4FD6;   /* データ活用・AI */
+  --jm-cat-ux    :#2FA37A;   /* UX・行動観察 */
+  --jm-cat-global:#C86A12;   /* 海外・グローバル */
+  --jm-cat-other :#6B7787;   /* その他 */
+
+
+  /* ==========================================================================
+     Layer 2 — SEMANTIC ／ 実装で使うのはここだけ
+     ========================================================================== */
+
+  --c-primary      :var(--jm-blue-600);
+  --c-primary-hover:var(--jm-blue-700);
+  --c-primary-weak :var(--jm-blue-50);
+  --c-on-primary   :#fff;
+
+  --c-secondary    :var(--jm-teal-500);
+
+  --c-surface      :var(--jm-white);
+  --c-surface-2    :var(--jm-bg);
+  --c-surface-dark :var(--jm-blue-800);
+
+  --c-border       :var(--jm-line);
+  --c-border-strong:var(--jm-blue-200);
+
+  --c-text         :var(--jm-ink);
+  --c-text-muted   :var(--jm-ink-2);
+  --c-text-faint   :var(--jm-ink-3);
+  --c-text-on-dark :#fff;
+  --c-text-on-dark-muted:rgba(255,255,255,.72); /* ダーク面は2階調のみ。グレー混色は濁る */
+
+  --c-link         :var(--jm-blue-600);
+  --c-cta-bg       :var(--jm-accent-500);
+  --c-cta-text     :#fff;
+  --c-focus-ring   :rgba(11,77,162,.35);
+
+
+  /* ==========================================================================
+     TYPOGRAPHY ／ Major Third (1.25) スケール
+     ========================================================================== */
+  --ff-ja :"Noto Sans JP","Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
+  /* 見出し用（参考サイト https://www.techv.co.jp/ の書体構成に準拠）
+     和文見出し＝BIZ UDPMincho（明朝）／英字ラベル＝Libre Baskerville（セリフ）
+     本文はゴシック（--ff-ja）のままとし、見出しだけ明朝にしてコントラストをつける。 */
+  --ff-head  :"BIZ UDPMincho","Yu Mincho","YuMincho","Hiragino Mincho ProN",serif;
+  --ff-serif :"Libre Baskerville","Times New Roman",serif;
+  --ff-en :"Inter","Noto Sans JP",sans-serif;
+  --ff-num:"Barlow Semi Condensed","Inter",sans-serif;
+
+  --fs-2xs :.6875rem;   /* 11px  カテゴリチップ */
+  --fs-xs  :.75rem;     /* 12px  メタ情報 */
+  --fs-sm  :.8125rem;   /* 13px  補助テキスト */
+  --fs-base:.9375rem;   /* 15px  本文 */
+  --fs-md  :1rem;       /* 16px  カードタイトル */
+  --fs-lg  :1.125rem;   /* 18px  リード */
+  --fs-xl  :1.375rem;   /* 22px  小見出し */
+  --fs-2xl :1.75rem;    /* 28px  h3 */
+  --fs-3xl :2.25rem;    /* 36px  h2 */
+  --fs-4xl :3rem;       /* 48px  特大 */
+  --fs-hero:clamp(1.75rem,4.4vw,3.25rem);
+
+  --lh-tight:1.35;
+  --lh-dense:1.65;
+  --lh-base :1.85;
+
+  --fw-r:400; --fw-m:500; --fw-b:700; --fw-x:900;
+  --ls-label:.28em;  /* 英語ラベルのトラッキング */
+
+
+  /* ==========================================================================
+     SPACE ／ 4px ベース
+     ========================================================================== */
+  --sp-1:4px;  --sp-2:8px;  --sp-3:12px; --sp-4:16px; --sp-5:24px;
+  --sp-6:32px; --sp-7:40px; --sp-8:56px; --sp-9:80px; --sp-10:112px;
+
+  --sec-y    :clamp(56px,7vw,96px);
+  --container:1180px;
+  --gutter   :24px;
+  --header-h :74px;
+
+
+  /* ==========================================================================
+     RADIUS / ELEVATION ／ 影には青みを混ぜる（グレーの影は安っぽく見える）
+     ========================================================================== */
+  --r-sm:6px; --r-md:10px; --r-lg:14px; --r-xl:20px; --r-pill:999px;
+
+  --e-1:0 1px 2px rgba(9,32,72,.06), 0 2px 8px rgba(9,32,72,.05);
+  --e-2:0 4px 16px rgba(9,32,72,.08);
+  --e-3:0 10px 28px rgba(9,32,72,.13);
+  --e-focus:0 0 0 3px var(--c-focus-ring);
+
+
+  /* ==========================================================================
+     MOTION
+     ========================================================================== */
+  --dur-1:120ms; --dur-2:200ms; --dur-3:320ms; --dur-4:520ms;
+  --ease-out   :cubic-bezier(.22,.61,.36,1);
+  --ease-inout :cubic-bezier(.65,0,.35,1);
+  --ease-spring:cubic-bezier(.34,1.4,.64,1);
+  --stagger:12ms;      /* 実効の上限は 240ms でキャップする */
+}
+
+/* ============================================================================
+   BREAKPOINTS（本LPの正）
+     1023px 以下 … 3列 → 2列
+     599px  以下 … 2列 → 1列
+   ※JMRA様既存資産は 768 / 1259（カンファレンスLP）、Bootstrap系（50周年）と
+     まちまちのため、本LPでは上記2本に統一しています。
+   ========================================================================== */
+
+/* ============================================================================
+   ACCESSIBILITY
+   ========================================================================== */
+@media (prefers-reduced-motion:reduce){
+  :root{--dur-1:.01ms;--dur-2:.01ms;--dur-3:.01ms;--dur-4:.01ms;--stagger:0ms;}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;scroll-behavior:auto!important;}
+}
+
+/* ==========================================================================
+   デザイン案A「ビジョンブルー」
+   いただいたレビュー用モックの構成・順序・カテゴリ体系をそのまま踏襲したうえで、
+   ①実写／図版の投入 ②カード情報量の整理 ③色分けのルール化
+   ④ダーク面のコントラスト確保 ⑤SP時のフィルタUI ⑥カード等高
+   の6点を改善したデザインです。
+   ========================================================================== */
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px);}
+body{font-family:var(--ff-ja);color:var(--c-text);background:var(--c-surface);line-height:var(--lh-base);
+  font-size:var(--fs-base);-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+select{font-family:inherit;}
+:focus-visible{outline:none;box-shadow:var(--e-focus);border-radius:var(--r-sm);}
+.inner{max-width:var(--container);margin:0 auto;padding:0 var(--gutter);}
+.en{font-family:var(--ff-en);letter-spacing:var(--ls-label);font-weight:700;text-transform:uppercase;}
+.num{font-family:var(--ff-num);font-variant-numeric:tabular-nums;}
+
+html.still *,html.still *::before,html.still *::after{transition:none!important;animation:none!important;}
+html.still .rv{opacity:1!important;transform:none!important;}
+html.still .mx-axes{opacity:1!important;}
+html.still .mx-arrow{clip-path:none!important;}
+html.still dialog.md[open]{position:fixed;top:50%;left:50%;margin:0;transform:translate(-50%,-50%);z-index:9999;}
+html.still dialog.sheet[open]{position:fixed;left:0;right:0;bottom:0;top:auto;margin:0;z-index:9999;}
+html.still.hasdialog::after{content:"";position:fixed;inset:0;background:rgba(5,29,61,.55);z-index:9990;}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity var(--dur-4) var(--ease-out),transform var(--dur-4) var(--ease-out);}
+.js .rv.in{opacity:1;transform:none;}
+
+/* ===== HEADER ===== */
+.hdr{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;transition:border-color var(--dur-2),box-shadow var(--dur-2);}
+.hdr.solid{border-bottom-color:var(--c-border);box-shadow:var(--e-1);}
+.hdr .inner{display:flex;align-items:center;gap:var(--sp-5);height:var(--header-h);}
+.brand{display:flex;align-items:center;gap:14px;flex:none;}
+.brand img{height:26px;width:auto;}
+.brand .bar{width:1px;height:26px;background:var(--c-border);}
+.brand .pg{font-size:var(--fs-xs);font-weight:var(--fw-b);line-height:1.35;color:var(--c-primary);}
+.brand .pg-short{display:none;}
+.brand .pg small{display:block;font-family:var(--ff-en);font-size:9px;letter-spacing:.16em;color:var(--c-text-faint);font-weight:600;}
+.gnav{margin-left:auto;}
+.gnav ul{display:flex;list-style:none;gap:2px;}
+.gnav a{display:block;padding:8px 14px;font-size:var(--fs-sm);font-weight:var(--fw-m);line-height:1.4;
+  border-radius:var(--r-sm);transition:background var(--dur-2),color var(--dur-2);}
+.gnav a b{display:block;font-family:var(--ff-en);font-size:9px;font-weight:800;letter-spacing:.16em;color:var(--jm-teal-500);}
+.gnav a:hover{background:var(--c-primary-weak);color:var(--c-primary);}
+.lang{display:flex;border:1.5px solid var(--c-border);border-radius:var(--r-sm);overflow:hidden;flex:none;}
+.lang button{width:36px;height:30px;font-family:var(--ff-en);font-size:11px;font-weight:700;
+  color:var(--c-text-faint);transition:all var(--dur-2);}
+.lang button.on{background:var(--c-primary);color:#fff;}
+.burger{display:none;width:44px;height:44px;border-radius:var(--r-sm);align-items:center;justify-content:center;flex-direction:column;gap:5px;}
+.burger span{display:block;width:20px;height:2px;background:var(--c-primary);border-radius:2px;}
+
+/* ===== HERO =====
+   本家サイト（jmra-net.or.jp）のメインビジュアルに合わせた構成。
+   ・左に「JMRAマーク＋あなたの中に未来がある。」のロックアップ
+   ・明るい面に濃い文字（本家は白背景に濃グレーのキャッチ）
+   ・右側は背景のビジュアルをそのまま見せる（本家は全面ビジュアル）
+   キャッチは画像ではなく実テキストで組んでいる（Noto Sans JP 900）。 */
+.hero{position:relative;overflow:hidden;background:#EAF2FA;}
+.hero-bg{position:absolute;inset:0;background:url("images/hero_a.jpg") center 46%/cover no-repeat;}
+/* 左から白を敷き、文字が乗る面だけを明るくする */
+.hero-veil{position:absolute;inset:0;
+  background:
+    linear-gradient(98deg,
+      rgba(255,255,255,.975) 0%,
+      rgba(255,255,255,.95) 32%,
+      rgba(255,255,255,.78) 48%,
+      rgba(255,255,255,.26) 66%,
+      rgba(255,255,255,0) 84%),
+    linear-gradient(180deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,0) 26%);}
+.hero-grid{position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(11,77,162,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(11,77,162,.10) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:linear-gradient(262deg,#000 0%,transparent 62%);
+  -webkit-mask-image:linear-gradient(262deg,#000 0%,transparent 62%);}
+.hero .inner{position:relative;display:block;
+  padding-top:clamp(26px,3.2vw,44px);padding-bottom:clamp(28px,3.4vw,48px);}
+.hero-tx{max-width:min(720px,64%);}
+
+/* --- ロックアップ（本家の型） --- */
+.jm-lockup{display:flex;align-items:center;gap:clamp(12px,1.4vw,18px);
+  margin-bottom:clamp(12px,1.5vw,20px);}
+.jm-mark{height:clamp(48px,5.2vw,68px);width:auto;flex:none;}
+.jm-tag{margin:0;font-family:var(--ff-head);font-weight:var(--fw-b);color:#333;line-height:1.3;letter-spacing:.04em;
+  font-size:clamp(17px,2.15vw,28px);}
+.jm-tag .tag-br{display:none;}
+
+.hero .eyebrow{display:inline-flex;align-items:center;gap:12px;color:var(--jm-blue-500);font-family:var(--ff-serif);
+  font-size:var(--fs-xs);font-weight:700;letter-spacing:.14em;margin-bottom:var(--sp-3);}
+.hero .eyebrow::before{content:"";width:34px;height:2px;background:var(--jm-blue-500);flex:none;}
+.hero h1{font-family:var(--ff-head);font-size:clamp(1.95rem,4.6vw,3.15rem);line-height:1.32;
+  font-weight:var(--fw-b);color:var(--jm-blue-700);letter-spacing:.03em;text-shadow:none;}
+.hero h1 .accent{color:var(--jm-blue-600);position:relative;display:inline-block;isolation:isolate;}
+.hero h1 .accent::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.12em;height:.22em;
+  background:rgba(0,115,190,.20);border-radius:2px;z-index:-1;}
+.hero .lead{margin-top:var(--sp-4);max-width:31em;color:#3B4A5C;font-size:var(--fs-base);line-height:1.85;}
+.hero .lead b{color:var(--jm-blue-700);font-weight:var(--fw-b);border-bottom:2px solid rgba(0,115,190,.35);}
+.hero .cta{margin-top:var(--sp-5);display:flex;gap:var(--sp-3);flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:var(--fw-b);font-size:var(--fs-base);
+  padding:15px 30px;border-radius:var(--r-pill);
+  transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2),background var(--dur-2);}
+.btn svg{width:16px;height:16px;flex:none;}
+.btn-p{background:var(--c-cta-bg);color:#fff;box-shadow:0 6px 20px rgba(255,122,47,.30);}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(255,122,47,.42);}
+.btn-g{background:rgba(255,255,255,.86);color:var(--jm-blue-600);border:1.5px solid var(--jm-blue-300);}
+.btn-g:hover{background:#fff;border-color:var(--jm-blue-500);transform:translateY(-3px);}
+/* 案Aでは右の写真カードを出さない（本家は全面ビジュアル＋左ロックアップのため）。
+   指定そのものは案B（_style_b.css で display:block に戻す）が使うため残す。 */
+.hero-art{display:none;position:relative;}
+.hero-art img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-xl);box-shadow:0 24px 60px rgba(0,0,0,.42);}
+.hero-art .chip-float{position:absolute;left:-20px;bottom:22px;background:#fff;border-radius:var(--r-lg);
+  box-shadow:0 12px 34px rgba(5,29,61,.3);padding:13px 19px;display:flex;align-items:center;gap:12px;max-width:88%;}
+.hero-art .chip-float .ic{width:36px;height:36px;border-radius:var(--r-md);background:var(--c-primary-weak);
+  display:flex;align-items:center;justify-content:center;color:var(--c-primary);flex:none;}
+.hero-art .chip-float .ic svg{width:18px;height:18px;}
+.hero-art .chip-float b{display:block;font-size:var(--fs-sm);line-height:1.5;}
+.hero-art .chip-float span{font-size:var(--fs-xs);color:var(--c-text-faint);}
+
+/* ===== TICKER ===== */
+.ticker{background:#fff;border-bottom:1px solid var(--c-border);}
+.ticker .inner{display:grid;grid-template-columns:repeat(2,1fr);max-width:760px;margin-inline:auto;}   /* 2026-09-21 掲載数の2項目のみ */
+.stat{padding:19px 18px 17px;text-align:center;position:relative;}
+.stat + .stat::before{content:"";position:absolute;left:0;top:26%;bottom:26%;width:1px;background:var(--c-border);}
+.stat .v{font-family:var(--ff-num);font-size:2.5rem;font-weight:700;line-height:1;color:var(--c-primary);font-variant-numeric:tabular-nums;}
+.stat .v .u{font-size:.95rem;font-weight:600;margin-left:3px;color:var(--c-text-muted);}
+.stat .k{margin-top:9px;font-size:var(--fs-xs);color:var(--c-text-muted);font-weight:var(--fw-m);}
+
+/* ===== SECTION 共通 ===== */
+section{padding:var(--sec-y) 0;}
+.sec-head{margin-bottom:var(--sp-8);max-width:46em;}
+.sec-head .en{display:inline-flex;align-items:center;gap:11px;color:var(--c-primary);font-size:var(--fs-xs);
+  font-family:var(--ff-serif);font-weight:700;letter-spacing:.14em;}
+.sec-head .en::before{content:"";width:28px;height:2px;background:var(--jm-teal-500);}
+.sec-head h2{font-family:var(--ff-head);font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.5;margin-top:11px;
+  font-weight:var(--fw-b);letter-spacing:.045em;}
+.sec-head p{margin-top:14px;color:var(--c-text-muted);font-size:var(--fs-base);}
+.sec-head p b{color:var(--c-primary);font-weight:var(--fw-b);}
+.sec-head.on-dark h2{color:#fff;}
+.sec-head.on-dark p{color:var(--c-text-on-dark-muted);}
+.sec-head.on-dark p b{color:#7FE3FF;}
+.sec-head.on-dark .en{color:#7FE3FF;}
+.sec-head.on-dark .en::before{background:#7FE3FF;}
+
+/* ===== VISION（BEFORE → SHIFT → AFTER） ===== */
+.vision{background:var(--c-surface-2);}
+.v-head{display:grid;grid-template-columns:minmax(230px,.8fr) 1.6fr;gap:clamp(24px,4vw,60px);
+  align-items:start;margin-bottom:var(--sp-8);}
+.v-head .sec-head{margin-bottom:0;}
+.v-lead{color:var(--c-text-muted);font-size:var(--fs-base);line-height:2;padding-top:34px;}
+.v-lead b{color:var(--c-primary);font-weight:var(--fw-b);}
+.steps{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr;align-items:stretch;gap:0;}
+.step{background:#fff;border:1px solid var(--c-border);border-radius:var(--r-lg);padding:26px 26px 24px;box-shadow:var(--e-1);}
+.step .lb{font-family:var(--ff-en);font-size:10px;font-weight:800;letter-spacing:.22em;color:var(--c-text-faint);text-transform:uppercase;}
+.step h3{font-size:var(--fs-xl);margin:10px 0 10px;line-height:1.5;}
+.step p{font-size:var(--fs-sm);color:var(--c-text-muted);line-height:1.9;}
+.step.now{background:linear-gradient(150deg,var(--jm-blue-700) 0%,var(--jm-blue-600) 55%,var(--jm-blue-500) 100%);
+  border-color:transparent;color:#fff;box-shadow:0 14px 34px rgba(11,77,162,.28);position:relative;overflow:hidden;}
+.step.now .lb{color:#7FE3FF;}
+.step.now p{color:var(--c-text-on-dark-muted);}
+.step.now::after{content:"";position:absolute;right:-40px;bottom:-40px;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle,rgba(127,227,255,.3) 0%,transparent 70%);}
+.step-ar{display:flex;align-items:center;justify-content:center;color:var(--jm-blue-300);}
+.step-ar svg{width:20px;height:20px;}
+
+/* ===== VALUE MAP ===== */
+.matrix-wrap{margin-top:var(--sp-6);}
+.mx-frame{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:stretch;}
+.yaxis{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 0;
+  font-size:var(--fs-xs);font-weight:var(--fw-b);color:var(--c-text-faint);letter-spacing:.08em;}
+.yaxis span.t{writing-mode:vertical-rl;text-orientation:upright;}
+.yaxis span.t.hi{color:var(--jm-teal-600);}
+.yaxis .line{flex:1 1 auto;width:2px;background:linear-gradient(180deg,var(--jm-teal-500),var(--jm-blue-200));
+  margin:10px 0;border-radius:2px;position:relative;display:flex;align-items:center;justify-content:center;}
+.yaxis .line::before{content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:7px solid var(--jm-teal-500);}
+.yaxis .line i{writing-mode:vertical-rl;text-orientation:upright;font-style:normal;font-size:10px;
+  color:var(--c-text-faint);background:#fff;padding:8px 0;letter-spacing:.12em;}
+.xaxis{display:flex;align-items:center;justify-content:center;gap:14px;margin:16px 0 0 48px;flex-wrap:wrap;
+  font-size:var(--fs-xs);font-weight:var(--fw-b);color:var(--c-text-faint);letter-spacing:.04em;}
+.xaxis .pole{display:inline-flex;align-items:center;gap:7px;font-family:var(--ff-en);font-size:10.5px;letter-spacing:.1em;}
+.xaxis .pole.r{color:var(--jm-teal-600);}
+.xaxis .dot{width:7px;height:7px;border-radius:50%;background:var(--jm-blue-200);display:inline-block;}
+.xaxis .dot-r{background:var(--jm-teal-500);}
+.xaxis .line{flex:0 1 min(300px,30vw);height:2px;background:linear-gradient(90deg,var(--jm-blue-200),var(--jm-teal-500));
+  border-radius:2px;position:relative;display:flex;align-items:center;justify-content:center;}
+.xaxis .line::after{content:"";position:absolute;right:-1px;top:50%;transform:translateY(-50%);
+  width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:7px solid var(--jm-teal-500);}
+.xaxis .line i{font-style:normal;font-size:10px;color:var(--c-text-faint);background:#fff;padding:0 10px;letter-spacing:.1em;white-space:nowrap;}
+
+.matrix{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:38px;
+  background:#fff;border:1px solid var(--c-border);border-radius:var(--r-xl);box-shadow:var(--e-2);}
+.mx-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.mx-axes{z-index:0;opacity:0;transition:opacity .9s var(--ease-out);}
+.mx-arrow{z-index:0;clip-path:inset(0 100% 0 0);transition:clip-path 1.5s .3s var(--ease-out);}
+.mx-svg path,.mx-svg line{fill:none;}
+.mx-svg .ax{stroke:var(--jm-blue-200);stroke-width:2;}
+.mx-svg .arw{stroke:var(--jm-teal-500);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;opacity:1;}
+.matrix.in .mx-axes{opacity:1;}
+.matrix.in .mx-arrow{clip-path:inset(0 0 0 0);}
+
+.quad{position:relative;z-index:1;display:block;width:100%;text-align:left;background:#fff;
+  border:1.5px solid var(--c-border);border-radius:var(--r-lg);padding:24px 24px 20px;
+  transition:transform var(--dur-3) var(--ease-out),box-shadow var(--dur-3),border-color var(--dur-3),background var(--dur-3);}
+@media(hover:hover){.quad:hover{transform:translateY(-3px);box-shadow:var(--e-2);border-color:var(--cat);}}
+.quad.active{border-color:var(--cat);box-shadow:0 0 0 3px color-mix(in srgb,var(--cat) 18%,#fff),var(--e-2);}
+.quad .qno{font-family:var(--ff-num);font-size:var(--fs-lg);font-weight:700;color:#fff;background:var(--cat);
+  border-radius:var(--r-pill);padding:2px 13px;letter-spacing:.02em;
+  box-shadow:0 2px 8px color-mix(in srgb,var(--cat) 45%,transparent);}
+.quad .qsub{margin-left:10px;font-size:var(--fs-xs);color:var(--c-text-faint);font-weight:var(--fw-m);}
+.quad h4{font-size:var(--fs-xl);margin:13px 0 9px;line-height:1.45;}
+.quad p{font-size:var(--fs-sm);color:var(--c-text-muted);line-height:1.9;}
+.quad .qfoot{display:flex;align-items:center;gap:11px;margin-top:15px;padding-top:13px;border-top:1px dashed var(--c-border);flex-wrap:wrap;}
+.quad .qn{font-size:var(--fs-xs);color:var(--cat);font-weight:var(--fw-b);background:color-mix(in srgb,var(--cat) 10%,#fff);
+  border-radius:var(--r-pill);padding:3px 12px;}
+.quad .qn b{font-family:var(--ff-num);font-size:var(--fs-md);}
+.quad .qtag{font-size:11px;color:var(--c-text-faint);}
+.quad .goal{position:absolute;top:20px;right:20px;display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:800;letter-spacing:.08em;color:#fff;background:var(--jm-teal-500);
+  padding:4px 11px;border-radius:var(--r-pill);box-shadow:0 3px 10px rgba(18,165,200,.35);}
+.quad .goal svg{width:11px;height:11px;}
+.quad.q-goal{background:linear-gradient(155deg,#fff 0%,#F2F8FC 100%);}
+
+.foundation{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--sp-5);width:100%;
+  text-align:left;margin:var(--sp-5) 0 0 48px;padding:20px 26px;background:#fff;border:1.5px solid var(--c-border);
+  border-radius:var(--r-lg);box-shadow:var(--e-1);transition:border-color var(--dur-2),box-shadow var(--dur-2),transform var(--dur-2);
+  --cat:#6B7787;}
+@media(hover:hover){.foundation:hover{border-color:var(--cat);transform:translateY(-2px);box-shadow:var(--e-2);}}
+.foundation.active{border-color:var(--cat);box-shadow:0 0 0 3px rgba(107,119,135,.18),var(--e-2);}
+.foundation .fen{font-family:var(--ff-en);font-size:10px;font-weight:800;letter-spacing:.2em;color:#fff;
+  background:var(--cat);border-radius:var(--r-sm);padding:5px 11px;white-space:nowrap;}
+.foundation .ftx{font-size:var(--fs-sm);color:var(--c-text-muted);line-height:1.85;}
+.foundation .ftx b{display:block;font-size:var(--fs-md);color:var(--c-text);margin-bottom:3px;}
+.foundation .fn{font-size:var(--fs-xs);color:var(--cat);font-weight:var(--fw-b);background:#EEF0F3;
+  border-radius:var(--r-pill);padding:4px 13px;white-space:nowrap;}
+.foundation .fn b{font-family:var(--ff-num);font-size:var(--fs-md);}
+.matrix-note{margin-top:var(--sp-5);font-size:var(--fs-xs);color:var(--c-text-faint);text-align:right;}
+
+/* ===== CASES ===== */
+.cases{background:var(--c-surface-2);}
+.cases-head{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--sp-5);flex-wrap:wrap;margin-bottom:var(--sp-6);}
+.count-badge{text-align:right;flex:none;}
+.count-badge .n{font-family:var(--ff-num);font-size:3.4rem;line-height:.9;font-weight:700;color:var(--c-primary);font-variant-numeric:tabular-nums;}
+.count-badge .l{font-size:10.5px;color:var(--c-text-faint);font-weight:var(--fw-m);margin-top:7px;}
+.count-badge.on-dark .n{color:#7FE3FF;}
+.count-badge.on-dark .l{color:var(--c-text-on-dark-muted);}
+
+.fbar{position:sticky;top:var(--header-h);z-index:50;background:rgba(245,248,252,.94);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:14px 0 12px;margin-bottom:var(--sp-5);
+  border-bottom:1px solid transparent;transition:border-color var(--dur-2);}
+.fbar.stuck{border-bottom-color:var(--c-border);}
+.frow{display:flex;align-items:flex-start;gap:var(--sp-4);margin-bottom:9px;}
+.frow:last-child{margin-bottom:0;}
+.flabel{flex:0 0 66px;font-size:var(--fs-xs);font-weight:var(--fw-b);color:var(--c-text-faint);
+  letter-spacing:.08em;padding-top:11px;}
+.chips{display:flex;gap:7px;flex-wrap:wrap;flex:1 1 auto;min-width:0;}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:var(--fs-sm);font-weight:var(--fw-b);
+  padding:8px 15px;border-radius:var(--r-pill);border:1.5px solid var(--c-border);background:#fff;color:var(--c-text-muted);
+  transition:all var(--dur-2) var(--ease-out);white-space:nowrap;min-height:38px;}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--cat,var(--c-text-faint));flex:none;}
+.chip .cn{font-family:var(--ff-num);font-size:11px;font-weight:700;color:var(--c-text-faint);
+  background:var(--c-surface-2);border-radius:var(--r-pill);padding:1px 8px;}
+@media(hover:hover){.chip:hover{border-color:var(--jm-blue-300);color:var(--c-primary);}}
+.chip.on{background:var(--c-primary);border-color:var(--c-primary);color:#fff;box-shadow:0 4px 12px rgba(11,77,162,.24);}
+.chip.on .dot{background:#fff;}
+.chip.on .cn{background:rgba(255,255,255,.22);color:#fff;}
+.chip.sm{font-size:var(--fs-xs);font-weight:var(--fw-m);padding:6px 13px;min-height:32px;}
+.memchips{max-height:none;}
+
+.ftools{align-items:center;gap:var(--sp-3);flex-wrap:wrap;padding-top:6px;border-top:1px dashed var(--c-border);margin-top:11px;}
+.active-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;flex:1 1 auto;min-height:30px;}
+.active-row .lbl{color:var(--c-text-faint);font-weight:var(--fw-b);font-size:var(--fs-xs);}
+.tagx{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--jm-blue-200);
+  color:var(--c-primary);font-weight:var(--fw-b);font-size:var(--fs-xs);padding:5px 8px 5px 12px;border-radius:var(--r-pill);}
+.tagx button{width:18px;height:18px;border-radius:50%;background:var(--c-primary-weak);color:var(--c-primary);
+  display:flex;align-items:center;justify-content:center;font-size:12px;line-height:1;font-weight:700;}
+.tagx button:hover{background:var(--c-primary);color:#fff;}
+.clear-all{color:var(--c-text-muted);font-size:var(--fs-xs);text-decoration:underline;font-weight:var(--fw-m);}
+.clear-all:hover{color:var(--c-primary);}
+.sel{position:relative;flex:none;}
+.sel select{appearance:none;-webkit-appearance:none;background:#fff;border:1.5px solid var(--c-border);
+  border-radius:var(--r-pill);padding:9px 36px 9px 15px;font-size:var(--fs-sm);font-weight:var(--fw-m);
+  color:var(--c-text);min-height:38px;cursor:pointer;transition:border-color var(--dur-2);}
+.sel select:hover{border-color:var(--jm-blue-300);}
+.sel::after{content:"";position:absolute;right:14px;top:50%;width:7px;height:7px;border-right:2px solid var(--c-text-faint);
+  border-bottom:2px solid var(--c-text-faint);transform:translateY(-70%) rotate(45deg);pointer-events:none;}
+.viewtgl{display:flex;border:1.5px solid var(--c-border);border-radius:var(--r-pill);overflow:hidden;background:#fff;flex:none;}
+.viewtgl button{width:42px;height:38px;display:flex;align-items:center;justify-content:center;color:var(--c-text-faint);transition:all var(--dur-2);}
+.viewtgl button.on{background:var(--c-primary);color:#fff;}
+.viewtgl svg{width:17px;height:17px;}
+.sp-filter-btn{display:none;}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;align-items:stretch;}
+.case{position:relative;display:grid;grid-template-rows:auto auto 1fr auto;background:#fff;
+  border:1px solid var(--c-border);border-radius:var(--r-lg);padding:22px 22px 18px;box-shadow:var(--e-1);
+  text-align:left;width:100%;overflow:hidden;
+  transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2),border-color var(--dur-2);}
+.case::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--cat);}
+@media(hover:hover){.case:hover{transform:translateY(-3px);box-shadow:var(--e-3);border-color:var(--cat);}}
+.case[data-featured="1"]{background:linear-gradient(160deg,var(--jm-blue-50) 0%,#fff 62%);}
+.case .ribbon{display:inline-flex;align-items:center;gap:4px;background:var(--jm-accent-500);color:#fff;
+  font-size:10px;font-weight:800;letter-spacing:.06em;padding:3px 9px;border-radius:var(--r-sm);flex:none;}
+.case .ribbon::before{content:"";width:5px;height:5px;border-radius:50%;background:#fff;}
+.case .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.cchip{display:inline-flex;align-items:center;gap:7px;font-size:var(--fs-2xs);font-weight:var(--fw-b);letter-spacing:.04em;
+  padding:4px 11px;border-radius:var(--r-sm);color:var(--cat);
+  background:color-mix(in srgb,var(--cat) 10%,#fff);border:1px solid color-mix(in srgb,var(--cat) 25%,#fff);}
+.cchip .ce{font-family:var(--ff-en);font-size:9px;font-weight:800;letter-spacing:.14em;opacity:.75;font-style:normal;}
+.case .yr{font-family:var(--ff-num);font-size:var(--fs-xs);color:var(--c-text-faint);font-weight:600;margin-left:auto;}
+.case h3{font-size:var(--fs-md);line-height:1.6;font-weight:var(--fw-b);margin:13px 0 10px;
+  min-height:calc(2 * 1.6em);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.case .member{display:flex;align-items:center;gap:8px;font-size:var(--fs-sm);color:var(--c-text-muted);
+  font-weight:var(--fw-m);align-self:start;}
+.case .member .ico{width:22px;height:22px;border-radius:var(--r-sm);background:var(--c-surface-2);
+  display:flex;align-items:center;justify-content:center;flex:none;color:var(--cat);}
+.case .member .ico svg{width:13px;height:13px;}
+.case .foot{display:flex;align-items:center;gap:8px;min-width:0;margin-top:16px;padding-top:14px;border-top:1px solid var(--c-border);}
+.meta{font-size:var(--fs-xs);color:var(--c-text-faint);background:var(--c-surface-2);border-radius:var(--r-sm);
+  padding:3px 9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto;}
+.case .more{margin-left:auto;font-size:var(--fs-xs);font-weight:var(--fw-b);color:var(--c-primary);
+  display:inline-flex;align-items:center;gap:5px;white-space:nowrap;flex:none;}
+.case .more svg{width:12px;height:12px;transition:transform var(--dur-2);}
+@media(hover:hover){.case:hover .more svg{transform:translateX(3px);}}
+
+.grid.list{grid-template-columns:1fr;gap:0;background:#fff;border:1px solid var(--c-border);
+  border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--e-1);}
+.grid.list .case{grid-template-rows:none;grid-template-columns:170px 1fr 210px 110px;align-items:center;gap:18px;
+  border:none;border-bottom:1px solid var(--c-border);border-radius:0;box-shadow:none;padding:15px 22px;background:#fff;}
+.grid.list .case::before{width:4px;height:auto;top:11px;bottom:11px;right:auto;border-radius:2px;}
+.grid.list .case:last-child{border-bottom:none;}
+@media(hover:hover){.grid.list .case:hover{transform:none;background:var(--c-primary-weak);box-shadow:none;}}
+.grid.list .case .yr,.grid.list .case .ribbon{display:none;}
+.grid.list .case h3{margin:0;min-height:0;-webkit-line-clamp:1;font-size:var(--fs-base);}
+.grid.list .case .foot{margin:0;padding:0;border:none;justify-content:flex-end;}
+.grid.list .case .meta{display:none;}
+
+.empty{display:none;text-align:center;padding:var(--sp-9) var(--sp-5);background:#fff;
+  border:1px dashed var(--c-border-strong);border-radius:var(--r-lg);}
+.empty.on{display:block;}
+.empty svg{width:56px;height:56px;color:var(--jm-blue-200);margin:0 auto var(--sp-4);}
+.empty h4{font-size:var(--fs-xl);margin-bottom:8px;}
+.empty p{color:var(--c-text-muted);font-size:var(--fs-sm);margin-bottom:var(--sp-5);}
+.btn-s{display:inline-flex;align-items:center;gap:8px;background:var(--c-primary);color:#fff;font-weight:var(--fw-b);
+  font-size:var(--fs-sm);padding:11px 24px;border-radius:var(--r-pill);}
+.loadmore{text-align:center;margin-top:var(--sp-7);}
+.btn-o{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--c-primary);color:var(--c-primary);
+  font-weight:var(--fw-b);font-size:var(--fs-base);padding:13px 34px;border-radius:var(--r-pill);background:#fff;
+  transition:all var(--dur-2) var(--ease-out);}
+.btn-o:hover{background:var(--c-primary);color:#fff;transform:translateY(-2px);box-shadow:var(--e-2);}
+.btn-o .num{font-family:var(--ff-num);}
+.sample-note{margin-top:var(--sp-5);font-size:var(--fs-xs);color:var(--c-text-faint);background:#fff;
+  border-left:3px solid var(--jm-blue-200);padding:11px 17px;border-radius:0 var(--r-sm) var(--r-sm) 0;line-height:1.85;}
+.sample-note.on-dark{background:rgba(255,255,255,.06);border-left-color:rgba(127,227,255,.55);color:var(--c-text-on-dark-muted);}
+
+/* ===== SERVICES（紺面／提供会社アコーディオン） ===== */
+.services{background:var(--c-surface-dark);position:relative;overflow:hidden;}
+.services::before{content:"";position:absolute;inset:0;opacity:.55;
+  background-image:radial-gradient(circle at 14% 18%,rgba(18,165,200,.22) 0%,transparent 44%),
+                   radial-gradient(circle at 88% 80%,rgba(11,77,162,.6) 0%,transparent 48%);}
+.services .inner{position:relative;}
+
+/* -- 注目サービス（カード数枚だけ） -- */
+.svc-feature{margin-bottom:var(--sp-7);}
+.subhd{display:flex;align-items:center;gap:9px;font-size:var(--fs-sm);font-weight:var(--fw-b);
+  color:#fff;margin-bottom:var(--sp-4);}
+.subhd .dot{width:7px;height:7px;border-radius:50%;background:var(--jm-accent-500);flex:none;}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;}
+.svc{display:grid;grid-template-rows:auto auto auto 1fr auto;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.16);border-radius:var(--r-lg);padding:22px 22px 18px;
+  transition:background var(--dur-2),border-color var(--dur-2),transform var(--dur-2) var(--ease-out);}
+@media(hover:hover){.svc:hover{background:rgba(255,255,255,.11);border-color:rgba(127,227,255,.55);transform:translateY(-3px);}}
+.svc .stop{display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.svc .sc{display:inline-block;font-size:var(--fs-2xs);font-weight:var(--fw-b);letter-spacing:.04em;
+  padding:3px 10px;border-radius:var(--r-sm);color:#fff;background:var(--cat);}
+.svc .sm{font-size:var(--fs-xs);color:var(--c-text-on-dark-muted);}
+.svc h3{font-size:var(--fs-lg);color:#fff;margin:12px 0 9px;line-height:1.5;}
+.svc p{font-size:var(--fs-sm);color:var(--c-text-on-dark-muted);line-height:1.85;}
+.svc .sval{margin-top:14px;background:rgba(127,227,255,.1);border:1px solid rgba(127,227,255,.24);
+  border-radius:var(--r-md);padding:12px 15px;font-size:var(--fs-xs);color:#fff;line-height:1.85;align-self:start;}
+.svc .sval .vl{display:block;font-size:10px;font-weight:800;letter-spacing:.1em;color:#7FE3FF;margin-bottom:5px;}
+.svc .prov{margin-top:15px;padding-top:13px;border-top:1px solid rgba(255,255,255,.14);
+  font-size:var(--fs-xs);color:#7FE3FF;font-weight:var(--fw-b);display:flex;align-items:center;gap:7px;
+  align-self:end;width:100%;transition:color var(--dur-2);}
+.svc .prov svg{width:12px;height:12px;flex:none;transition:transform var(--dur-2);}
+@media(hover:hover){.svc .prov:hover{color:#fff;} .svc .prov:hover svg{transform:translateX(3px);}}
+
+/* -- 絞り込みバー -- */
+.sfbar{display:grid;grid-template-columns:66px 1fr auto;align-items:start;gap:var(--sp-4);
+  margin-bottom:var(--sp-5);padding-bottom:var(--sp-4);border-bottom:1px solid rgba(255,255,255,.14);}
+.sfbar .flabel{font-size:var(--fs-xs);font-weight:var(--fw-b);color:var(--c-text-on-dark-muted);
+  letter-spacing:.08em;padding-top:11px;}
+.sfbar .chips{min-width:0;}
+.sfbar .chip{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2);color:var(--c-text-on-dark-muted);}
+.sfbar .chip .cn{background:rgba(255,255,255,.12);color:var(--c-text-on-dark-muted);}
+@media(hover:hover){.sfbar .chip:hover{border-color:rgba(127,227,255,.7);color:#fff;}}
+.sfbar .chip.on{background:#fff;border-color:#fff;color:var(--jm-blue-800);box-shadow:0 4px 14px rgba(0,0,0,.22);}
+.sfbar .chip.on .cn{background:rgba(7,44,92,.12);color:var(--jm-blue-800);}
+.accall{justify-self:end;display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-sm);font-weight:var(--fw-b);
+  color:#7FE3FF;border:1.5px solid rgba(127,227,255,.45);border-radius:var(--r-pill);
+  padding:9px 18px;min-height:38px;transition:all var(--dur-2);}
+.accall svg{width:14px;height:14px;}
+.accall:hover{background:rgba(127,227,255,.12);border-color:#7FE3FF;}
+.accall[aria-pressed="true"] svg{transform:rotate(180deg);}
+
+/* -- アコーディオン本体 -- */
+.acc{border:1px solid rgba(255,255,255,.15);border-radius:var(--r-lg);overflow:hidden;
+  background:rgba(255,255,255,.04);}
+.acc-item{border-bottom:1px solid rgba(255,255,255,.11);}
+.acc-item:last-child{border-bottom:none;}
+.acc-hd{display:grid;grid-template-columns:22px 1fr auto auto;align-items:center;gap:14px;
+  width:100%;text-align:left;padding:17px 22px;transition:background var(--dur-2);}
+@media(hover:hover){.acc-hd:hover{background:rgba(255,255,255,.06);}}
+.acc-ico{display:flex;align-items:center;justify-content:center;color:#7FE3FF;
+  transition:transform var(--dur-2) var(--ease-out);}
+.acc-ico svg{width:16px;height:16px;}
+.acc-item.open .acc-ico{transform:rotate(180deg);}
+.acc-name{font-size:var(--fs-md);font-weight:var(--fw-b);color:#fff;line-height:1.5;}
+.acc-dots{display:flex;gap:4px;}
+.acc-dots i{width:8px;height:8px;border-radius:50%;display:block;}
+.acc-n{font-size:var(--fs-xs);color:var(--c-text-on-dark-muted);background:rgba(255,255,255,.09);
+  border-radius:var(--r-pill);padding:4px 13px;white-space:nowrap;}
+.acc-n b{font-family:var(--ff-num);font-size:var(--fs-md);color:#fff;margin-right:1px;}
+.acc-bd{max-height:0;overflow:hidden;transition:max-height var(--dur-3) var(--ease-out);}
+.acc-item.open .acc-bd{max-height:calc(var(--rows,8) * 64px + 34px);}
+.acc-inner{padding:0 22px 16px 58px;}
+
+.srow{display:grid;grid-template-columns:118px minmax(180px,1fr) 2fr 20px;align-items:center;gap:16px;
+  width:100%;text-align:left;padding:12px 16px;border-radius:var(--r-md);
+  border-left:3px solid var(--cat);background:rgba(255,255,255,.05);margin-bottom:7px;
+  transition:background var(--dur-2),transform var(--dur-2) var(--ease-out);}
+.srow:last-child{margin-bottom:0;}
+@media(hover:hover){.srow:hover{background:rgba(255,255,255,.12);transform:translateX(3px);}}
+.srow .scat{font-size:var(--fs-2xs);font-weight:var(--fw-b);color:#fff;background:var(--cat);
+  border-radius:var(--r-sm);padding:3px 9px;text-align:center;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;}
+.srow .sname{font-size:var(--fs-base);font-weight:var(--fw-b);color:#fff;line-height:1.5;}
+.srow .sbrief{font-size:var(--fs-xs);color:var(--c-text-on-dark-muted);line-height:1.6;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.srow .sarr{color:#7FE3FF;display:flex;justify-content:flex-end;}
+.srow .sarr svg{width:13px;height:13px;transition:transform var(--dur-2);}
+@media(hover:hover){.srow:hover .sarr svg{transform:translateX(3px);}}
+
+.empty.on-dark{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.24);}
+.empty.on-dark h4{color:#fff;}
+.empty.on-dark p{color:var(--c-text-on-dark-muted);}
+.count-badge .sub2{display:block;font-size:10px;color:var(--c-text-faint);margin-top:2px;}
+.count-badge.on-dark .sub2{color:var(--c-text-on-dark-muted);}
+.m-actions{margin-top:20px;}
+.m-actions .btn-s{gap:8px;}
+.m-actions .btn-s svg{width:13px;height:13px;}
+.m-actions .btn-s.is-sample{background:var(--c-surface-2);color:var(--c-text-faint);cursor:default;}
+
+/* ===== CTA / FOOTER ===== */
+.cta-band{position:relative;overflow:hidden;background:var(--jm-blue-900);}
+.cta-band .bg{position:absolute;inset:0;background:url("images/cta_band.jpg") center/cover no-repeat;opacity:.6;}
+.cta-band .veil{position:absolute;inset:0;background:linear-gradient(95deg,rgba(5,29,61,.95) 0%,rgba(7,44,92,.74) 55%,rgba(11,77,162,.3) 100%);}
+.cta-band .inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:var(--sp-7);flex-wrap:wrap;}
+.cta-band h2{font-family:var(--ff-head);font-size:clamp(1.4rem,2.6vw,1.95rem);color:#fff;line-height:1.55;letter-spacing:.04em;}
+.cta-band p{margin-top:12px;color:var(--c-text-on-dark-muted);font-size:var(--fs-base);max-width:36em;}
+.cta-band .btns{display:flex;gap:var(--sp-3);flex-wrap:wrap;flex:none;}
+footer.site{background:#fff;border-top:1px solid var(--c-border);padding:var(--sp-8) 0 var(--sp-5);}
+footer.site .top{display:flex;justify-content:space-between;gap:var(--sp-7);flex-wrap:wrap;padding-bottom:var(--sp-6);border-bottom:1px solid var(--c-border);}
+footer.site .fb img{height:26px;width:auto;margin-bottom:14px;}
+footer.site .fb p{font-size:var(--fs-xs);color:var(--c-text-faint);line-height:1.9;}
+footer.site nav ul{list-style:none;display:flex;gap:var(--sp-5);flex-wrap:wrap;}
+footer.site nav a{font-size:var(--fs-sm);color:var(--c-text-muted);font-weight:var(--fw-m);}
+footer.site nav a:hover{color:var(--c-primary);}
+footer.site .copy{padding-top:var(--sp-4);display:flex;justify-content:space-between;gap:var(--sp-4);flex-wrap:wrap;
+  font-size:var(--fs-xs);color:var(--c-text-faint);}
+.disclaimer{margin-top:var(--sp-4);background:var(--c-surface-2);border-radius:var(--r-md);padding:14px 18px;
+  font-size:var(--fs-xs);color:var(--c-text-muted);line-height:1.9;}
+
+/* ===== MODAL / SHEET ===== */
+/* ★ margin:auto を明示。全称リセット *{margin:0} が <dialog> のUA既定 margin:auto を
+   打ち消すため、これが無いとモーダルが中央に来ず左上に張り付く。 */
+/* ★ position は指定しないこと。
+   dialog:modal のUA既定 position:fixed / inset:0 を打ち消すと、ページをスクロールした状態で
+   モーダルが画面外に出る。閉じるボタンの absolute は、その fixed を基準に解決される。
+   margin:auto は明示が必要（全称リセット *{margin:0} がUA既定を打ち消すため）。 */
+dialog.md{border:none;padding:0;margin:auto;max-width:660px;width:calc(100% - 40px);
+  border-radius:var(--r-xl);box-shadow:0 30px 80px rgba(5,29,61,.36);overflow:visible;}
+dialog.md::backdrop{background:rgba(5,29,61,.55);backdrop-filter:blur(4px);}
+.md-in{padding:34px 36px 30px;max-height:min(86vh,720px);overflow-y:auto;overflow-x:hidden;
+  overscroll-behavior:contain;border-radius:inherit;}
+.md-top{display:flex;align-items:center;gap:10px;margin-bottom:15px;}
+.md-yr{font-family:var(--ff-num);font-size:var(--fs-xs);color:var(--c-text-faint);font-weight:600;margin-left:auto;}
+.md-in h3{font-size:var(--fs-2xl);line-height:1.5;margin-bottom:16px;}
+.m-member{display:flex;align-items:center;gap:10px;font-weight:var(--fw-b);color:var(--c-primary);
+  font-size:var(--fs-base);padding:12px 16px;background:var(--c-primary-weak);border-radius:var(--r-md);margin-bottom:20px;}
+.m-member svg{width:15px;height:15px;}
+.m-dl dt{font-size:var(--fs-xs);font-weight:var(--fw-b);color:var(--c-text-faint);letter-spacing:.08em;margin-bottom:5px;}
+.m-dl dd{font-size:var(--fs-base);color:var(--c-text-muted);line-height:2;margin-bottom:18px;}
+.m-out{background:var(--c-surface-2);border-radius:var(--r-md);padding:16px 19px;}
+.m-out .ol{display:block;font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--c-primary);margin-bottom:6px;}
+.m-out p{font-size:var(--fs-base);color:var(--c-text);line-height:1.95;}
+.m-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:1px solid var(--c-border);}
+.m-note{margin-top:16px;font-size:var(--fs-xs);color:var(--c-text-faint);}
+.md-close{position:absolute;top:-14px;right:-14px;width:42px;height:42px;border-radius:50%;background:#fff;
+  box-shadow:var(--e-2);display:flex;align-items:center;justify-content:center;color:var(--c-text-muted);
+  font-size:20px;line-height:1;z-index:3;}
+.md-close:hover{background:var(--c-primary);color:#fff;}
+dialog.sheet{border:none;padding:0;margin:0 0 0 auto;width:100%;max-width:100%;max-height:86vh;
+  border-radius:var(--r-xl) var(--r-xl) 0 0;position:fixed;bottom:0;top:auto;box-shadow:0 -20px 60px rgba(5,29,61,.3);}
+dialog.sheet::backdrop{background:rgba(5,29,61,.5);backdrop-filter:blur(3px);}
+.sheet-in{padding:20px 22px 28px;overflow-y:auto;max-height:86vh;}
+.sheet-in .hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+.sheet-in .hd h4{font-size:var(--fs-lg);}
+.sheet-in .hd .md-close{position:static;box-shadow:none;background:var(--c-surface-2);width:36px;height:36px;}
+.sheet-grp{margin-bottom:20px;}
+.sheet-grp .gl{font-size:var(--fs-xs);font-weight:var(--fw-b);color:var(--c-text-faint);letter-spacing:.08em;margin-bottom:10px;}
+.sheet-in .apply{width:100%;background:var(--c-primary);color:#fff;font-weight:var(--fw-b);
+  padding:15px;border-radius:var(--r-pill);font-size:var(--fs-base);margin-top:6px;}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1023px){
+  .gnav{display:none;}
+  .lang{margin-left:auto;}
+  .burger{display:flex;}
+  .hero-tx{max-width:none;}
+  .hero-veil{background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.92) 54%,rgba(255,255,255,.62) 100%);}
+  .hero-grid{mask-image:linear-gradient(180deg,transparent 0%,#000 100%);-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 100%);}
+  .jm-tag .tag-br{display:inline;}
+  .hero-art .chip-float{left:auto;right:14px;bottom:-14px;}
+  .v-head{grid-template-columns:1fr;}
+  .v-lead{padding-top:0;}
+  .steps{grid-template-columns:1fr;gap:0;}
+  .step-ar{transform:rotate(90deg);padding:8px 0;}
+  .ticker .inner{grid-template-columns:repeat(2,1fr);}
+  .stat:nth-child(3)::before{display:none;}
+  .grid.list .case{grid-template-columns:140px 1fr 100px;}
+  .grid.list .case .foot{display:none;}
+}
+@media(max-width:767px){
+  .mx-svg{display:none;}
+  .mx-frame{grid-template-columns:1fr;}
+  .yaxis{flex-direction:row;justify-content:flex-start;gap:10px;padding:0 0 12px;}
+  .yaxis span.t{writing-mode:horizontal-tb;}
+  .yaxis .line{flex:0 0 64px;width:auto;height:2px;margin:0;background:linear-gradient(90deg,var(--jm-blue-200),var(--jm-teal-500));}
+  .yaxis .line::before,.yaxis .line i{display:none;}
+  .xaxis,.foundation{margin-left:0;}
+  .matrix{grid-template-columns:1fr;padding:22px 18px;}
+  .foundation{grid-template-columns:1fr;gap:12px;justify-items:start;}
+  .foundation .fen,.foundation .fn{justify-self:start;}
+  .cta-band .inner{flex-direction:column;align-items:flex-start;}
+  .srow{grid-template-columns:1fr 20px;grid-template-areas:"cat arr" "name name" "brief brief";gap:6px 12px;}
+  .srow .scat{grid-area:cat;justify-self:start;}
+  .srow .sarr{grid-area:arr;}
+  .srow .sname{grid-area:name;}
+  .srow .sbrief{grid-area:brief;white-space:normal;}
+  .acc-inner{padding:0 16px 14px 16px;}
+  .acc-item.open .acc-bd{max-height:calc(var(--rows,8) * 132px + 34px);}
+}
+@media(max-width:599px){
+  :root{--header-h:62px;--gutter:16px;}
+  /* ロゴが横長（8.66:1）でページ名まで置くと入り切らないため、SPはロゴのみにする */
+  .hdr .inner{gap:12px;}
+  .brand{gap:9px;}
+  .brand img{height:19px;}
+  .brand .bar,.brand .pg{display:none;}
+  .lang button{width:31px;height:27px;font-size:10px;}
+  .burger{width:40px;height:40px;}
+  .hero .eyebrow{font-size:9px;letter-spacing:.1em;}
+  .hero .eyebrow::before{width:18px;}
+  .hero .cta{flex-direction:column;align-items:stretch;}
+  .btn{justify-content:center;}
+  .hero-art .chip-float{right:8px;padding:10px 14px;}
+  .sec-head .en{font-size:10.5px;letter-spacing:.16em;}
+  .stat .v{font-size:1.95rem;}
+  .count-badge{text-align:left;}
+  .count-badge .n{font-size:2.4rem;}
+  .grid,.svc-grid{grid-template-columns:1fr;}
+  .sfbar{grid-template-columns:1fr;gap:10px;}
+  .sfbar .flabel{padding-top:0;}
+  .accall{justify-self:stretch;justify-content:center;min-height:44px;}
+  .acc-hd{grid-template-columns:20px 1fr auto;gap:11px;padding:15px 16px;}
+  .acc-dots{display:none;}
+  .acc-name{font-size:var(--fs-base);}
+  /* フィルタはボタン1個に集約し、詳細はボトムシートで */
+  .frow{display:none;}
+  .frow.ftools{display:flex;border-top:none;margin-top:0;padding-top:0;}
+  .sp-filter-btn{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--c-primary);
+    color:var(--c-primary);font-weight:var(--fw-b);font-size:var(--fs-sm);padding:11px 20px;border-radius:var(--r-pill);
+    flex:1 1 auto;justify-content:center;min-height:44px;}
+  .sp-filter-btn .cnt{background:var(--c-primary);color:#fff;border-radius:var(--r-pill);font-size:11px;padding:1px 8px;font-family:var(--ff-num);}
+  .sp-filter-btn svg{width:15px;height:15px;}
+  .ftools .active-row{order:3;flex:1 1 100%;}
+  .sel.sp-sort select{padding:11px 34px 11px 14px;min-height:44px;}
+  .grid.list .case{grid-template-columns:1fr;gap:8px;padding:16px 18px 16px 24px;}
+  .grid.list .case h3{-webkit-line-clamp:2;}
+  .md-in{padding:26px 20px 24px;}
+  .md-close{top:-13px;right:-6px;width:38px;height:38px;}
+  .quad{padding:20px 18px 18px;}
+  .quad .qsub{display:block;margin:8px 0 0;}
+}
+
+/* MVのScroll目印は既定で非表示（メインビジュアル案Bだけ .hero .scroll-hint で表示する） */
+.scroll-hint{display:none;}
+
+
+/* ===== 2026-09-18 修正: 産業ビジョン（協会サイト）へのリンク ===== */
+.sec-head .vision-link{display:flex;width:fit-content;align-items:center;gap:8px;margin-top:14px;
+  font-size:var(--fs-sm);font-weight:var(--fw-b);color:var(--c-primary);line-height:1.6;
+  border-bottom:1px solid rgba(11,77,162,.35);padding-bottom:2px;transition:color var(--dur-2),border-color var(--dur-2);}
+.sec-head .vision-link:hover{color:var(--jm-blue-700);border-color:var(--jm-blue-700);}
+.sec-head .vision-link svg{width:14px;height:14px;flex:none;}
+.sec-head .vision-link + h2{margin-top:12px;}
+
+/* ===== 2026-09-18 修正: CTAはダミーである旨の注記 ===== */
+.cta-band .cta-dummy{flex:0 0 100%;width:100%;margin-top:18px;font-size:var(--fs-xs);line-height:1.8;
+  color:var(--c-text-on-dark-muted);position:relative;}
+
+/* SP: ティッカーのラベルを1行に収める */
+@media(max-width:599px){
+  .ticker .stat{padding:17px 8px 15px;}
+  .ticker .stat .k{font-size:11px;letter-spacing:-.02em;}
+}
+
+
+/* ===== 2026-09-20 実データ対応 ===== */
+/* 事例カード: 見出し（クライアント）→掲載元→課題→詳細リンク の4段 */
+.case{grid-template-rows:auto auto auto 1fr auto;}
+.case h3{min-height:0;-webkit-line-clamp:2;}
+.case .c-issue{margin-top:12px;font-size:var(--fs-sm);line-height:1.8;color:var(--c-text-muted);
+  display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+/* サービス行: カテゴリ・概要が無いため、サービス名と矢印だけの2列にする */
+.srow{grid-template-columns:1fr 20px;}
+/* サービスの絞り込みバー: チップが無くなるため右寄せ */
+.sfbar{justify-content:flex-end;}
+/* モーダル: 空の項目は行ごと隠す */
+.m-dl dt:has(+ dd:empty),.m-dl dd:empty{display:none;}
+
+/* ==========================================================================
+   メインビジュアル 案B ── 「可能性が、ひらく」（v3）
+   --------------------------------------------------------------------------
+   参考: https://www.toyota-battery.com/saiyo/
+   ・白いアイソメトリック3Dの街が画面いっぱいに広がり、その上に巨大見出し
+   ・書体は参考サイトと同一：見出し＝Kosugi／英字＝Poppins／本文＝Noto Sans JP
+     （同サイトの CSS 変数 --f-head / --f-en / --f-base を実測）
+   ・アクセントは JMRAブルー。見出しの「調」「意」だけ着色（参考の「可」「動」の型）
+   ・リード文は置かない（ビルド時に削除）。見出しと絵で語る
+   ・画像は左端まで街で埋め、ベールは文字の可読性に必要な最小限だけ
+   ========================================================================== */
+:root{
+  --ff-head-b:"Kosugi","Noto Sans JP",sans-serif;
+  --ff-en-b:"Poppins","Inter",sans-serif;
+}
+.hero{background:#F7FAFD;min-height:clamp(520px,58vw,640px);display:flex;flex-direction:column;justify-content:center;}
+/* 背景（v6）: 3Dの町をやめ、参考サイトと同じ「淡いグラデーション＋ゆっくり漂う色のにじみ」。リボンが主役になる */
+.hero-bg{background:
+  radial-gradient(ellipse 46% 62% at 78% 28%, rgba(205,223,247,.95) 0%, rgba(205,223,247,0) 70%),
+  radial-gradient(ellipse 42% 56% at 26% 88%, rgba(209,240,244,.85) 0%, rgba(209,240,244,0) 70%),
+  radial-gradient(ellipse 30% 42% at 58% 66%, rgba(228,222,248,.75) 0%, rgba(228,222,248,0) 70%),
+  linear-gradient(180deg,#FFFFFF 0%,#F2F6FB 100%);}
+.hero-bg::before,.hero-bg::after{content:"";position:absolute;border-radius:50%;filter:blur(56px);opacity:.85;pointer-events:none;}
+.hero-bg::before{width:46vw;height:46vw;max-width:640px;max-height:640px;right:-6%;top:-34%;
+  background:radial-gradient(circle,#C9DCF6 0%,#E6EFFA 58%,rgba(230,239,250,0) 72%);}
+.hero-bg::after{width:36vw;height:36vw;max-width:500px;max-height:500px;left:-8%;bottom:-44%;
+  background:radial-gradient(circle,#CDEFF3 0%,#E8F6F8 58%,rgba(232,246,248,0) 72%);}
+.js .hero-bg::before{animation:mvBlobA 22s ease-in-out infinite alternate;}
+.js .hero-bg::after{animation:mvBlobB 26s ease-in-out infinite alternate;}
+@keyframes mvBlobA{to{transform:translate(-9%,12%) scale(1.12);}}
+@keyframes mvBlobB{to{transform:translate(14%,-10%) scale(1.08);}}
+.hero-veil{display:none;}
+.hero-grid{display:none;}
+.jm-lockup{display:none;}
+
+.hero .inner{width:100%;padding-top:clamp(40px,4.5vw,64px);padding-bottom:clamp(56px,6vw,84px);}
+.hero-tx{max-width:min(860px,74%);}
+
+/* 英字ラベルを大きく（ご指示: 文字サイズを大きくしたい） */
+.hero .eyebrow{font-family:var(--ff-en-b);font-weight:600;color:var(--jm-blue-600);letter-spacing:.14em;
+  font-size:clamp(13px,1.2vw,17px);margin-bottom:var(--sp-4);}
+.hero .eyebrow::before{width:48px;}
+.hero .eyebrow::before{background:var(--jm-blue-600);}
+
+/* 巨大見出し（Kosugi は単一ウェイト。合成ボールドを避けて 400 で組む） */
+/* メインタイトル（ありたい未来を創る探究主体として／人を・企業を・社会をインスパイアする） */
+.hero h1.h1-big{
+  font-family:var(--ff-head-b);font-weight:400;
+  font-size:clamp(1.75rem,3.35vw,2.85rem);line-height:1.38;letter-spacing:-.005em;
+  color:#16202E;margin-top:6px;
+  text-shadow:0 1px 0 rgba(255,255,255,.7),0 0 24px rgba(255,255,255,.85);}
+/* サブタイトル（「調べる」から、「意思をつくる」へ。） */
+.hero .hero-sub{font-family:var(--ff-head-b);font-weight:400;
+  font-size:clamp(1.05rem,1.75vw,1.5rem);line-height:1.6;letter-spacing:.01em;color:#3B4A5C;
+  margin-top:14px;text-shadow:0 1px 0 rgba(255,255,255,.7),0 0 18px rgba(255,255,255,.8);}
+.hero .hero-sub .ac{color:var(--jm-blue-600);}
+.hero h1.h1-big .ac{color:var(--jm-blue-600);}
+
+/* CTA：参考の角ボタンに倣う */
+.hero .cta{margin-top:var(--sp-7);}
+.hero .btn{border-radius:8px;padding:16px 30px;font-family:var(--ff-ja);}
+.hero .btn-p{background:var(--jm-blue-600);box-shadow:0 8px 22px rgba(11,77,162,.24);}
+.hero .btn-p:hover{background:var(--jm-blue-700);}
+.hero .btn-g{background:rgba(255,255,255,.92);color:#16202E;border:1.5px solid #16202E;}
+.hero .btn-g:hover{background:#16202E;color:#fff;border-color:#16202E;}
+
+/* Scroll の目印（Poppins） */
+.scroll-hint{display:none;}
+.hero .scroll-hint{position:absolute;left:var(--gutter);bottom:18px;display:flex;align-items:center;gap:10px;
+  font-family:var(--ff-en-b);font-size:12px;letter-spacing:.06em;color:#4A5666;font-weight:500;}
+.hero .scroll-hint i{display:block;width:1px;height:34px;background:linear-gradient(180deg,#4A5666,transparent);
+  animation:sh 1.6s ease-in-out infinite;}
+@keyframes sh{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+html.still .hero .scroll-hint i{animation:none;transform:none;}
+
+/* ページ内の見出し・英字ラベルも参考サイトの書体に揃える（案Bのみ） */
+.sec-head h2,.cta-band h2{font-family:var(--ff-head-b);font-weight:400;letter-spacing:.01em;}
+.sec-head .en,.gnav a b,.brand .pg small,.count-badge .l,.step .lb,.quad .tag,.foundation .fen,
+.subhd,.acc-n b,.stat .v{font-family:var(--ff-en-b);}
+.stat .v{font-weight:600;}
+
+@media(max-width:1023px){
+  .hero-tx{max-width:100%;}
+  .hero-veil{background:radial-gradient(ellipse 90% 70% at 30% 30%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.35) 50%, rgba(255,255,255,0) 78%);}
+}
+@media(max-width:599px){
+  .hero{min-height:0;}
+  /* 「意思をつくる」へ。（10字）を1行に収める：375px − 余白36px ≒ 339px */
+  .hero h1.h1-big{font-size:clamp(1.34rem,5.7vw,1.5rem);line-height:1.5;letter-spacing:-.01em;}
+  .hero .hero-sub{font-size:1rem;margin-top:10px;}
+  .hero .eyebrow{letter-spacing:.04em;font-size:10px;white-space:nowrap;}  /* 44字を1行に収める */
+  .hero .scroll-hint{display:none;}
+}
+
+
+/* ==========================================================================
+   MVの動き（v5・参考: tokyotechnology.jp）
+   タイムライン: 0s 背景が静かに寄る → .25s 青いリボンが起点から描かれる(2.6s) → .5s 淡いリボン
+   → .55s/.72s 見出しが行ごとに立ち上がる → 1.3s ボタン → 1.9s Scroll → 3.2s〜 光がリボンを流れ続ける
+   still（撮影モード）と prefers-reduced-motion では最終状態を即表示
+   ========================================================================== */
+.hero .inner{position:relative;z-index:3;}
+.hero-bg{translate:0 var(--py,0px);will-change:transform;}
+.hero-ribbon{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible;
+  translate:0 var(--py,0px);}
+.rb{fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.rb-pale{stroke:url(#rbPale);stroke-width:58;opacity:.96;}
+.hero-ribbon.sp .rb-pale{stroke:url(#rbPaleS);stroke-width:30;}
+.rb-blue{stroke:url(#rbBlue);stroke-width:52;}
+.hero-ribbon.sp .rb-blue{stroke:url(#rbBlueS);stroke-width:26;}
+.rb-shine{stroke:#fff;stroke-width:52;opacity:.30;stroke-dasharray:.07 1;stroke-dashoffset:1.07;}
+.hero-ribbon.sp .rb-shine{stroke-width:26;}
+.hero-ribbon.sp{display:none;}
+.rb-core{fill:#0B4DA2;}
+.rb-pulse{fill:none;stroke:#0B4DA2;stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center;}
+.rb-dot{fill:#fff;stroke:#0B4DA2;stroke-width:2;opacity:0;}
+.hero h1.h1-big .ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em;}
+.hero h1.h1-big .ln-in{display:block;}
+.hero h1.h1-big .spbr,.hero .eyebrow .spbr2{display:none;}   /* PCでは1行、SPだけ改行する */
+
+/* --- 動き（JS有効時のみ。非JSは最終状態） --- */
+.js .hero-bg{opacity:0;animation:mvBgIn 1.6s ease forwards;}
+@keyframes mvBgIn{to{opacity:1;}}
+.js .rb-pale,.js .rb-blue{stroke-dasharray:1;stroke-dashoffset:1;animation:rbDraw 2.6s cubic-bezier(.6,0,.2,1) forwards;}
+.js .rb-blue{animation-delay:.25s;}
+.js .rb-pale{animation-delay:.5s;animation-duration:2.9s;}
+@keyframes rbDraw{to{stroke-dashoffset:0;}}
+.js .rb-shine{animation:rbShine 4.8s linear 3.2s infinite;}
+@keyframes rbShine{from{stroke-dashoffset:1.07;}to{stroke-dashoffset:-.07;}}
+.js .rb-pulse{animation:rbPulse 3.2s ease-out .6s infinite;}
+.js .rb-pulse.p2{animation-delay:2.2s;}
+@keyframes rbPulse{0%{transform:scale(.4);opacity:.55;}100%{transform:scale(3.4);opacity:0;}}
+.js .hero h1.h1-big .ln-in{transform:translateY(112%);animation:lnUp 1s cubic-bezier(.22,.61,.36,1) forwards;}
+.js .hero h1.h1-big .ln:nth-child(1) .ln-in{animation-delay:.55s;}
+.js .hero h1.h1-big .ln:nth-child(2) .ln-in{animation-delay:.72s;}
+@keyframes lnUp{to{transform:none;}}
+.js .hero .eyebrow,.js .hero .hero-sub,.js .hero .cta,.js .hero .scroll-hint{opacity:0;animation:mvFadeUp .8s cubic-bezier(.22,.61,.36,1) forwards;}
+.js .hero .hero-sub{animation-delay:1.05s;}
+.js .hero .eyebrow{animation-delay:.35s;}
+.js .hero .cta{animation-delay:1.3s;}
+.js .hero .scroll-hint{animation-delay:1.9s;}
+@keyframes mvFadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+
+/* --- 撮影モード／動きを減らす設定：最終状態を即表示 --- */
+html.still .hero-bg,html.still .hero-ribbon{opacity:1;translate:0 0;}
+html.still .rb-pale,html.still .rb-blue{stroke-dashoffset:0;}
+html.still .rb-shine{opacity:0;}
+html.still .rb-pulse{opacity:0;}
+html.still .rb-dot{display:none;}
+html.still .hero h1.h1-big .ln-in{transform:none;}
+html.still .hero .eyebrow,html.still .hero .hero-sub,html.still .hero .cta,html.still .hero .scroll-hint{opacity:1;}
+@media(prefers-reduced-motion:reduce){
+  .js .hero-bg,.js .rb-pale,.js .rb-blue,.js .rb-shine,.js .rb-pulse,.js .hero h1.h1-big .ln-in,
+  .js .hero .eyebrow,.js .hero .hero-sub,.js .hero .cta,.js .hero .scroll-hint,.js .hero-bg::before,.js .hero-bg::after{animation:none!important;}
+  .js .hero-bg{opacity:1;}
+  .js .rb-pale,.js .rb-blue{stroke-dashoffset:0;}
+  .rb-shine,.rb-pulse{opacity:0;} .rb-dot{display:none;}
+  .js .hero h1.h1-big .ln-in{transform:none;}
+  .js .hero .eyebrow,.js .hero .hero-sub,.js .hero .cta,.js .hero .scroll-hint{opacity:1;}
+}
+@media(max-width:599px){
+  .hero-ribbon.pc{display:none;}
+  .hero-ribbon.sp{display:block;opacity:.9;}
+}
+
+/* SP: メインタイトルを読みやすい位置で改行する（上のルールより後に置いて確実に効かせる） */
+@media(max-width:599px){
+  .hero h1.h1-big .spbr{display:block;}
+}
+
+/* SP: 英字ラベルは2行に分け、PCと同様に文字を大きくする（375px/360pxでも切れない） */
+@media(max-width:599px){
+  .hero .eyebrow{font-size:12.5px;letter-spacing:.03em;white-space:normal;line-height:1.55;align-items:flex-start;}
+  .hero .eyebrow::before{width:22px;margin-top:.62em;}
+  .hero .eyebrow .spbr2{display:block;}
+}
+
+
+/* ==========================================================================
+   2026-09-21 掲載データ（2項目）
+   MVの右半分はリボンが占めるため、見出し・ボタンと同じ左列に置く。
+   カードにはせず、細い罫線＋数字の一行で「見出しの補足情報」として静かに見せる。
+   事例一覧／サービス一覧への入口も兼ねる
+   ========================================================================== */
+.ticker{display:none;}
+.hero-stats{display:grid;grid-template-columns:auto auto;align-items:center;margin-top:clamp(28px,3vw,40px);
+  padding-top:clamp(16px,1.6vw,20px);border-top:1px solid rgba(11,77,162,.16);width:max-content;max-width:100%;}
+.hero-stats .hs{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none;padding-right:28px;}
+.hero-stats .hs + .hs{padding-left:28px;border-left:1px solid rgba(11,77,162,.16);}
+.hero-stats .v{display:flex;align-items:baseline;gap:2px;font-family:var(--ff-en-b);font-weight:600;
+  font-size:clamp(1.9rem,2.5vw,2.35rem);line-height:1;color:var(--jm-blue-600);font-variant-numeric:tabular-nums;letter-spacing:-.01em;}
+.hero-stats .v small{font-family:"Noto Sans JP",sans-serif;font-size:.8rem;font-weight:700;color:#5A6A7C;letter-spacing:0;margin-left:2px;}
+.hero-stats .k{position:relative;display:block;font-size:12px;line-height:1.5;color:#3B4A5C;font-weight:500;padding-right:18px;}
+.hero-stats .hs-go{position:absolute;right:0;bottom:3px;width:12px;height:12px;color:var(--jm-blue-600);transition:transform .25s ease;}
+.hero-stats .hs:hover .hs-go{transform:translateX(3px);}
+.hero-stats .hs:hover .k{color:var(--jm-blue-600);}
+.hero-stats .hs-note{grid-column:1/-1;margin:10px 0 0;font-size:10.5px;color:#7A8796;letter-spacing:.02em;}
+/* 動き：CTAのあとに出る */
+.js .hero .hero-stats{opacity:0;animation:mvFadeUp .8s cubic-bezier(.22,.61,.36,1) 1.55s forwards;}
+html.still .hero .hero-stats{opacity:1;}
+@media(prefers-reduced-motion:reduce){.js .hero .hero-stats{animation:none!important;opacity:1;}}
+/* 〜1199px：リボンの起点が左列に寄ってくるため、数字の下に説明を置く縦組みにして幅を詰める */
+@media(max-width:1199px){
+  .hero-stats{align-items:start;}
+  .hero-stats .hs{flex-direction:column;align-items:flex-start;gap:6px;padding-right:24px;}
+  .hero-stats .hs + .hs{padding-left:24px;}
+  .hero .scroll-hint{display:none;}   /* 掲載データの注記と詰まるため */
+}
+@media(max-width:599px){
+  .hero-stats{width:100%;margin-top:24px;padding-top:16px;grid-template-columns:1fr 1fr;align-items:start;}
+  .hero-stats .hs{min-width:0;flex-direction:column;align-items:flex-start;gap:6px;padding-right:12px;}
+  .hero-stats .hs + .hs{padding-left:16px;}
+  .hero-stats .v{font-size:1.9rem;}
+  .hero-stats .k{font-size:11.5px;}
+}
+
+
+/* ==========================================================================
+   2026-09-21 SP・タブレット（〜1023px）のメニュー
+   「≡」を押すとヘッダーの下にページ内メニューが開く。項目を押す／外側を押す／Escで閉じる
+   ========================================================================== */
+@media(max-width:1023px){
+  .burger{margin-left:auto;position:relative;}
+  .burger span{transition:transform .28s ease,opacity .2s ease;}
+  .hdr.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hdr.nav-open .burger span:nth-child(2){opacity:0;}
+  .hdr.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .hdr .gnav{display:block;position:absolute;left:0;right:0;top:100%;margin:0;
+    background:#fff;   /* ヘッダー自体がすりガラスのため、入れ子にせず不透明な白にする（入れ子だと下が透ける） */
+    border-top:1px solid var(--c-border);box-shadow:0 18px 30px -12px rgba(11,40,80,.18);
+    visibility:hidden;opacity:0;transform:translateY(-8px);pointer-events:none;
+    transition:opacity .25s ease,transform .25s ease,visibility 0s linear .25s;}
+  .hdr.nav-open .gnav{visibility:visible;opacity:1;transform:none;pointer-events:auto;
+    transition:opacity .25s ease,transform .25s ease,visibility 0s;}
+  .hdr .gnav ul{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:var(--container);margin:0 auto;padding:8px var(--gutter) 14px;}
+  .hdr .gnav li{border-bottom:1px solid var(--c-border);}
+  .hdr .gnav a{display:flex;flex-direction:column;justify-content:center;min-height:64px;padding:12px 6px;border-radius:0;font-size:15px;}
+  .hdr .gnav a b{margin-bottom:3px;}
+}
+@media(max-width:599px){
+  .hdr .gnav ul{grid-template-columns:1fr;}
+  .hdr .gnav a{min-height:58px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .hdr .gnav,.burger span{transition:none!important;}
+}
+
+</style>
+</head>
+<body data-plan="デザイン案B（可能性が、ひらく）">
+<!-- ============================================================================
+     合言葉ゲート（自己完結ブロック）
+     ----------------------------------------------------------------------------
+     ・GitHub Pages は静的配信のため Basic認証が使えない。社内標準の「合言葉ゲート」で覆う。
+     ・合言葉は平文で置かず SHA-256 のハッシュのみを持つ（ソースを見ても文字列は読めない）。
+     ・一度入れれば localStorage に記録し、次回から自動で開く。
+     ・ローカル（127.0.0.1 / localhost / file://）では検証・撮影のため自動で解除する。
+     ※ 静的サイトのクライアント側ゲートのため、これは「覗き見防止」であり
+       アクセス制御ではない。URLと合言葉の取り扱いは通常どおりご注意ください。
+     ============================================================================ -->
+<style>
+html.gate-on,html.gate-on body{overflow:hidden !important;height:100%;}
+#jmGate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
+  padding:24px;background:linear-gradient(150deg,#072C5C 0%,#0B4DA2 62%,#1C60B0 100%);
+  font-family:"Noto Sans JP","Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;}
+html:not(.gate-on) #jmGate{display:none;}
+#jmGate .jg-box{width:min(430px,100%);background:#fff;border:none;border-radius:16px;padding:38px 34px 30px;
+  box-shadow:0 30px 80px rgba(5,29,61,.4);text-align:center;margin:0;}
+#jmGate .jg-lg{height:26px;width:auto;margin:0 auto 18px;display:block;}
+#jmGate .jg-en{display:block;font-family:"Libre Baskerville","Times New Roman",serif;font-size:10.5px;
+  font-weight:700;letter-spacing:.18em;color:#0B4DA2;background:none;padding:0;margin:0;}
+#jmGate .jg-org{font-size:12px;line-height:1.7;color:#4A5666;margin-top:8px;}
+#jmGate h1{font-family:"BIZ UDPMincho","Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:19px;line-height:1.55;margin:4px 0 8px;color:#16202E;font-weight:700;letter-spacing:.04em;}
+#jmGate p{font-size:12.5px;line-height:1.85;color:#4A5666;margin-bottom:20px;}
+#jmGate form{display:flex;flex-direction:column;gap:10px;}
+#jmGate input{border:1.5px solid #DCE3EC;border-radius:999px;padding:13px 20px;font-size:14px;
+  text-align:center;font-family:inherit;color:#16202E;}
+#jmGate input:focus{outline:none;border-color:#0B4DA2;box-shadow:0 0 0 3px rgba(11,77,162,.18);}
+#jmGate button{border:none;border-radius:999px;padding:14px;font-size:14px;font-weight:700;
+  background:#0B4DA2;color:#fff;cursor:pointer;font-family:inherit;transition:background .2s;}
+#jmGate button:hover{background:#093C7E;}
+#jmGate .jg-err{color:#C0392B;font-size:12.5px;margin-top:12px;min-height:19px;}
+#jmGate .jg-note{font-size:11px;color:#7A8698;margin:18px 0 0;background:none;border:none;
+  border-top:1px solid #DCE3EC;border-radius:0;padding:14px 0 0;line-height:1.8;text-align:center;}
+</style>
+
+<div id="jmGate" role="dialog" aria-modal="true" aria-label="合言葉の入力">
+  <div class="jg-box">
+    <img class="jg-lg" src="images/logo_jmra.png" alt="" onerror="this.style.display='none'">
+    <div class="jg-en">CONFIDENTIAL</div>
+    <div class="jg-org">一般社団法人 日本マーケティング・リサーチ協会 様</div>
+    <h1>産業ビジョンLP ご提案</h1>
+    <p>ご案内した合言葉をご入力ください。<br>次回からは自動で開きます。</p>
+    <form id="jmGateForm" autocomplete="off">
+      <input type="password" id="jmGatePass" placeholder="合言葉" aria-label="合言葉" autocomplete="current-password">
+      <button type="submit">開く</button>
+    </form>
+    <div class="jg-err" id="jmGateErr" role="alert"></div>
+    <div class="jg-note">合言葉が分からない場合は、担当（株式会社インフォネット）までお問い合わせください。</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var HASH = 'a7b425549e834b906061779c946e3e9fddd5a3e487f3b2570d9313a42aded3bf';
+  var KEY  = 'jmra_vision_gate';
+  var html = document.documentElement;
+  var host = location.hostname;
+  var local = (host === '127.0.0.1' || host === 'localhost' || host === '');
+
+  function open_(){ html.classList.remove('gate-on'); }
+
+  /* ローカル（検証・スクリーンショット撮影）では素通し */
+  if (local) { open_(); return; }
+  try { if (localStorage.getItem(KEY) === HASH) { open_(); return; } } catch (e) {}
+
+  async function sha256(t){
+    var b = new TextEncoder().encode(t);
+    var d = await crypto.subtle.digest('SHA-256', b);
+    return Array.prototype.map.call(new Uint8Array(d), function(x){
+      return ('0' + x.toString(16)).slice(-2);
+    }).join('');
+  }
+
+  var form = document.getElementById('jmGateForm');
+  var input = document.getElementById('jmGatePass');
+  var err = document.getElementById('jmGateErr');
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    err.textContent = '';
+    var v = (input.value || '').trim();
+    if (!v) { err.textContent = '合言葉をご入力ください。'; return; }
+    /* crypto.subtle は https / localhost でのみ使える。使えない環境では入力を弾かない設計にはしない。 */
+    if (!(window.crypto && crypto.subtle)) { err.textContent = 'この環境では確認できませんでした。'; return; }
+    sha256(v).then(function(h){
+      if (h === HASH) {
+        try { localStorage.setItem(KEY, HASH); } catch (e) {}
+        open_();
+      } else {
+        err.textContent = '合言葉が違うようです。';
+        input.value = ''; input.focus();
+      }
+    }).catch(function(){ err.textContent = '確認できませんでした。'; });
+  });
+
+  setTimeout(function(){ try{ input.focus(); }catch(e){} }, 60);
+})();
+</script>
+<!-- ===================== 合言葉ゲート ここまで ===================== -->
+
+<header class="hdr" id="hdr">
+  <div class="inner">
+    <a class="brand" href="#top">
+      <img src="images/logo_jmra.png" alt="一般社団法人 日本マーケティング・リサーチ協会" width="831" height="96">
+      <span class="bar"></span>
+      <span class="pg"><span class="pg-long">マーケティング・リサーチ産業VISION</span><span class="pg-short">産業VISION</span><small>Industry Vision</small></span>
+    </a>
+    <nav class="gnav" id="gnav" aria-label="ページ内メニュー">
+      <ul>
+        <li><a href="#vision"><b>VISION</b>産業ビジョン</a></li>
+        <li><a href="#map"><b>MAP</b>提供価値マップ</a></li>
+        <li><a href="#cases"><b>CASES</b>支援実績事例</a></li>
+        <li><a href="#services"><b>SERVICE</b>独自サービス</a></li>
+      </ul>
+    </nav>
+    <button class="burger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="gnav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<div class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-grid"></div><!-- 案B：MVの動き「ひとつのインサイトから、可能性がひらく」（参考: tokyotechnology.jp のリボン）
+     ・起点（青い点）から1本のリボンが描かれ、右上へ大きくひらいて画面外へ抜ける
+     ・淡いリボンがもう1本、下側にひらく（2本が交差して"結び目"をつくる）
+     ・描画後は光がリボンを流れ続け、小さな粒が起点から旅立つ（＝価値の広がり）
+     ・pathLength=1 で長さを正規化し、CSSの stroke-dashoffset 1→0 で描く。外部ライブラリ不要
+     ・PC用（1600×730 ＝ ヒーロー実寸 約1400×640 と同比率）と SP用（400×620）を用意し、CSSで切り替える
+       （参考サイトも pc/sp の2本立て）。xMidYMid slice なので、経路は中央帯（y 120〜620）に収める -->
+<svg class="hero-ribbon pc" viewBox="0 0 1600 730" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="rbBlue" gradientUnits="userSpaceOnUse" x1="700" y1="560" x2="1720" y2="120">
+      <stop offset="0" stop-color="#0B4DA2"/><stop offset=".55" stop-color="#1C7BD1"/><stop offset="1" stop-color="#7FD3F0"/>
+    </linearGradient>
+    <linearGradient id="rbPale" gradientUnits="userSpaceOnUse" x1="700" y1="560" x2="1740" y2="660">
+      <stop offset="0" stop-color="#AFC9EE"/><stop offset="1" stop-color="#DCE8F7"/>
+    </linearGradient>
+    <filter id="rbShadow" x="-20%" y="-40%" width="140%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#0B4DA2" flood-opacity=".16"/>
+    </filter>
+    <path id="rbPath1" d="M 700 560 C 830 560 900 460 1000 380 C 1130 275 1330 220 1440 300 C 1560 390 1470 540 1300 540 C 1140 540 1080 420 1180 340 C 1290 250 1480 190 1720 120"/>
+  </defs>
+  <g class="rb-g" filter="url(#rbShadow)" transform="translate(44 12)">
+    <path class="rb rb-pale" pathLength="1" d="M 700 560 C 790 660 980 700 1150 640 C 1330 580 1400 470 1540 480 C 1660 490 1700 570 1740 660"/>
+    <path class="rb rb-blue" pathLength="1" d="M 700 560 C 830 560 900 460 1000 380 C 1130 275 1330 220 1440 300 C 1560 390 1470 540 1300 540 C 1140 540 1080 420 1180 340 C 1290 250 1480 190 1720 120"/>
+    <path class="rb rb-shine" pathLength="1" d="M 700 560 C 830 560 900 460 1000 380 C 1130 275 1330 220 1440 300 C 1560 390 1470 540 1300 540 C 1140 540 1080 420 1180 340 C 1290 250 1480 190 1720 120"/>
+  </g>
+  <g class="rb-origin" transform="translate(744 572)">
+    <circle class="rb-pulse" r="18"/>
+    <circle class="rb-pulse p2" r="18"/>
+    <circle class="rb-core" r="10"/>
+  </g>
+  <g class="rb-dots" transform="translate(44 12)">
+    <circle class="rb-dot" r="6">
+      <animateMotion dur="7s" begin="2.8s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".45 0 .2 1"><mpath href="#rbPath1"/></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.88;1" dur="7s" begin="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="rb-dot" r="4.5">
+      <animateMotion dur="7s" begin="4.6s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".45 0 .2 1"><mpath href="#rbPath1"/></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.88;1" dur="7s" begin="4.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="rb-dot" r="3.5">
+      <animateMotion dur="7s" begin="6.1s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".45 0 .2 1"><mpath href="#rbPath1"/></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.88;1" dur="7s" begin="6.1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
+<svg class="hero-ribbon sp" viewBox="0 0 400 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="rbBlueS" gradientUnits="userSpaceOnUse" x1="290" y1="610" x2="430" y2="200">
+      <stop offset="0" stop-color="#0B4DA2"/><stop offset=".55" stop-color="#1C7BD1"/><stop offset="1" stop-color="#7FD3F0"/>
+    </linearGradient>
+    <linearGradient id="rbPaleS" gradientUnits="userSpaceOnUse" x1="290" y1="610" x2="420" y2="470">
+      <stop offset="0" stop-color="#AFC9EE"/><stop offset="1" stop-color="#DCE8F7"/>
+    </linearGradient>
+    <filter id="rbShadowS" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0B4DA2" flood-opacity=".16"/>
+    </filter>
+    <path id="rbPathS" d="M 290 610 C 360 560 420 480 350 400 C 290 330 350 270 440 230"/>
+  </defs>
+  <g class="rb-g" filter="url(#rbShadowS)">
+    <path class="rb rb-pale" pathLength="1" d="M 290 610 C 240 540 300 460 430 470"/>
+    <path class="rb rb-blue" pathLength="1" d="M 290 610 C 360 560 420 480 350 400 C 290 330 350 270 440 230"/>
+    <path class="rb rb-shine" pathLength="1" d="M 290 610 C 360 560 420 480 350 400 C 290 330 350 270 440 230"/>
+  </g>
+  <g class="rb-origin" transform="translate(290 610)">
+    <circle class="rb-pulse" r="9"/>
+    <circle class="rb-core" r="5"/>
+  </g>
+  <g class="rb-dots">
+    <circle class="rb-dot" r="3">
+      <animateMotion dur="5s" begin="2.8s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".45 0 .2 1"><mpath href="#rbPathS"/></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.86;1" dur="5s" begin="2.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
+
+  <div class="inner">
+    <div class="hero-tx">
+      <span class="eyebrow">JMRA INDUSTRY VISION — <br class="spbr2">FROM RESEARCH TO INSIGHT</span>
+      <h1 class="h1-big"><span class="ln"><span class="ln-in">ありたい未来を創る<br class="spbr">探究主体として</span></span><span class="ln"><span class="ln-in">人を・企業を・社会を<br class="spbr"><span class="ac">インスパイア</span>する</span></span></h1>
+      <p class="hero-sub">「<span class="ac">調</span>べる」から、「<span class="ac">意</span>思をつくる」へ。</p>
+      <div class="cta">
+        <a class="btn btn-g" href="#vision">産業ビジョンについて</a>
+        <a class="btn btn-p" href="#cases">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          支援実績事例を見る
+        </a>
+      </div>
+      <!-- 掲載データ（2026-09-21: リボンと重ならないよう、見出しと同じ左列・ボタンの下に置く。数字＝いただいたリストの掲載件数）
+           「正会員社数」「協会設立からの歩み」は根拠が確認できないため非表示（協会様の確認後に必要なら復活） -->
+      <div class="hero-stats" aria-label="このページの掲載データ">
+        <a class="hs" href="#cases"><span class="v"><span class="cnt" data-to="111">0</span><small>件</small></span><span class="k">加盟各社の<br>支援事例掲載数<svg class="hs-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></a>
+        <a class="hs" href="#services"><span class="v"><span class="cnt" data-to="146">0</span><small>件</small></span><span class="k">加盟各社の<br>サービス掲載数<svg class="hs-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><span>Scroll</span><i></i></div>
+  </div>
+</div>
+
+<!-- ============================ VISION ============================ -->
+<section class="vision" id="vision">
+  <div class="inner">
+    <div class="v-head">
+      <div class="sec-head rv">
+        <span class="en">Vision</span>
+        <a class="vision-link" href="https://www.jmra-net.or.jp/aboutus/sangyovision/" target="_blank" rel="noopener">
+          JMRA 産業ビジョンのページを見る
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H5v14h14v-4"/><path d="M14 5h5v5"/><path d="M19 5l-8 8"/></svg>
+        </a>
+        <h2>産業ビジョンが<br class="pcbr">目指すもの</h2>
+      </div>
+      <p class="v-lead rv">これまでのリサーチ産業の価値は、正確な事実を、最適な手法で導き提供することにありました。その基盤は変わりません。変わったのは、その先です。事実を意思決定に翻訳し、組織の合意をつくり、事業成果につなぐところまで、加盟各社の関与は確実に広がっています。JMRAはこの状態を<b>インサイト産業</b>と定義します。</p>
+    </div>
+
+    <div class="steps rv">
+      <div class="step">
+        <span class="lb">Before</span>
+        <h3>調査を納品する</h3>
+        <p>与えられた設問に、精度の高い答えを返す。役割は工程の一部。</p>
+      </div>
+      <div class="step-ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></svg></div>
+      <div class="step">
+        <span class="lb">Shift</span>
+        <h3>問いから設計する</h3>
+        <p>何を明らかにすべきかを共に定義し、意思決定のための示唆を導く。</p>
+      </div>
+      <div class="step-ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></svg></div>
+      <div class="step now">
+        <span class="lb">After</span>
+        <h3>意思を実装する</h3>
+        <p>意思決定と事業実装に伴走し、成果創出まで関与する。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ VALUE MAP ============================ -->
+<section id="map">
+  <div class="inner">
+    <div class="sec-head rv">
+      <span class="en">Value Map</span>
+      <h2>提供価値の広がりを、2つの軸で捉える</h2>
+      <p>縦軸は「意思決定への関与を高める」（インサイトの提案 → 実装）、横軸は「意思創出への関与を強める」（プロジェクト・業務課題 → 組織・事業課題）。4象限に当てはまらない事例は、下の一覧の「その他」「分類未設定」から確認できます。<b>象限を選ぶと、下の事例一覧が絞り込まれます。</b></p>
+    </div>
+
+    <div class="matrix-wrap rv">
+     <div class="mx-frame">
+      <div class="yaxis" aria-hidden="true">
+        <span class="t hi">インサイト実装</span>
+        <span class="line"><i>意思決定への関与を高める</i></span>
+        <span class="t">インサイト提案</span>
+      </div>
+      <div class="matrix" id="matrix">
+        <svg class="mx-svg mx-axes" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <line class="ax" x1="50" y1="3" x2="50" y2="97" vector-effect="non-scaling-stroke"/>
+          <line class="ax" x1="3" y1="50" x2="97" y2="50" vector-effect="non-scaling-stroke"/>
+        </svg>
+
+        <button class="quad" data-quad="q2" style="--cat:#12A5C8">
+          <span class="qno">02</span><span class="qsub">未来の予測・兆しの構造化</span>
+          <h4>予測をつくる</h4>
+          <p>分散したデータを構造化して変化の兆しを継続的に捉え、未来への意思決定を後押しする「判断のインフラ」を構築する。</p>
+          <span class="qfoot"><span class="qn"><b class="qcount" data-cat="q2">0</b>件</span><span class="qtag">市場将来展望／需要予測／兆しの言語化</span></span>
+        </button>
+        <button class="quad q-goal" data-quad="q4" style="--cat:#6B4FD6">
+          <span class="goal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>目指す姿</span>
+          <span class="qno">04</span><span class="qsub">コンセプト創出・実装への伴走</span>
+          <h4>カタチをつくる</h4>
+          <p>リサーチでの発見をコンセプトやクリエイティブへ翻訳し、事業・商品・施策となるまで試行錯誤を共に重ね、成果へと伴走する。</p>
+          <span class="qfoot"><span class="qn"><b class="qcount" data-cat="q4">0</b>件</span><span class="qtag">新製品コンセプト／事業実装／施策実装</span></span>
+        </button>
+        <button class="quad" data-quad="q1" style="--cat:#0B4DA2">
+          <span class="qno">01</span><span class="qsub">問いの提示・視点転換</span>
+          <h4>問いをつくる</h4>
+          <p>豊富なナレッジと生活者視点を基に、クライアントの前提を問い直し「本当に解くべき本質的な論点」を設定する。</p>
+          <span class="qfoot"><span class="qn"><b class="qcount" data-cat="q1">0</b>件</span><span class="qtag">課題定義／インサイト発掘／再定義</span></span>
+        </button>
+        <button class="quad" data-quad="q3" style="--cat:#2FA37A">
+          <span class="qno">03</span><span class="qsub">共通言語の設計・共創の場</span>
+          <h4>共通言語をつくる</h4>
+          <p>部署や拠点ごとの市場・顧客理解をひとつの「共通言語」に揃え、組織全体が同じ前提で挑める強い推進力を生み出す。</p>
+          <span class="qfoot"><span class="qn"><b class="qcount" data-cat="q3">0</b>件</span><span class="qtag">共創WS／ペルソナ共有／全社浸透</span></span>
+        </button>
+      </div>
+     </div>
+
+     <div class="xaxis" aria-hidden="true">
+       <span class="pole"><i class="dot dot-l"></i>プロジェクト・業務課題</span>
+       <span class="line"><i>意思創出への関与を強める</i></span>
+       <span class="pole r">組織・事業課題<i class="dot dot-r"></i></span>
+     </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CASES ============================ -->
+<section class="cases" id="cases">
+  <div class="inner">
+    <div class="cases-head">
+      <div class="sec-head rv" style="margin-bottom:0">
+        <span class="en">Cases</span>
+        <h2>加盟各社の支援実績事例</h2>
+        <p>価値創出のパターン、または会員企業で絞り込めます。</p>
+      </div>
+      <div class="count-badge rv">
+        <div class="n"><span id="bigCount">0</span></div>
+        <div class="l" id="bigCountLbl">件を表示中</div>
+      </div>
+    </div>
+
+    <div class="fbar" id="fbar">
+      <div class="inner" style="padding:0">
+        <div class="frow">
+          <span class="flabel">カテゴリ</span>
+          <div class="chips" id="catChips"></div>
+        </div>
+        <div class="frow">
+          <span class="flabel">会員企業</span>
+          <div class="chips memchips" id="memChips"></div>
+        </div>
+        <div class="frow ftools">
+          <button class="sp-filter-btn" id="spFilter" aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 5h18"/><path d="M6 12h12"/><path d="M10 19h4"/></svg>
+            絞り込み<span class="cnt" id="spCnt" hidden>0</span>
+          </button>
+          <div class="active-row" id="activeRow"></div>
+          <div class="sel sp-sort"><select id="selSort" aria-label="並べ替え">
+            <option value="mix">各社まんべんなく</option>
+            <option value="list">掲載順（リストの並び）</option>
+            <option value="kana">会員企業名（五十音）</option>
+            <option value="cat">カテゴリ順</option>
+          </select></div>
+          <div class="viewtgl" role="group" aria-label="表示切替">
+            <button id="vCard" class="on" aria-label="カード表示" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></button>
+            <button id="vList" aria-label="リスト表示" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <div class="empty" id="empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/><path d="M8.5 11h5"/></svg>
+      <h4>条件に一致する事例が見つかりませんでした</h4>
+      <p>絞り込み条件を減らすと、より多くの事例が表示されます。</p>
+      <button class="btn-s" id="emptyClear">条件をすべて解除する</button>
+    </div>
+
+    <div class="loadmore" id="loadWrap">
+      <button class="btn-o" id="loadMore">さらに表示する<span class="num" id="restN"></span></button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================ SERVICES ============================ -->
+<section class="services" id="services">
+  <div class="inner">
+    <div class="cases-head">
+      <div class="sec-head on-dark rv" style="margin-bottom:0">
+        <span class="en">Services</span>
+        <h2>加盟各社の独自サービス</h2>
+        <p>従来の調査メニューには収まらない、各社が自社で開発・提供しているサービス群。件数が多いため、<b>提供会社ごとにまとめて</b>掲載しています。会社名をクリックすると開きます。</p>
+      </div>
+      <div class="count-badge on-dark rv">
+        <div class="n"><span id="svcBig">0</span></div>
+        <div class="l" id="svcBigLbl">件</div>
+      </div>
+    </div>
+
+    <!-- 注目サービス（絞り込み前のみ表示） -->
+    <div class="svc-feature rv" id="svcFeature">
+      <div class="subhd"><span class="dot"></span>注目のサービス</div>
+      <div class="svc-grid" id="svcGrid"></div>
+    </div>
+
+    <!-- 絞り込み＋一括開閉 -->
+    <div class="sfbar rv">
+      <div class="chips" id="svcCatChips"></div>
+      <button class="accall" id="svcToggleAll" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l4-4 4 4"/><path d="M16 15l-4 4-4-4"/></svg>
+        <span>すべて開く</span>
+      </button>
+    </div>
+
+    <!-- 提供会社アコーディオン -->
+    <div class="acc rv" id="svcAcc"></div>
+
+    <div class="empty on-dark" id="svcEmpty">
+      <h4>該当するサービスがありません</h4>
+      <p>カテゴリの選択を解除すると、すべてのサービスが表示されます。</p>
+      <button class="btn-s" id="svcClear">すべて表示する</button>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site">
+  <div class="inner">
+    <div class="top">
+      <div class="fb">
+        <img src="images/logo_jmra.png" alt="一般社団法人 日本マーケティング・リサーチ協会" width="831" height="96">
+        <p>一般社団法人 日本マーケティング・リサーチ協会<br>Japan Marketing Research Association</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="https://www.jmra-net.or.jp/aboutus/" target="_blank" rel="noopener">JMRAのご紹介</a></li>
+          <li><a href="https://www.jmra-net.or.jp/membership/" target="_blank" rel="noopener">JMRA会員について</a></li>
+          <li><a href="https://www.jmra-net.or.jp/guidance/" target="_blank" rel="noopener">入会のご案内</a></li>
+          <li><a href="https://www.jmra-net.or.jp/rule/" target="_blank" rel="noopener">綱領・ガイドライン</a></li>
+          <li><a href="https://www.jmra-net.or.jp/committee/" target="_blank" rel="noopener">委員会活動</a></li>
+          <li><a href="https://www.jmra-net.or.jp/activities/" target="_blank" rel="noopener">事業活動</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="copy">
+      <span>© Japan Marketing Research Association. All Rights Reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ MODAL ============================ -->
+<dialog class="md" id="modal">
+  <button class="md-close" id="mdClose" aria-label="閉じる">×</button>
+  <div class="md-in">
+    <div class="md-top"><span class="cchip" id="mdCat"></span><span class="md-yr" id="mdYr"></span></div>
+    <h3 id="mdTitle"></h3>
+    <div class="m-member" id="mdMember"></div>
+    <dl class="m-dl">
+      <dt>課題／背景</dt><dd id="mdIssue"></dd>
+      <dt>支援内容</dt><dd id="mdAction"></dd>
+      <dt>備考</dt><dd id="mdNote"></dd>
+    </dl>
+    <div class="m-meta" id="mdMeta"></div>
+    <div class="m-actions" id="mdActions"></div>
+  </div>
+</dialog>
+
+<!-- サービス詳細モーダル -->
+<dialog class="md" id="smodal">
+  <button class="md-close" id="smClose" aria-label="閉じる">×</button>
+  <div class="md-in">
+    <h3 id="smName"></h3>
+    <div class="m-member" id="smMember"></div>
+    <div class="m-actions" id="smActions"></div>
+  </div>
+</dialog>
+
+<!-- ============================ SP FILTER SHEET ============================ -->
+<dialog class="sheet" id="sheet">
+  <div class="sheet-in">
+    <div class="hd"><h4>条件で絞り込む</h4><button class="md-close" id="shClose" aria-label="閉じる">×</button></div>
+    <div class="sheet-grp"><div class="gl">カテゴリ</div><div class="chips" id="shCat"></div></div>
+    <div class="sheet-grp"><div class="gl">会員企業</div><div class="chips memchips" id="shMem"></div></div>
+    <button class="apply" id="shApply">この条件で表示する</button>
+  </div>
+</dialog>
+
+<script type="application/json" id="case-data">[{"id":"c001","cat":"q3","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","issue":"長期未来シナリオはあるが独自技術を市場ニーズへつなぐ客観的根拠が必要／R&D・企画・デザインが同じ方向を向く共通言語と合意形成の場が必要","action":"未来シナリオと技術の間に「機能・効能・便益」レイヤーを挟むSN変換で共通言語を設計。職種横断WS＋定量調査でニーズ仮説を検証","outcome":"4つのニーズグループと価値観を特定し中長期の開発方針の羅針盤に。共通体験により部門間の合意形成が円滑化","note":"","url":"https://www.cross-m.co.jp/case_study/kokuyo20260501"},{"id":"c002","cat":"q1","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","issue":"調査結果から若者のオーラルケア意識向上アイデアを考えようとしたが、結果を施策へ落とす動線作りが難航（インサイトに至れていない）","action":"インサイトコンサル参画。独自フレームワーク＋体験型WSでリサーチデータと社会トレンドを合わせ多角的に解釈（視点転換）","outcome":"健康価値観を「オーラルケア」から「ウェルビーイング」に再定義し、コミュニケーション方向性を提示","note":"","url":"https://www.cross-m.co.jp/case_study/sunstar20240208"},{"id":"c003","cat":"q1","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","issue":"アフターコロナを見据えたOMO強化およびハウスカードを含むCRM戦略見直し。ロイヤル顧客の共通項や育成要因をデータで把握したい","action":"ジャーニーデータ分析＋ユーザーインタビューで仮説を検証。5年スパンのデータで長期行動を追跡し示唆を抽出","outcome":"LTV/満足要因の抽出と優先順位付け、顧客ニーズ別のCRM施策案を導出。ポイントは経済価値より感情価値が重要などの発見","note":"","url":"https://www.cross-m.co.jp/case_study/united-arrows20231211"},{"id":"c004","cat":"q3","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","issue":"複数部署・職務から選抜された新規事業部のチームビルディング／新規事業アイデアの集約と自社コアコンピタンス×社会ニーズを捉えた事業構想化","action":"デザイン思考型ワークショップ（アイディエーション）でアイデア整理とコアコンピタンスの共通認識形成。精査アイデアを新規事業コンセプトへ構想化（インサイトプロポーザル）","outcome":"社外視点も踏まえた事業アイデア複数案を策定。方向性の共通化・チームビルディングが進み、サービスローンチにも接続","note":"","url":"https://www.cross-m.co.jp/case_study/asahi-shimbun20231211"},{"id":"c005","cat":"q3","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","issue":"新規ターゲット獲得を促進したいが、スタッフの経験/感性に寄りがちで論理的な戦略立案が難しい。顧客像の違いは把握してもアクション具体化が難しい","action":"定量データで課題把握→既存/新規顧客インタビュー→解釈/考察の場を設計→顧客視点で価値を明確化しKPI設定、5W1Hでアクション案へ。視点転換WSも実施","outcome":"提供価値/体験の共通認識が浸透し意思決定の軸を形成。価値観に沿った施策実行で共感・高評価獲得（例：シーズンコンセプト、プロモKW、他業種タイアップ）","note":"","url":"https://www.cross-m.co.jp/case_study/tsi20231211"},{"id":"c006","cat":"q1","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","issue":"マーケティング部が受動的で、店舗/イベント/ECなど顧客情報が分散管理され統合的な顧客理解ができない。CRM概念やLTV活用が未成熟","action":"ジャーニーデータ分析を軸に、データの見方/分析手法の学習→LTV高い顧客層分析→セグメント別メッセージのテスト設計→反応でセグメント再設計のサイクル確立。星取表/個票分析で解像度向上","outcome":"マーケ部の役割明確化と自律化、データドリブン文化醸成（他部署から分析依頼増）。顧客理解深化により効果的施策立案、リピート率向上","note":"","url":"https://www.cross-m.co.jp/case_study/lashinbang20250605"},{"id":"c007","cat":"q5","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","issue":"Looker Studioダッシュボードが重く表示遅延。保守負担が大きく、追加分析にも対応困難（スプレッドシート経由運用の限界）","action":"現状仕様/運用理解→再構成方針整理→BigQuery活用でデータパイプライン/データマート再構築→Looker Studio刷新。運用マニュアル整備とレクチャーで内製化伴走","outcome":"表示速度大幅改善、保守業務の効率化、ダッシュボード最適化と新分析追加を実現","note":"","url":"https://www.cross-m.co.jp/case_study/yaaha20250217"},{"id":"c008","cat":"q3","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","issue":"調査を業務に活かしたい（施策立案/検証）／調査を扱いやすくしたい（アナログ残存・点在データの一元管理）","action":"ブランド醸成構造に基づく評価指標見直しと調査再設計、再分析。部署横断WS（自分ごと化→業務接続）を2回実施。探索的に回遊できるBI導入とダッシュボード構築","outcome":"ブランドスコアを多面的に把握し共通言語化。調査活用が進み、部署で企画が動き出すなど行動変容が発生","note":"","url":"https://www.cross-m.co.jp/case_study/kyocera20231211"},{"id":"c009","cat":"q2","member":"(株)富士経済","kana":"ふじけいざい","issue":"脱炭素化の動きが加速する中、企業向けCO2削減支援サービス（脱炭素ソリューション）の市場動向と、求められるサービス像を把握したい","action":"主要/注目サービスの市場動向調査＋CO2削減活動リーディングカンパニーへのアンケートで、市場成長性・削減インパクト・ニーズを整理","outcome":"主要/注目サービスの成長性やCO2削減インパクト、求められる脱炭素ソリューション像の整理（市場理解の基礎情報を提供）","note":"脱炭素ソリューションの主要/注目サービスの市場成長性と大手参入企業の事業戦略調査","url":"https://www.fuji-keizai.co.jp/report/detail.html?code=162103782"},{"id":"c010","cat":"q5","member":"(株)富士経済","kana":"ふじけいざい","issue":"産業電化を中心とした工場脱炭素は課題が多く、先行導入の計画/導入時の課題と解決、導入メリット等を把握したい","action":"先行事例を通じて計画立案・導入時課題の解決手法、導入後のメリット/課題、目的達成度等を明らかにし、加速領域/設備/課題を整理","outcome":"産業施設の脱炭素イノベーションを加速するための論点（有望業種・用途・設備・解決課題）を整理（市場/導入実態の理解を提供）","note":"産業分野の熱利用工程における脱炭素技術先行導入ユーザー実態調査","url":"https://www.fuji-keizai.co.jp/report/detail.html?code=162302719"},{"id":"c011","cat":"q2","member":"(株)富士経済","kana":"ふじけいざい","issue":"再エネ（特に太陽光）導入拡大に伴い、創エネ・蓄エネ連携で自家消費最適化するEMS（ローカルEMS）の市場実態を把握したい","action":"ローカルEMS（需要家施設で創蓄連携し最適制御するEMS）を定義し、市場実態を調査対象別に整理","outcome":"ローカルEMSの市場理解（導入拡大の背景、対象領域/論点）を提供","note":"再エネ大量導入時代における電力自家消費最大化を担うエネルギーマネジメントシステム・サービス市場調査","url":"https://www.fuji-keizai.co.jp/report/detail.html?code=112507902&la=ja"},{"id":"c012","cat":"q1","member":"(株)富士経済","kana":"ふじけいざい","issue":"人手不足対策で期待されるが導入が限定的なサービスロボットについて、業種別の導入目的/課題などユーザーニーズを把握したい","action":"5業種（飲食/小売/宿泊/オフィス/病院）の25事例集計分析で、導入状況・目的・課題・拡大ポイント等を整理。エレベータ連携動向も整理","outcome":"業種別の市場拡大ポイントや導入課題の整理（意思決定に使えるユーザーニーズの把握）","note":"有望アプリケーション別サービスロボット市場実態とユーザー導入状況調査","url":"https://www.fuji-keizai.co.jp/report/detail.html?code=162305754"},{"id":"c013","cat":"q2","member":"(株)富士経済","kana":"ふじけいざい","issue":"工場物流の自動化が進む中、建屋間/工程間搬送の自動化実態とニーズ、今後の方向性を把握したい","action":"搬送ロボットメーカーと製造業ユーザー双方を調査し、導入実態・課題・必要機能・方向性を整理","outcome":"工場物流における搬送ロボット導入の進展状況と、導入拡大のポイント/課題を整理","note":"工場物流における搬送ロボット(AMR)導入実態と今後の方向性","url":"https://www.fuji-keizai.co.jp/report/detail.html?code=162304741"},{"id":"c014","cat":"q2","member":"(株)富士経済","kana":"ふじけいざい","issue":"需要家の関心が高い一方で制度課題で普及が遅いバーチャルPPAについて、他スキームとの差異、制度動向、導入障壁/ニーズを整理したい","action":"他の再エネ/環境価値調達スキームとの差を整理し、ビジネスモデル/制度動向/導入障壁/海外事例を調査。提供事業者・需要家（村田製作所等）の実態も整理","outcome":"国内普及に向けた課題、需要家ニーズ、制度動向、導入拡大の見立てを提供","note":"次世代の脱炭素ソリューションとして導入拡大が予想されるバーチャルPPAの市場性調査","url":"https://www.fuji-keizai.co.jp/report/detail.html?code=162306930"},{"id":"c015","cat":"q1","member":"(株)社会情報サービス","kana":"しゃかいじょうほうさーびす","issue":"（ニュース記事のため個別プロジェクトの課題は限定的）PatientsMap2025JP発売にあたり、データから市場を読み解き創薬戦略を描くための情報提供","action":"PatientsMapデータ活用（ターゲティング戦略、医師の自由回答テキストをAI解析してアンメットニーズ探索等）や、創薬研究基盤（AI/DX・自動化、協創）に関する講演","outcome":"（ニュース記事のため個別提供価値は限定的）創薬戦略策定に向けた示唆（市場理解/ターゲティング/アンメットニーズ探索）の紹介","note":"【開催報告】PatientsMap2025JP発売記念セミナー","url":"https://www.ssri.com/news/post/3861"},{"id":"c016","cat":"q1","member":"(株)社会情報サービス","kana":"しゃかいじょうほうさーびす","issue":"（ニュース記事のため個別プロジェクトの課題は限定的）PatientsMap2024JP発売記念として、データ分析事例を共有","action":"認知症を題材に「疾患市場規模」「診療分布」「プロモ状況把握」「新薬ニーズ/理由」等をPatientsMapデータで分析。ロウデータで400+疾患へ横展開可能と紹介","outcome":"（ニュース記事のため個別提供価値は限定的）診療状況・ニーズの可視化によるターゲティング/アンメットニーズ探索の示唆を紹介","note":"医師アンケート調査データベース「PatientsMap」セミナー報告","url":"https://www.ssri.com/news/post/3029"},{"id":"c017","cat":"q1","member":"(株)社会情報サービス","kana":"しゃかいじょうほうさーびす","issue":"米国医療市場の最新動向把握、制度整理、希少疾患の診療状況把握、アンメットニーズ探索などの課題に対するヒント提供（セミナー）","action":"PatientsMap独自データ＋専門家講演。診療患者数データ分析（機械学習で疾患類似性探索）や、医師自由回答のAI解析でアンメットニーズ探索を紹介","outcome":"（ニュース記事のため個別提供価値は限定的）米国市場理解・希少疾患ターゲティング・アンメットニーズ探索の方法/事例を提示","note":"【開催報告】PatientsMap事業主催 “米国市場セミナー2025”","url":"https://www.ssri.com/news/post/3554"},{"id":"c018","cat":"q1","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","issue":"自社単独ではメーカーのリサーチ課題を網羅的にカバーできない／拡張性の高いツールを、現場課題に沿って拡張し価値提供を高めたい","action":"日本インフォメーションと協業し、forSurveyをオリジナルリサーチのパッケージに組み込み、独自プロダクトと組み合わせてインサイト探求機能を拡張。パネル/価値提供も連動","outcome":"プラットフォーム×調査会社の強みを掛け合わせ、メーカーへの提供価値（インサイト探索、ソリューションの拡張）を強化","note":"AI時代だからこそ「確かな人の声」へこだわりを 両社協業でインサイト探求機能を拡張","url":"https://www.n-info.co.jp/case/marketing-applications/"},{"id":"c019","cat":"q1","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","issue":"顧客の声を可視化し意思決定する仕組みを構築したい／多数の調査案件を効率よく正確に推進したい","action":"試作品の試食評価（CLT）＋試食後ミニインタビューで仮説検証/インサイト発掘。属人的工程を見直してDX化し、運用を仕組み化","outcome":"「おいしさ」を数値化し改善が測れるように。DX化で多案件でも正確・高品質な運用を実現","note":"お客さま起点×データドリブンによる商品開発を調査のDX化で支援","url":"https://www.n-info.co.jp/case/lowson/"},{"id":"c020","cat":"q1","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","issue":"N1インタビューではグループ傾向が掴めない／社内だけでは引き出せるインサイトに限界／プロモデレーター活用で成果物品質を上げたい","action":"事前課題＋FGIを実施。Web広告経由で「購入する層/しない層」を比較し、課題感別に広告反応を確認","outcome":"購入/非購入の差分やセグメント別傾向を明確化。プロモデレーションにより通常得られないインサイトを獲得し社内共有","note":"初めての調査会社活用で得た収穫 グループインタビューが商品開発を後押し","url":"https://www.n-info.co.jp/case/bleach/"},{"id":"c021","cat":"q5","member":"(株)ビデオリサーチ","kana":"びでおりさーち","issue":"SVODでの大規模国際スポーツイベントにおいて、主要スクリーン横断で視聴実態と広告到達を正確に可視化したい","action":"CTV/スマホ/タブレット/PC横断で視聴計測し、試合視聴と表示広告の到達状況を可視化。テレビデバイスは共視聴も考慮","outcome":"視聴体験の実態を統合的に捉え、試合視聴・広告到達をデータで可視化（公正・中立な測定枠組みの提示）","note":"ビデオリサーチ、『2026ワールドベースボールクラシック』Netflix独占配信における視聴測定に関する業務を受託～試合視聴と広告到達を可視化～","url":"https://www.videor.co.jp/press/2026/260225.html"},{"id":"c022","cat":"q5","member":"(株)ビデオリサーチ","kana":"びでおりさーち","issue":"DOOHの成長に伴い、テレビ・ウェブ・DOOHのメディアミックスで「どのメディアでどの広告を見た人が、どんな意識変化・行動変容を起こすか」を統合的に可視化し、DOOHを加える有効性を検証したい","action":"匿名の広告IDをキーに、ビデオリサーチ保有のテレビ/ウェブ接触データ＋生活者意識データ、LIVE BOARDのDOOH配信ログ加工データ等を連携。接触頻度で生活者をグルーピングしてプロファイリングし、アンケートで態度変容/行動変容を深掘り。さらに実キャンペーン（電通・博報堂DYMP）でトリプルメディア配信しDOOH効果を検証","outcome":"媒体横断で広告接触と効果（意識・行動）を把握できる枠組みを構築し、DOOHの役割/価値を可視化。メディアプランニングにおけるDOOH追加の示唆創出を目指す（ビデオリサーチは接触データ提供・調査・分析を担当）","note":"「テレビ×ウェブ×DOOH」のトリプルメディアにおける広告効果を可視化する実証実験を開始","url":"https://www.videor.co.jp/press/2023/230914.html"},{"id":"c023","cat":"q1","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"市場拡大で複雑化するリスクに対応するため専任組織を新設。自前調査では分析〜施策化まで手が回らず、PDCAが回らない","action":"コンプライアンス経営診断プログラムで意識調査（設計/分析/ベンチマーク）。部門単位での自律的改善計画へ接続","outcome":"潜在リスク可視化、内部通報認知改善など、部門主体の自律型コンプライアンス推進を後押し","note":"各部門が自律的に課題を改善ー東和薬品のコンプライアンス推進体制","url":"https://service.nikkei-r.co.jp/case/compliance_id343"},{"id":"c024","cat":"q4","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"ブランディング/マーケの成果を定量的に振り返れず、次の戦略を描きづらい。ターゲット（発注権限者）に確実にリーチして認知/強みを把握したい","action":"日経IDリサーチでブランド認知度調査。結果に基づき発信メッセージを「セキュリティ」「テクノロジー」等へ最適化し、展示会出展も転換","outcome":"問い合わせ増、展示会反応改善、DCXソリューション売上倍増など、データ起点で施策精度と実行力が向上","note":"調査データが勝ち筋を示す ― NTTマーケティングアクトProCXが仕掛けるデータドリブン戦略","url":"https://service.nikkei-r.co.jp/case/btob_id342"},{"id":"c025","cat":"q3","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"拠点ごとにCS調査/情報管理が分散し、グローバル全体で顧客評価・課題を可視化できない","action":"本社主導で7言語対応のVoCパートナー調査を統合実施。調査結果は比較ではなく課題深掘り・現場改善に活用する設計/運用を支援","outcome":"顧客視点の共通認識形成、改善アクションプラン提出/公開など、全社的な顧客視点文化醸成を促進","note":"グローバルで可視化した顧客の声を“価値共創”の原動力に――横河電機全社で推進するパートナーシップ強化","url":"https://service.nikkei-r.co.jp/case/cscx_id336"},{"id":"c026","cat":"q3","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"取引額だけでは測れない「選ばれる理由（信頼/推し度）」を可視化し、顧客価値向上と営業戦略に活かしたい","action":"約400社を対象に「高砂熱学愛（推し度）」を定量化する顧客ロイヤリティ調査を設計・実施。企業単位で統合/偏差値化し要因も分析。競合比較調査も併用","outcome":"技術力・誠実さ等、選ばれる源泉を特定。改善点も明確化し、結果共有/フィードバックで営業活動の足並みを揃える土台を構築","note":"「信頼」を資産に── 高砂熱学工業が顧客の“推し度”を測る理由","url":"https://service.nikkei-r.co.jp/case/cscx_id317"},{"id":"c027","cat":"q1","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"コンプライアンスを“自分事化”させる施策効果が見えにくい／組織拡大でカルチャー混在、全社規模で状況把握と優先課題特定が必要","action":"コンプライアンス経営診断プログラムを活用し、ベンチマーク比較と課題優先度/解決策提示まで含めて調査を実施・活用","outcome":"内部通報制度の認知度改善など、施策の効果を測りPDCAを回せる状態に。潜在リスクの可視化","note":"すべてはコンプライアンスに関する問題を“自分事化”するために","url":"https://service.nikkei-r.co.jp/case/compliance_id291"},{"id":"c028","cat":"q1","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"国内外グループ全体でコンプライアンスリスクを漏れなく把握したい（13言語対応が必要）","action":"約4万人規模で調査を実施し、拠点別リスクを可視化（バブルチャート等）。報告会や施策提案も活用","outcome":"国内外で逆の傾向など潜在リスクを早期把握。eラーニングや指針改訂等の全社施策に接続","note":"グローバル拠点のリスクをもれなく把握し、コンプライアンスを強化","url":"https://service.nikkei-r.co.jp/case/compliance_id288"},{"id":"c029","cat":"q4","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"海外販社に蓄積されたVoC（自由コメント含む）をCX改善に活かしきれない（リソース不足で全量分析が困難）","action":"日経リサーチのKeyExplorerでVoC×NPS®を分析し、NPSを上下させる要因を抽出。施策提案も含めて改善活動を後押し（ブラジル→EUへ展開）","outcome":"優先度が明確化され、現地で改善施策を実行しNPS改善へ。多言語の原文参照で現場の深掘りも可能に","note":"「顧客の声」起点のNPS®改善施策の実行 ～海外でも「KeyExplorer」でNPS®向上に寄与する改善施策を後押し","url":"https://service.nikkei-r.co.jp/case/dm_id254"},{"id":"c030","cat":"q4","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"自社の強み・価値を市場に伝えきれていない可能性／新サービス開発に向け市場/顧客ニーズを根拠をもって把握したい","action":"日経IDリサーチ＋既存顧客インタビューを一気通貫で設計・実施。結果を広報施策（リリース/資料/サイト改修）とサービス開発（人材価値定義等）に活用","outcome":"調査データを共通言語に戦略的広報を促進し、エビデンスに基づくサービス開発で迷いを払拭","note":"自社の提供価値を最大化するために －市場ニーズを的確に捉える「日経IDリサーチサービス」の活用","url":"https://service.nikkei-r.co.jp/case/btob_id239"},{"id":"c031","cat":"q1","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"“3G（Global/Gender/Generation）”など企業としての発信が増える中で、それらの取り組みがコーポレートブランドに与える影響や客観評価を把握・可視化したい（現在地を測る仕組みが不足）","action":"日経リサーチの「ブランド戦略サーベイ（オンライン）」を活用し、国内外600社同一設計データで分析・比較。必要に応じて専門家による分析レポートと報告会も実施","outcome":"コーポレートブランドの現在地を“健康診断”的に把握。自由回答等から若年層のポジティブ認識など新たな気づきを獲得し、「コーセーらしさ」と一貫性を担保しながら施策検討に活用","note":"世界で存在感のある企業、究極の高ロイヤルティ企業を目指して ｜ブランド戦略サーベイで可視化した「コーセーらしさ」","url":"https://service.nikkei-r.co.jp/case/brand_id247"},{"id":"c032","cat":"q4","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"“守り”中心の広報から“攻め”へ転換するため、自社のブランド現在地（認知・理解・評価）をBtoBターゲットで把握し、事業に効く施策へつなげたい","action":"日経IDリサーチサービスでビジネスパーソンを対象にブランド調査を実施（競合比較・自由回答も活用）。結果を機関誌発行、休眠顧客向けメルマガ、ニュースリリース等の施策に反映","outcome":"ビジネスパーソンでの認知実態や「空間創造」理解不足などの課題を可視化。対面接点やデジタル接点の効き方も把握し、施策最適化と社内の共通認識づくりを促進","note":"今後進むべき道を示す羅針盤に－「日経IDリサーチサービス」で明らかになった自社ブランドの現在地","url":"https://service.nikkei-r.co.jp/case/btob_id232"},{"id":"c033","cat":"q3","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"「ビジネスと人権」対応が必要だが何から始めるべきか不明。人権の捉え方が社内でバラバラで共通認識が必要","action":"研修サービス「ビジネスと人権 Check＆Learning」を活用し、研修＋社員認識の可視化（ベンチマーク比較）を実施。回答率向上の運用も徹底","outcome":"人権対応のスタートラインに立ち、共通認識を形成。今後の人権DD/サプライチェーンリスク管理の方向性検討に接続","note":"JALUX、人権対応「Check＆Learning」活用で最初の一歩。社内で認識を共有、サプライチェーン上のリスクにも取り組む","url":"https://service.nikkei-r.co.jp/case/sdgs_id226"},{"id":"c034","cat":"q4","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"「コミュニティ」施策は重要だが、企業の本格活用はまだ少ない。施策実態を把握し、知見発信によって啓蒙しつつ、アーリーマジョリティ以降にも裾野を広げるための“幅広く訴求できるコンテンツ”が必要","action":"日経リサーチのEBM（エビデンス・ベースド・マーケティング）サービスを活用し、日経リサーチと共同で「コミュニティに関する実態調査」を実施。調査票設計〜分析（スクリーニング有無比較等）まで伴走し、調査結果を自由にプロモーション展開できる形で活用","outcome":"「日経」ブランドによる信頼性でメディア転載・二次/三次利用やSNSシェアが拡大。調査を起点に戦略PRの社内意識が向上し、調査結果を継続発信（白書化等）して市場育成につなげる方針を後押し","note":"戦略的PRとしてのコンテンツ発信で「コミュニティ」のビジネス活用意識を変革！－「EBM エビデンス・ベースド・マーケティングサービス」の活用","url":"https://service.nikkei-r.co.jp/case/btob_id219"},{"id":"c035","cat":"q3","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"サステナビリティ取組の状況を可視化し、情報開示を通じた経営高度化（守り）と企業ブランディング（攻め）を両立したい。調査結果を「回答」で終わらせず経営に取り込みたい","action":"日経リサーチの「SDGs経営調査」を、人間ドック的に活用。領域/項目別に他社好事例も踏まえて自社の出来ている/出来ていないを整理し、優先順位付け・関係部門との改善検討。報告会で対話し、潮流も把握","outcome":"第三者評価としての信頼性が高く社内説得力が上がる。優先順位設定と改善の加速、取組成果の見える化（ランキング）で推進力を強化","note":"SDGs経営調査のレポートをサステナビリティ取組状況の可視化と経営の高度化に活用","url":"https://service.nikkei-r.co.jp/case/sdgs_id220"},{"id":"c036","cat":"q4","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"多様化・高速変化する生活者を捉えるためのデータ活用が必須。大量設問の独自調査から70程度のクラスターを短期間でプロファイリングする必要があるが、従来のExcel集計では解釈と作業負荷が大きい","action":"日経リサーチの「KeyExplorer」を活用し、特徴ランキング等でターゲット特徴を定量的に抽出。『ADK生活者総合調査』から生活者クラスター「ターゲットスコープ」を効率的に作成（ローデータ準備後約1ヶ月で完了）","outcome":"分析の標準化・高速化・属人化回避を実現。クラスターの解釈に納得感が出て、作業を適切なタイミングで止められ、提案/資料作成も効率化","note":"データドリブンで多様な生活者を理解する－「KeyExplorer」導入で、解像度の高いマーケティングを実現","url":"https://service.nikkei-r.co.jp/case/dm_id209"},{"id":"c037","cat":"q3","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"過去不祥事を踏まえ、縦割りで風通しに課題があった組織風土を改革し、潜在リスクを可視化しながらグループ全体でコンプライアンスを浸透・改善したい（コンプラ疲れも課題）","action":"コンプライアンス推進体制（委員会・推進委員会・コンプライアンスリーダー）を整備し、現場主体のボトムアップ活動も実施。従業員アンケート（意識調査）で潜在リスクを把握し、訪問/研修/周知施策に反映。日経リサーチの設問フレーム/アウトプットでわかりやすく可視化・共有","outcome":"組織風土の改善（前向きな職場づくり）を軸に、継続的なPDCAを回す土台を形成。調査結果が訪問先選定・施策設計・経営層のリスク感度向上・モチベーション向上に寄与","note":"組織風土改善のためニッポンハムグループが取り組むコンプライアンス推進活動","url":"https://service.nikkei-r.co.jp/case/compliance_id200"},{"id":"c038","cat":"q5","member":"(株)日経リサーチ","kana":"にっけいりさーち","issue":"日本では製造業（特に自動車）のイメージが強く、製造業以外/スタートアップ等へ認知を広げたい。事業領域拡大に伴い、ビジネスターゲットからの評価・立ち位置を定点観測し、戦略メッセージも浸透させたい","action":"日経リサーチのBtoBブランド調査で幅広い業種/役職（意思決定層含む）にリーチできる設計で現状把握。継続的に定点観測できる調査設計を重視し、ベンチマーク設定・施策効果検証の仕組みづくりへ","outcome":"現状の立ち位置とターゲット層での理解度を可視化し、今後のブランディング施策のターゲット/コンテンツ検討と効果検証を進める基盤を構築","note":"ビジネスターゲットからの認知度向上を目指して－拡大する事業領域での立ち位置をブランディング評価で確認","url":"https://service.nikkei-r.co.jp/case/btob_brand_id185-0"},{"id":"c039","cat":"q5","member":"楽天インサイト(株)","kana":"らくてんいんさいと","issue":"TVer運用型広告の媒体価値を高めるうえで、ログだけでは分からない「ユーザーの意識変化（ブランドリフト）」を可視化し、継続出稿の判断材料を充実させたい","action":"楽天インサイトのブランドリフト調査を導入。スピード・柔軟性・案件ごとの対応力で運用。過去蓄積のノーム値（基準値）を活用し提案力を強化。今後はCTV（コネクテッドTV）での測定精度向上も技術連携で推進","outcome":"認知施策の価値を数値で提示し、新規出稿/継続出稿の後押しに。ノーム値により客観的エビデンスを示せるようになり営業提案が強化","note":"認知施策の価値を可視化し、継続出稿の後押しに。柔軟かつスピーディなブランドリフト調査への信頼","url":"https://insight.rakuten.co.jp/knowledge/casestudy/casestudy003/"},{"id":"c040","cat":"q4","member":"楽天インサイト(株)","kana":"らくてんいんさいと","issue":"約30案の新商品アイデアの市場ポテンシャル/開発優先度を定量的に見極めたい。定番中心の評価軸に引っ張られず、新提案アイデアの受容度をクイックかつ根拠をもって判断したい","action":"新商品アイデアスクリーニング調査＋アスキングビッグデータ（ABD）連携、楽楽プロファイル等で多面的に分析。仮説検証だけでなく、刺さる層の探索にも活用","outcome":"受容度が高かったアイデアが商品化され大ヒット（今季一番の売れ筋）に。社内稟議や商談での根拠（受容度の担保）として活用でき、新提案への挑戦を後押し","note":"新たな提案への挑戦を後押ししてくれた、アスキングビッグデータと楽楽プロファイル","url":"https://insight.rakuten.co.jp/knowledge/casestudy/casestudy002/"},{"id":"c041","cat":"q5","member":"楽天インサイト(株)","kana":"らくてんいんさいと","issue":"自社で分析・報告書作成する前提で、複雑なクロス集計を短時間で回したい。ニッチ商材では対象者確保が難しい。定性/定量の両立をしたいが時間・コスト制約がある","action":"集計ツール「楽クロス for Web」の使いやすさを理由に指名利用。アスキングビッグデータ（ABD）や楽楽プロファイルで、調査結果と連動した簡易プロファイル/示唆出しも活用。AIチャットインタビュー等のクイック手法も検討","outcome":"分析工数を抑えつつ複雑条件でも集計・示唆出しが可能に。調査データの活用幅（メディア選定の下地など）が拡張し、意思決定のスピードアップに寄与","note":"柔軟かつスピーディなインターネット調査は“指名”での採用も。","url":"https://insight.rakuten.co.jp/knowledge/casestudy/casestudy001/"},{"id":"c042","cat":"q1","member":"楽天インサイト(株)","kana":"らくてんいんさいと","issue":"（ニュース記事のため個別PJ詳細は限定的）AIを活用したチャット形式の定性調査活用事例の紹介","action":"AIがチャット形式で生活者の考えを深掘りする「AIチャットインタビュー」の活用を紹介（同時に多くの声収集、定量的網羅性＋定性収集）","outcome":"（ニュース記事のため個別提供価値は限定的）短期間で多数の生活者の深掘り声を集める手法の提示","note":"日経XTREND「AIチャットインタビュー」事例紹介掲載のお知らせ","url":"https://insight.rakuten.co.jp/news/20250627.html"},{"id":"c043","cat":"q4","member":"楽天インサイト(株)","kana":"らくてんいんさいと","issue":"ニーズに合致する富裕層の顧客像を把握し、富裕層向けのオリジナルセグメントを作成して広告配信・効果検証まで実施したい（富裕層に楽天データが合うかの懸念、認知施策の効果検証も課題）","action":"事前調査（楽天インサイトの調査）でシード作成→オリジナルセグメント（令和リッチ等）作成（約1週間）→RMP - Display Adsで配信→配信後に広告接触者へアスキング調査＋Rakuten AIris等でペルソナ分析、R-DCRブランドリフトサーベイ等で効果検証まで一気通貫","outcome":"調査〜配信〜効果測定をパッケージ化し、富裕層ターゲットを明確化。配信ボリュームを担保しつつ、認知/好意/利用意向などの広告効果を可視化できる実例を構築","note":"「Rakuten Marketing Platform navi」に事例紹介（後編）が掲載されました","url":"https://insight.rakuten.co.jp/news/20230919.html"},{"id":"c044","cat":"q4","member":"楽天インサイト(株)","kana":"らくてんいんさいと","issue":"富裕層パッケージをクライアント案件で実装し、カテゴリ別反応差やブランドリフトを検証して次の施策（PDCA）へつなげたい。CPA/ROAS以外で事業インパクトの説明も課題","action":"カテゴリ別に広告配信し、楽天インサイトのアスキングで反応差を確認。広告接触/非接触でブランドリフト調査を実施し、Rakuten AIris等で接触者ペルソナを可視化。今後はオン/オフ連携（旅行等）や複数メディア組合せも検討","outcome":"広告効果（認知KPI等）を定量で検証でき、次のコミュニケーション施策をエビデンスで具体化。調査・広告部門連携の一気通貫モデルとして代理店側の“武器”づくりにも寄与","note":"「Rakuten Marketing Platform navi」に事例紹介（前編）が掲載されました","url":"https://insight.rakuten.co.jp/news/20230912.html"},{"id":"c045","cat":"q4","member":"楽天インサイト(株)","kana":"らくてんいんさいと","issue":"新カテゴリー「味つけオイル」（日清やみつきオイル、BOSCOシーズニングオイル）の認知拡大とトライアル購買を促進しつつ、発売間もなく購買者分析が難しい中で顧客像を把握したい","action":"RMP - Omni Commerce（Rakuten Pashaのポイントバッククーポン）でトライアル購買を獲得→購買者サンプルを確保→楽天インサイト調査＋楽天ID/購買行動データを掛け合わせて顧客像を分析→結果をもとに広告配信","outcome":"売上を獲得しながら分析サンプルを確保し顧客像を把握。トライアル購買促進は目標比140%（ROAS 178%）を達成し、分析起点の効率的な認知獲得にも接続","note":"「Rakuten Marketing Platform navi」に事例紹介（後編）が掲載されました","url":"https://insight.rakuten.co.jp/news/20230427.html"},{"id":"c046","cat":"q4","member":"楽天インサイト(株)","kana":"らくてんいんさいと","issue":"調査で得た顧客理解を、広告配信の訴求軸・クリエイティブに落とし込み、効率よくターゲットにリーチしたい（新カテゴリーの使い方/おいしさを伝えたい）","action":"楽天インサイト調査で明らかになった食/料理/健康意識や購買理由を基に、訴求軸と性別別アプローチを設計してクリエイティブを出し分け。Rakuten CustomerDNAも活用し、CVしそうな層へ優先配信","outcome":"分析に基づく訴求の精度が高くクリック率も良好。実購買データ×意識調査で顧客像が明確になり、コミュニケーション改善点を導出。データ活用施策の有効性を裏付け","note":"「Rakuten Marketing Platform navi」に事例紹介（前編）が掲載されました","url":"https://insight.rakuten.co.jp/news/20230418.html"},{"id":"c047","cat":"q1","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","issue":"ヘルスケア市場拡大に伴い、病院・薬局を含めた新規販路開拓の可能性を検討。医師推奨市場もあるが、新製品が広く受け入れられるか把握したい","action":"疾患・症状の実態をDoctor Mindscape/Patient Mindscape/レセプトデータで提示し、診療科・施設・年代の治療実態を把握。対象医師にTenQuickで推薦状況/新製品受容性を確認","outcome":"市場実態と受容度の根拠を提供し、社内で参入可否/製品開発推進の検討を支援。規制・作法の把握も含め専門支援","note":"ヘルスケア領域参入のための調査｜支援事例","url":"https://www.intage-healthcare.co.jp/case/entry-into-health-care/"},{"id":"c048","cat":"q5","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","issue":"データヘルス計画の策定・実施・評価が求められる中、健保組合の策定課題、事業主連携（コラボヘルス）、レセプト分析システム活用状況などの実態把握が必要","action":"委託を受け、健保組合向け調査を実施（課題把握等）。アドバイスシート作成や保険者調査などを実施","outcome":"データヘルス計画推進に必要な現状把握・課題整理を支援（制度運用の高度化に資する基礎情報を提供）","note":"データヘルス計画関連調査｜支援事例","url":"https://www.intage-healthcare.co.jp/case/data-health-plan/"},{"id":"c049","cat":"q5","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","issue":"欧米中心のQOL尺度がアジアに馴染まない懸念があり、アジア地域に合うQOL尺度（AP-7D）やPROMIS日本語版の項目/質問票開発が必要","action":"QOL尺度開発に伴う各種調査を2019年以降支援（インタビュー調査等含む）。PROMIS日本語版開発の調査も担当","outcome":"費用対効果評価等で用いるQOL尺度の整備を支援し、アジア適合・日本語適合のエビデンス基盤づくりに寄与","note":"QOL尺度開発関連調査｜支援事例","url":"https://www.intage-healthcare.co.jp/case/qol-research/"},{"id":"c050","cat":"q4","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","issue":"疾患啓発サイトで「認知→医療機関検索→受診行動」を促したいが、施策のROI見込みが把握できていない。誘導がどの程度成功しているか不明","action":"協和企画と連携しサイト分析を提案。併せてユーザー像把握、認知上昇/受診行動到達の有無と理由を確認する複合提案","outcome":"サイト導線の改善策や必要コンテンツを提案。現状把握→アクション→効果検証まで一気通貫で支援できる点を評価","note":"疾患啓発とWebサイト分析・改善｜支援事例","url":"https://www.intage-healthcare.co.jp/case/analysis-and-improvement/"},{"id":"c051","cat":"q5","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","issue":"研究費プロジェクトで定性/定量調査が必要。調査実施だけでなく、計画書確認や情報収集など周辺業務も必要","action":"定性/定量調査の実施支援に加え、研究計画書確認、デスクリサーチ等も含めて支援","outcome":"研究者の調査実務負荷を軽減し、調査品質と進行を支援","note":"厚生労働科学研究費等関連調査｜支援事例","url":"https://www.intage-healthcare.co.jp/case/academia-related-surveys/"},{"id":"c052","cat":"q5","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","issue":"医薬品・医療機器の費用対効果評価で、製造販売業者提出のQOL値の妥当性を検討するため、別途QOL値測定が必要","action":"TTO法やDCE法等に基づく健康状態評価（QOL値測定）の調査業務を手法に合わせて実施・支援","outcome":"公的分析に必要なQOL値の妥当性検討を支援し、HTA/費用対効果評価のエビデンス整備に寄与","note":"医薬品や医療機器の費用対効果評価関連調査｜支援事例","url":"https://www.intage-healthcare.co.jp/case/cost-benefit-evaluation/"},{"id":"c053","cat":"q5","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","issue":"医療機器は市場データが少なく、売上/シェアや競合のプロモーション状況が把握しづらい。働き方改革の影響も含めて広く市場のプロモーションを捉えたい","action":"定期調査「医療機器プロモーショントラッキング」（6診療科・機器横断）を提案し、目的機器だけでなく他機器も含め比較で外部要因の影響を把握。必要に応じアドホック調査で詳細確認","outcome":"過去データを含む定点観測で市場影響・競合動向の抜け漏れ確認が可能になり、次の提案/詳細調査につながる現状把握を実現","note":"医療機器プロモーショントラッキングで市場を把握｜支援事例","url":"https://www.intage-healthcare.co.jp/case/medical-device-promotion-tracking/"},{"id":"c054","cat":"q1","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","issue":"ターゲット患者像の理解不足で的確な疾患啓発施策が打てない。世代差・価値観差による行動パターンが把握できない","action":"生活者データ（購買行動・価値観・情報収集等）＋アドホック調査を組み合わせ、価値観データで患者をセグメント化→代表的生活様式/健康価値観を抽出しペルソナ化。世代研究や行動経済学で解釈精査","outcome":"納得感あるセグメントとペルソナにより患者理解を向上。ターゲット優先順位を明確化し、施策設計の精度を上げる","note":"ターゲット世代に刺さる疾患啓発をデータでサポート","url":"https://www.intage-healthcare.co.jp/case/data-support/"},{"id":"c055","cat":"q2","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","issue":"発売前新商品の市場での需要を確認し、売上を精度高く予測したい","action":"Web定量調査でコンセプト提示→購入意向等を把握。結果をインテージの実販売データで補正し、現実的な売上予測を作成。発売後はパネルデータで予測精度を検証","outcome":"勘・経験に頼らず客観的に資源配分とKPI設定が可能に。発売後検証で予測と売上がほぼ合致し、予測の精緻さを確認","note":"新商品（発売前）の需要確認と売上予測｜支援事例","url":"https://www.intage-healthcare.co.jp/case/demand-and-sales/"},{"id":"c056","cat":"q2","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","issue":"販売経験のない疾患領域で新製品発売のため市場実態を把握したい。受容性調査はやりたいが、その後に必要な調査が分からない","action":"シンジケートデータ（Doctor Mindscape/Patient Mindscape）で市場全体像を短時間で把握→受容性調査を実施→上市までの戦略と必要情報を踏まえ、上市前後に必要な調査を計画・提案（浸透度調査、予測未達時のバリア調査等）","outcome":"上市までに必要な調査をタイムリーに実施し、メーカーと並走して育薬に貢献。調査の目的化を防ぎ、意思決定に直結する調査設計を支援","note":"新製品上市前の一連の調査を提案｜支援事例","url":"https://www.intage-healthcare.co.jp/case/propose-a-series-of-studies-prior-to-the-launch-of-a-new-product/"},{"id":"c057","cat":"q5","member":"GMOリサーチ&AI(株)","kana":"じーえむおーりさーちあんどえーあい","issue":"（サービス紹介ページのため個別課題の記載なし）世界規模でネットリサーチを実施する体制・高品質パネル/運用が必要","action":"世界130カ国・延べ4億人超の提携含むパネルを活用し、ネットリサーチ/海外調査/セルフ型アンケート/モニターリクルート/マーケ支援等を提供","outcome":"大規模パネルと支援体制により、多様な調査ニーズに対応可能（企業のマーケ課題に合わせた調査・分析提案）","note":"株式会社Ｉ－ｎｅ 売れるブランドは、現地の声を定量化する ｜ I-neのマーケティング力が切り拓いたアジア戦略の第一歩と、GMOリサーチ&AIとの共創","url":"https://gmo-research.ai/service"},{"id":"c058","cat":"q5","member":"GMOリサーチ&AI(株)","kana":"じーえむおーりさーちあんどえーあい","issue":"（サービス紹介ページのため個別課題の記載なし）世界規模でネットリサーチを実施する体制・高品質パネル/運用が必要","action":"世界130カ国・延べ4億人超の提携含むパネルを活用し、ネットリサーチ/海外調査/セルフ型アンケート/モニターリクルート/マーケ支援等を提供","outcome":"大規模パネルと支援体制により、多様な調査ニーズに対応可能（企業のマーケ課題に合わせた調査・分析提案）","note":"ジー・サーチ株式会社 商品の利用シーンを捉えた動画で隠れたインサイトを探る、「セルフ型動画リサーチKnockOnExploration」の裏側にある信頼の仕組み。ジー・サーチとGMOリサーチ＆AIの連携がもたらす、ユーザー起点の新しい調査体験とは","url":"https://gmo-research.ai/service"},{"id":"c059","cat":"un","member":"(株)アスマーク","kana":"あすまーく","issue":"HUT（ホームユーステスト）で実使用環境の評価を得たいが、設計・運用（安全管理/機密/写真・日誌等）や費用感が分かりにくい","action":"HUTの活用事例（食品/ペット用品/HUT+GI/写真収集/購買型/コラージュ等）と、設計上の注意点・料金体系例を整理","outcome":"HUT設計・運用の実務ポイントと費用感を提示し、導入検討や設計の解像度向上に寄与","note":"ホームユーステストの活用事例と料金事例を紹介","url":"https://www.asmarq.co.jp/column/column-cat/how_to/hut_case/"},{"id":"c060","cat":"un","member":"(株)アスマーク","kana":"あすまーく","issue":"自社実施のコンプラ/ハラスメント調査で、集計・分析負荷が高い／紙運用でプライバシー配慮が不十分／結果を専門的に分析してアクションにつなげたい","action":"Humap「CHeckリサーチ＋（プラス）」でWeb化（海外用サイトも用意）し、分析〜報告会までパッケージ提供。外部委託で自由記述も充実し、報告会で客観意見も提供","outcome":"短期間で準備〜実施〜報告まで推進。部署別特徴を可視化し、外部意見が社内で受け入れられやすくなった。継続的モニタリングの土台を構築","note":"社内での調査継続に課題を感じ、外部委託を決断。部署ごとの特徴がはっきり見える結果に納得","url":"https://humap.asmarq.co.jp/case/chiyoda-i/"},{"id":"c061","cat":"un","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","issue":"米の販売価格・販売数量の動向を業態別・地域別などで把握し、週次で公表するための分析が必要","action":"SRI+（全国小売店パネル調査）のPOSを活用し、業態別・地域別の切り口で価格/数量の傾向を分析。農水省が週次公表","outcome":"公的公表に資する継続的な価格動向分析を実現。小売の販売実態に基づく把握を可能に","note":"インテージリサーチ、農林水産省の米価格動向週次公表に向けたデータ分析を担当","url":"https://www.intage-research.co.jp/news/single---id-29.html"},{"id":"c062","cat":"un","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","issue":"個人企業の経営実態、および全国の事業所・企業の経済活動を網羅的に把握する基幹統計を実施する必要","action":"「個人企業経済調査」と「令和8年 経済センサス‐活動調査」を同時一体的に実施（郵送配布＋オンライン/郵送回収等）","outcome":"政策立案・統計基盤整備に必要な母集団情報と経理項目等を収集し、国の基幹統計作成を支援","note":"「個人企業経済調査」「令和８年経済センサス‐活動調査」","url":"https://www.intage-research.co.jp/ongoing-research/single---id-59.html"},{"id":"c063","cat":"un","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","issue":"我が国の科学技術研究活動の状態を把握し、科学技術振興に必要な基礎資料を得る基幹統計を実施する必要","action":"科学技術研究調査（郵送配布→オンライン/郵送回答）。企業/大学/非営利団体等を対象に研究費・研究者等を調査","outcome":"科学技術政策・統計作成の基礎データを整備し、国の意思決定を支える","note":"科学技術研究調査","url":"https://www.intage-research.co.jp/ongoing-research/single---id-55.html"},{"id":"c064","cat":"un","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","issue":"我が国企業活動の実態を把握し、企業施策の基礎資料を得る基幹統計を実施する必要","action":"経済産業省企業活動基本調査（基幹統計）を実施（毎年、企業本社票＋海外現法票など）","outcome":"産業政策・白書等の基礎資料、各種統計調査の母集団情報整備に寄与","note":"２０２６年～２０２８年 経済産業省企業活動基本調査","url":"https://www.intage-research.co.jp/ongoing-research/single---id-57.html"},{"id":"c065","cat":"un","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","issue":"担い手確保施策のため、新規就農者数（雇用就農・新規参入等）を把握し資料整備する必要","action":"新規就農者調査（就業状態/新規雇用者/新規参入者）を実施。郵送・オンライン等で回収","outcome":"新規就農者の実態把握により、担い手育成・確保施策の企画立案に資するデータを提供","note":"新規就農者調査","url":"https://www.intage-research.co.jp/ongoing-research/single---id-51.html"},{"id":"c067","cat":"un","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","issue":"サービス産業の事業活動の動態（売上・従業者等）を毎月把握する新たな基幹統計を運用する必要","action":"サービス産業動態統計調査を毎月実施（オンライン回答＋一部郵送）。企業等約13,000、事業所約25,000規模","outcome":"サービス産業の月次動向把握により、景気判断等に資する統計作成・データ基盤を提供","note":"サービス産業動態統計調査","url":"https://www.intage-research.co.jp/ongoing-research/single---id-32.html"},{"id":"c069","cat":"un","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","issue":"鉱工業生産の動態を把握し、鉱工業施策の基礎資料となる基幹統計を作成する必要","action":"経済産業省生産動態統計調査（基幹統計）を毎月実施（一定規模以上全数等、品目別調査票）","outcome":"鉱工業の需給・生産動向把握、指数やGDP等二次統計の基礎資料を整備","note":"令和６～９年度経済産業省生産動態統計調査","url":"https://www.intage-research.co.jp/ongoing-research/single---id-37.html"},{"id":"c070","cat":"un","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","issue":"生活衛生関係営業者の経営状況を定期的に把握し、安定化支援・施策策定の基礎資料とする必要","action":"生活衛生関係営業 経営状況調査（四半期ごと年4回）を郵送/訪問回収で実施","outcome":"生衛業の実態把握と情報提供、施策立案の基礎データ整備を支援","note":"令和７年度生活衛生関係営業経営状況調査","url":"https://www.intage-research.co.jp/ongoing-research/single---id-40.html"},{"id":"c072","cat":"un","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","issue":"卸売・小売の事業活動動向を把握し、商業動態統計（基幹統計）を作成する必要","action":"商業動態統計調査（基幹統計）を毎月実施（甲〜丁の複数調査票、標本抽出等）","outcome":"個人消費・流通動向把握の代表指標として、景気判断やGDP等の基礎資料を提供","note":"令和6～9年度商業動態統計調査実施業務","url":"https://www.intage-research.co.jp/ongoing-research/single---id-36.html"},{"id":"c073","cat":"q4","member":"(株)インテージ","kana":"いんてーじ","issue":"離反が進むシニア層向けに、生活者の本音・深いインサイトに基づくジャム新商品コンセプトを作りたい。インサイト発掘やコンセプト作成を組織横断で共通言語化・育成したい","action":"成長機会探索プログラムでターゲットをシニア層に定め、インタビュー＋部門横断ワークショップ（約2.5日）でインサイト深掘り→ベネフィット創出→コンセプト作成まで伴走（コンセプト開発支援）","outcome":"新商品コンセプト2案が商品化に向け進行。生活者視点の「第3の視点」を獲得し、コンセプト作成の進め方が明確化・自信につながった。既存商品の見せ方変更など派生アクションも創出","note":"","url":"https://www.intage.co.jp/service/case/7576/"},{"id":"c074","cat":"q1","member":"(株)インテージ","kana":"いんてーじ","issue":"ブランド20年超の成長に向け、新規ファン獲得（若年層等）も見据えつつ、シリーズが拡散している中で「ブランドのコア価値」を特定し、今後の戦うべきポイントを明確化したい","action":"コグニティブインタビュー（深掘りデプス：過去からの文脈で語ってもらう、複数切り口で反復）でコア価値を抽出。事前に調査設計を密にすり合わせ、インタビュー中も追加深掘りを実施","outcome":"仮説（シリーズを通じてつながる世界観等）の裏付けと、新たな価値要素（例：印象に残るクリーチャー、世代によるコミュニティ価値観等）を獲得。ブランド戦略～戦術への落とし込みの出発点を形成","note":"","url":"https://www.intage.co.jp/service/case/5454/"},{"id":"c075","cat":"q3","member":"(株)インテージ","kana":"いんてーじ","issue":"生活者中心でアイデアを出すための「観察」手法が社内で不足。潜在ニーズ（気づいていないニーズ）を捉え、生活者中心の商品開発ができる人材を育成したい","action":"マーケター/開発担当向けに「生活者中心のマーケティング研修」（成長機会探索・インサイト探索など実践型）を実施。観察→問い/仮説→観察…のサイクルで洞察と着想へつなぐ方法論を体系化","outcome":"観察の方法・コツを共通理解として浸透。生活者中心の商品開発に向けた思考の型を獲得し、アイデア創出の再現性・組織の底上げに寄与","note":"","url":"https://www.intage.co.jp/service/case/5384/"},{"id":"c076","cat":"q3","member":"(株)インテージ","kana":"いんてーじ","issue":"飲料「アーモンド効果」をLTVの高いブランドへ成長させたい。優良トライアル獲得とリピート（ロイヤル化）をどう設計すべきか、生活者の強い動機とブランド強みの接点を見つけたい","action":"コグニティブ・インタビューでブランド体験を文脈で観察→洞察→コミュニケーションアイデア創発のワークショップを実施（グラフィックファシリテーションで感情主語の対話を促進）","outcome":"トライアルとリピートで有効な動機アプローチが異なること等を理解し、LTV向上のシナリオ作成・戦略構築に接続。生活者ジャーニー起点で打ち手とKPIを構造化する土台を獲得","note":"","url":"https://www.intage.co.jp/service/case/5458/"},{"id":"c077","cat":"q3","member":"(株)インテージ","kana":"いんてーじ","issue":"「沿線価値共創戦略」を推進するため、グループ横断での顧客理解＝「顧客視点の徹底」を具体化し、浸透させたい。従来の鉄道中心の満足度調査だけでは次アクションに繋がらない","action":"CX戦略（顧客視点の徹底の全体像、カスタマージャーニー、CXファクター設計、KPI構造化）を共同で立案・実行。DX（顧客データ一元化）とCXを表裏一体として整理し共有","outcome":"「顧客視点の徹底」を具体的な絵姿として可視化し、グループ内共有を促進。点の満足度からジャーニー/価値（CXファクター）へ視点転換し、業績に繋がる改善の議論基盤を形成","note":"","url":"https://www.intage.co.jp/service/case/5714/"},{"id":"c078","cat":"q1","member":"(株)インテージ","kana":"いんてーじ","issue":"マーケ機能高度化のため、市場と顧客理解を起点にSTPを整理し、戦略ターゲットとポジショニング仮説を導出したい。国内だけでなく海外も含めて比較し、成長機会/課題を明確化したい","action":"メガネユーザーのブランド・商品選好を調査し、STP観点で分析。自社保有データと照合・統合。台湾/タイ/シンガポール等の海外も横並びで比較","outcome":"ブランドコンセプトを施策へ落とし込む論拠を獲得（リブランディングの判断材料）。従来2分類に収まらない独自ポジション可能性などの発見により、データドリブンなマーケ/コミュニケーションへ移行","note":"","url":"https://www.intage.co.jp/service/case/5875/"},{"id":"c079","cat":"q3","member":"(株)インテージ","kana":"いんてーじ","issue":"「愛着」をテーマに研究を進めるにあたり、社内の主観や属性偏りから脱し、多様な視点と客観データで価値観・行動傾向を把握したい","action":"デ・サインリサーチ（定量調査＋データをマップにプロットして傾向を読むワークショップ）を実施。社内仮説を広げ俯瞰する形で設計・運営を支援","outcome":"愛着に関する生活者の価値観・行動傾向を可視化。事業部に示唆を共有しつつ、研究として掘るべき論点も抽出。プロの設計・運営（ファシリ/準備）により議論の質を向上","note":"","url":"https://www.intage.co.jp/service/case/6421/"},{"id":"c080","cat":"q1","member":"(株)インテージ","kana":"いんてーじ","issue":"車の価値が「移動手段」から「移動空間」へ変化する中、従来の定量中心では仮説作りに必要な情報が不足。グローバルサウスで生活者の真のニーズ/車内の過ごし方を深く理解し、仮説と装備・戦略を見直したい","action":"グローバルサウスでの生活者インタビュー＋お宅訪問＋車内カメラによる行動観察（動画）を実施。国/同乗者等の違いも含めて実態を記録・分析し、社内共有では動画も提示","outcome":"生活者のリアルを高解像度で提示し、関係部署から予想以上の反応を獲得。国別の車内行動差や装備の実使用状況など、戦略見直しに直結する洞察を提供（説得力の高いアウトプット）","note":"","url":"https://www.intage.co.jp/service/case/6852/"},{"id":"c081","cat":"q5","member":"(株)インテージ","kana":"いんてーじ","issue":"TTMS（TikTok Market Scope）で可視化される「ブランド検討オーディエンス」の増減が、FMCGの店頭売上（KGI）とどう関係するかを検証し、広告主に説明できるエビデンスを作りたい","action":"TTMSデータにインテージの小売店パネルデータSRI+（約6000店舗）を掛け合わせ、20ブランドで分析。検討オーディエンスが店頭売上の先行指標か（リードタイム含む）を検証","outcome":"20中17ブランドで先行指標仮説が支持され、カテゴリ別のタイムラグ（例：食品飲料1〜3週、美容3〜6週〜）も発見。TTMSが売上と連関することを示し、ミッドファネル施策の提案根拠を強化","note":"","url":"https://www.intage.co.jp/service/case/7238/"},{"id":"c082","cat":"q4","member":"(株)インテージ","kana":"いんてーじ","issue":"ジャンルを絞らない新レーベルを立ち上げ、新規ユーザー獲得とレーベルをブランドとして育てるため、明確な読者像・世界観と言語化されたコンセプトが必要。出版社/作家とのコミュニケーション資料も必要","action":"ヒット作分析から開始し、アンケート＋インタビューでペルソナを立体化→ワークショップで世界観を言語化しオリエンシート化→キービジュアル/LP等のコミュニケーション施策へ落とし込み（段階的に調査を拡張）","outcome":"「スキマを埋める」を核にした新レーベルコンセプトが成立し、ビジュアルや関係者向け資料まで作成可能に。出版社/作家との企画共有が円滑化し、レーベル立ち上げの“設計図”を獲得","note":"","url":"https://www.intage.co.jp/service/case/7408/"},{"id":"c083","cat":"q3","member":"(株)マクロミル","kana":"まくろみる","issue":"ブランド定点調査によって、ブランド変動を素早くキャッチし改善に結び付ける仕組みを構築したい。","action":"オンラインリサーチによる月次のブランド定点調査、速報レポートの提供、ミルトークの併用。","outcome":"毎月のブランド状況の把握が可能となり、施策の方向転換に活用。調査結果が社内の共通言語となり社員の意識改革を推進。","note":"","url":"https://www.macromill.com/service/case/024/"},{"id":"c084","cat":"q5","member":"(株)マクロミル","kana":"まくろみる","issue":"各事業が展開する市場全体や競合サービスの実態を継続的に把握する手段がなく、意思決定に課題感があった。","action":"EC購買データ「EPR」の提供と、データ検証プロセスや活用方法確立に向けた伴走支援。","outcome":"タイムリーな市場動向の把握により経営層への報告や事業活動のPDCAの質・スピードが向上。","note":"","url":"https://www.macromill.com/service/case/028/"},{"id":"c085","cat":"q5","member":"(株)マクロミル","kana":"まくろみる","issue":"顧客の行動データはあっても「なぜ」買ったのかという動機が見えず、パーソナライズの高度化に壁があった。","action":"データクリーンルームを活用したIDマッチングとAIによる意識データの拡大推計、レコメンド実装のPoC。","outcome":"意識データを持つ会員グループでCVRが有意に向上し、個人の価値観に基づいた提案が購買行動を促すことを実証。","note":"","url":"https://www.macromill.com/service/case/032/"},{"id":"c086","cat":"q3","member":"(株)マクロミル","kana":"まくろみる","issue":"ユーザー起点の戦略推進にあたりデータ精度や利活用が不十分であり、既存のマルチカントリー調査も活用しきれていなかった。","action":"オンラインのマルチカントリー（海外）調査の企画見直しと実施、BIツールを活用したデータ可視化と示唆出し。","outcome":"リサーチ結果が社内の共通言語化され、現地拠点を含めてデータを見ながらの議論やアイデアのブラッシュアップが活性化。","note":"","url":"https://www.macromill.com/service/case/026/"},{"id":"c087","cat":"q2","member":"(株)マクロミル","kana":"まくろみる","issue":"「オリエントスター」の海外展開強化にあたり、海外各国市場における腕時計セグメントの実態を把握したい。","action":"5カ国対象のオンラインリサーチ・海外調査と、「潜在クラス分析」を用いたグローバルセグメンテーション。","outcome":"統計的基準による最適なセグメント抽出で、ブランド親和性やコンセプト受容性の高いターゲット像の構築に成功。","note":"","url":"https://www.macromill.com/service/case/019/"},{"id":"c088","cat":"q1","member":"(株)マクロミル","kana":"まくろみる","issue":"新商品「ラムダッシュ パームイン」のコンセプト調査（受容性調査）を行い、販売に向けた施策の示唆を得たい。","action":"ペルソナを3グループに分けたオフラインリサーチ（インタビュー調査）。","outcome":"想定とは異なるターゲットの反応が良いことが判明し、マーケティング戦略とオフライン施策の軌道修正に成功。","note":"","url":"https://www.macromill.com/service/case/022/"},{"id":"c089","cat":"q4","member":"(株)マクロミル","kana":"まくろみる","issue":"通信インフラ導入決裁者や関与者に対して、自社ブランドの認知度を高めたい。","action":"ブランド認知度調査結果をシードデータとしたYouTube動画広告のターゲティング配信（Macromill Ads Targeting）。","outcome":"試算を上回る視聴数を獲得し、広告接触者の事業詳細認知が4ポイント拡大するなど、データに基づくPDCAを実現。","note":"","url":"https://www.macromill.com/service/case/017/"},{"id":"c090","cat":"q3","member":"(株)マクロミル","kana":"まくろみる","issue":"ヘッドホン・サウンドバー市場で若年層の新たなターゲットへの変更が必要だったが、プロファイルの掘り下げが不十分であった。","action":"海外4カ国同時のペルソナ作成プロジェクト（オンライン・オフライン調査）、ステークホルダーを巻き込んだ調査企画と分析。","outcome":"ファクトベースのペルソナ像を構築し、事業に関わる全員が共通イメージを持って顧客起点の会話が定着した。","note":"","url":"https://www.macromill.com/service/case/018/"},{"id":"c091","cat":"q3","member":"(株)マクロミル","kana":"まくろみる","issue":"観光戦略の立案や事業推進において、観光客の実態（なぜそこに行くのか等）を把握するためのデータが不足していた。","action":"オンラインリサーチによる消費者データの取得と、アンケート設問設計の伴走支援。","outcome":"データに基づくマーケティングの重要性が浸透し観光KPIを策定、データを共通言語とした議論が活性化。","note":"","url":"https://www.macromill.com/service/case/029/"},{"id":"c092","cat":"q5","member":"(株)マクロミル","kana":"まくろみる","issue":"市場全体や自社・競合の状況を把握し、プロモーション施策や効果検証を行うためのデータが必要であった。","action":"消費者購買履歴データQPR™（オンライン分析システム「QPR TRACE」）の提供。","outcome":"企画・営業・上層部などで広くデータ活用が根付き、マーケティング施策の起点や商談資料として不可欠な存在になった。","note":"","url":"https://www.macromill.com/service/case/025/"},{"id":"c093","cat":"q5","member":"(株)マクロミル","kana":"まくろみる","issue":"サブブランド「OMO」の急激な施設拡大が、マスターブランドや既存のサブブランドへ与える影響を検証したい。","action":"「認知」「知覚品質」を軸としたブランド定点調査（オンラインリサーチ）と分析。","outcome":"マスターブランドと各サブブランドの適切な関係性とポジショニングを把握し、サブブランド戦略の本格化を決断できた。","note":"","url":"https://www.macromill.com/service/case/016/"},{"id":"c094","cat":"q2","member":"(株)マクロミル","kana":"まくろみる","issue":"課題解決型ではなく、「ありたい未来」を描くパーパス・ビジョン策定や新規事業・新商品開発を支援したい。","action":"兆しや予測をまとめたツール「未来ファインダー100」の開発と、生活者視点を取り入れたワークショップの企画・運営。","outcome":"参加者の潜在的な欲求を引き出し、熱量の高い議論から新しい事業アイデアやビジョンをクリエイティブに創出した。","note":"","url":"https://www.macromill.com/service/case/027/"},{"id":"c095","cat":"q5","member":"(株)マクロミル","kana":"まくろみる","issue":"市場全体や競合商品の購買状況を継続的に把握し、顧客動向に対応した営業・マーケティングの意思決定を行いたい。","action":"消費者購買履歴データQPR™（QPR TRACE）の提供とカスタマーサポートによる伴走。","outcome":"自社商品の売り込み型から提案型の営業へと転換し、小売業界の顧客との関係構築や部署横断でのデータ活用に貢献した。","note":"","url":"https://www.macromill.com/service/case/030/"},{"id":"c096","cat":"q4","member":"(株)マクロミル","kana":"まくろみる","issue":"「自分にはまだ早い」と考える層に育毛トニックを自分事化してもらい、新規カテゴリーエントリー（購買）につなげたい。","action":"アンケート結果（意識データ）をベースにしたターゲティング動画広告配信（Macromill Ads Targeting）。","outcome":"育毛シャンプー使用者のトニックのトライアルが増加し、3年連続前年割れだった市場での売上およびシェアのV字回復に貢献した。","note":"","url":"https://www.macromill.com/service/case/021/"},{"id":"c097","cat":"q1","member":"(株)マクロミル","kana":"まくろみる","issue":"銀行の取引データだけでは把握できない顧客の趣味嗜好や意識を補完し、顧客理解の解像度を高めたい。","action":"マクロミルの意識データと銀行内データを掛け合わせたデータ連携・分析のPoC。","outcome":"個々の顧客に対する解像度が高まり、パーソナライズされたマーケティングや「ファミリーアプローチ」戦略に向けた分析が可能になった。","note":"","url":"https://www.macromill.com/service/case/031/"},{"id":"c098","cat":"q5","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"数年ぶりの本格ブランド調査が必要。ロックアイスの認知度・購買・消費実態の「現在地」把握と、注力する熱中症対策・スポーツアイシング啓発活動への客観的評価、社内のブランド認識確認が課題。","action":"半年以上準備し目的を明確化。設問を10問に絞るシンプル設計で2,000名にネットリサーチを実施。単なる集計でなくプロの分析視点による解釈を報告書で提供。","outcome":"パッケージ認知度52%という強いブランド力を可視化しつつ純粋想起の課題も明確化。来期施策への数値目標設定が可能に。啓発活動への60%の共感評価が担当部署のモチベーション向上や新規施策展開につながった。","note":"","url":"https://corp.neo-m.jp/result/interview/research_014_corekokubo-brand-awareness"},{"id":"c099","cat":"q4","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"法人向け特設サイトが2年間で数件の問い合わせに留まり、ターゲットニーズを捉えられず燃料転換の潜在需要を獲得できていなかった。マーケティング知見不足で制作と運用が分断され改善サイクルも未確立。","action":"ターゲット調査で「工場・病院」に加え「ホテル・温浴施設」の潜在ニーズを発見。「省エネ」「脱炭素」等のキーワードに沿って特設サイトをリニューアルし、離脱分析による改修と広告運用まで一気通貫で伴走支援。","outcome":"半年で問い合わせ件数が10倍以上に増加し、案件進行期間も2〜3年から3〜4ヶ月に短縮。ダイレクトマーケティングの有効性が社内に浸透し、燃料転換活動が重要テーマとして位置付けられるようになった。","note":"","url":"https://corp.neo-m.jp/result/interview/digital-marketing_001_astomosenergy-admanagement"},{"id":"c100","cat":"q3","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"十数年間、板かまぼこの消費実態や夕月ブランドの認知・購買状況の調査を実施しておらず、若年層の板かまぼこ離れやブランド浸透度への不安から自社の現在地を可視化する必要があった。","action":"関東・東北の6エリアで20〜65歳男女450名を対象に定量調査を実施し、ブランド認知度・購買実態・消費実態を調査。調査設計から分析・活用提案まで一貫サポート。","outcome":"パッケージ認知度74%など想定外の好結果で社内の共通理解が進み、商品開発・リニューアルの根拠が明確化。卸業者・バイヤーとの商談も円滑化し新商品開発・既存商品リニューアルが実現した。","note":"","url":"https://corp.neo-m.jp/result/interview/research_013_yuduki-brand-awareness"},{"id":"c101","cat":"q4","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"先生向け記事の内製化が業務負担化し、1本の記事制作に4ヶ月要していた。メディアリレーション強化方針を決定した一方、自社調査コンテンツ「カンコーホームルーム」を十分に活用できていなかった。","action":"2022年よりSEO記事制作を依頼。月1回の調査報告記事更新と毎月最終火曜のPRリリース配信の運用フローを構築。中高生への直接アンケート調査や複数回のフィードバック面談で企業らしさを共有。","outcome":"記事制作業務が8割軽減され更新頻度・PV数が向上。「リアルな中高生の声」に基づく発信がメディア引用や教育委員会からの信頼獲得につながり、データに基づく発信で社会課題への気づきも創出した。","note":"","url":"https://corp.neo-m.jp/result/interview/contents-marketing_002_uniform-schoolsolution"},{"id":"c102","cat":"q5","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"交通広告は視聴率等の明確な指標がなく効果の可視化が困難。広告予算が限られる中、他メディアとの比較効果をクライアントが求めるようになり、データ駆動型の提案が必要になっていた。","action":"2018年から協業しインターネットリサーチによる広告効果測定調査を実施。中づりポスターとデジタルサイネージの同期間掲出による実証実験でブランド認知率向上と販売数増加を数値化し、SNS連動効果も測定。","outcome":"「駅に広告が出ていた」という印象から具体的な成果提示へ転換し、担当者の社内報告や顧客満足度が向上。交通広告初出稿の顧客が3年以上の継続取引に発展するなど、出稿内容の拡大につながった。","note":"","url":"https://corp.neo-m.jp/result/interview/research_010_transit-advertising-impact-assessment"},{"id":"c103","cat":"q4","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"個人最適化型ヘルスケアアプリ「NEWTRISH」の世界初コンセプトが市場に理解されない懸念。難解な技術の簡潔な訴求方法、ターゲットの真のニーズ把握、「AI食」という造語の認知・受容性確保が課題。","action":"健康意識の高い層へのネットリサーチで需要性・受容性を調査し、その結果をもとにタグライン・ステートメント・キービジュアルを開発。記事LPを制作しSNS広告を展開、丁寧なヒアリングで核メッセージを抽出。","outcome":"ローンチ後1ヶ月で12,000ダウンロードを達成。調査に基づく戦略的ブランディングで複雑な技術コンセプトを正確に伝達し、コンサルティングから広告運用まで一気通貫で成果創出を支援した。","note":"","url":"https://corp.neo-m.jp/result/interview/research_009_newtrish-marketing"},{"id":"c104","cat":"q1","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"「完全栄養食」という新ジャンル自体の市場認知が低く、ブランド認知向上が必要。事業成長に伴い課題も進化し、好意度向上や未購買顧客層への効果的アプローチ発見が課題となった。","action":"2018年から継続的にネットリサーチを実施し、初期はカテゴリー認知調査、その後は広告効果測定やチャネル別購買行動分析へシフト。変化する課題に応じ迅速かつ戦略的な調査設計を提供。","outcome":"商品理解度による評価の違いやチャネル間相互送客の確認など具体的施策に直結するインサイトを提供。「説明しなくても理解される」パートナーシップが変化の速い事業環境での意思決定を支援した。","note":"","url":"https://corp.neo-m.jp/result/interview/research_008_basefood-boost-brand-recognition"},{"id":"c105","cat":"q4","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"既存取引先向け商品をより魅力的にするため消費者の声を商品開発へ反映したい一方、「直接買えないか」という消費者ニーズに応えるD2Cサイト立ち上げを検討。その前提となるターゲット顧客層特定と市場理解が必要だった。","action":"約1200人へのアンケートと複数回のデプスインタビューを実施し、その後社内で多部門参加の4回のワークショップを開催して意見集約。調査結果と社内合意に基づきサイト制作・SNS運営・クリエイティブ制作まで一気通貫で支援。","outcome":"市場調査から社内合意形成、サイト制作、SNS運営までのトータル支援で、漠然とした構想を具体的なD2C事業に結実。2022年5月にサイト「itonowa」がオープンし、消費者との直接接点獲得とスムーズな運営を実現した。","note":"","url":"https://corp.neo-m.jp/result/interview/branding_001_kiyohara-d2c"},{"id":"c106","cat":"q4","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"「プロジェクト管理ツール」というカテゴリー自体の市場認知が低いこと、認知はあっても価値が理解されていないこと、マーケティング部内のコンテンツ制作リソース不足で企画立案時間が確保できないことの3点が課題。","action":"調査からコンテンツ制作まで一気通貫でサポート。「プロジェクト管理ツール」の市場調査で認知度・価値感を可視化し、月5本ペースで記事コンテンツを制作、戦略立案時間を10時間以上確保できるよう支援。","outcome":"調査結果を踏まえ様々なフェーズで戦略のアイディアや課題解決策を提案することで、機能訴求だけでなく顧客の感情に訴えるコンテンツを共に作り上げる関係を構築し、戦略的で効果的なマーケティング体制を実現した。","note":"","url":"https://corp.neo-m.jp/result/interview/contents-marketing_001_backlog-boost-brand-recognition"},{"id":"c107","cat":"q1","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"SNS時代の到来で従来の広告戦略が機能しなくなり広告効果が低下。デニーズの認知は90%超だが「お腹がすいた時に想起されるか」という想起段階が弱点で、事実ベースの企画立案が必要だった。","action":"広告効果測定調査や新商品開発前のニーズ調査（サラダの事例）を実施し、データにより企画の迷いを減らして届きやすい告知を実現。フリーアンサーを読み込み定量では得られない生活者心理の暗黙知も蓄積。","outcome":"定量・定性データの組み合わせで自社の思いと顧客ニーズを合致させ「食べてみたい」気持ちを引き出すことを実現。事実に基づく提案資料の説得力が向上し、部下対応や変化への柔軟な対応力強化、ブランド想起向上への道筋を示した。","note":"","url":"https://corp.neo-m.jp/result/interview/research_006_sevenandi-food-systems-pr"},{"id":"c108","cat":"q1","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"市場トレンドや他社売れ筋重視の経営姿勢から顧客インサイトが不足。EC等一般流通拡大に伴い、生協市場とは異なる顧客像の深掘りが必要となり、定性調査によるニーズ抽出が求められていた。","action":"ブランド調査をきっかけにグループインタビューで顧客の判断基準を発見し、データドリブン経営へ転換。以降、月1〜4回のペースで紙面調査・ブランド調査・ターゲット調査・ニーズ調査等の定量・定性調査を継続実施。","outcome":"調査データが商品開発や販売方法の重要局面での判断基準となり、感覚でなくデータドリブンで判断でき社内の理解も得やすくなった。調査結果を顧客への提案の武器として活用し、意思決定の根拠と提案力を強化した。","note":"","url":"https://corp.neo-m.jp/result/interview/research_005_kagayaku-cosme-datadriven"},{"id":"c109","cat":"q4","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"コロナ禍で学会が中止となり新商品「前開きカップ付きインナー」のPR機会を喪失。メディキュアの認知度が低く「看護師の口コミ」が主要購入経路であるため、より広範な認知拡大が必要だった。","action":"ターゲット層のニーズ把握調査でスキンテアの言葉認知度と経験率のギャップ等の具体データを収集。その後Instagram運用、ハッシュタグキャンペーン、広告配信まで半月ペースのミーティングを重ね段階的・共創型で支援。","outcome":"調査データに基づくInstagram広告運用でブランドサイトへの流入が大幅に増加し双方向のユーザーコミュニケーションを実現。調査データを用いた説得力ある資料でセミナー開催も可能になり、認知拡大と患者のQOL向上に貢献した。","note":"","url":"https://corp.neo-m.jp/result/interview/sns-marketing_001_gunze-instagram-ads"},{"id":"c110","cat":"q1","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"「かけるだけもち麦」リニューアル後に売上が低下し、潜在顧客の獲得状況と実際の購買層の把握が必要に。商品がどのようなものか消費者に伝わっていない「正体不明感」が購入を阻害していると認識していた。","action":"「カスタマードリブン」のフレームワークで定量調査により顧客ピラミッドを構築後、ロイヤル・一般・離反の各顧客層にデプスインタビューを実施し、定量調査では見えない本質をつかむアプローチをとった。","outcome":"課題とやるべきことが明確化され、情報発信方法・パッケージ・販促戦略の検討へ進展。消費者の気持ちに踏み込んだ訴求の必要性を理解し、マーケティング施策の方向性を確立できた。","note":"","url":"https://corp.neo-m.jp/result/interview/custmer-driven_001_mochimugi-renewal"},{"id":"c111","cat":"q4","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"既存ビジネスの成長限界を認識し、健康という社会課題解決を兼ねた新規事業創造が必要。単なる商品販売でなく健康意識の継続的醸成を実現するビジネスモデル構築、ターゲット・チャネル選定、消費者ニーズ把握が課題だった。","action":"2016年から段階的に消費者インサイト調査→コンセプト調査→ビジネスアイデアブレスト→試作品受容性検証のプロセスを実施。「オフィス向けスムージー」に絞り込み、味覚・売価弾性・パッケージ調査を継続し年1回程度の大きな変更を伴うトライ&エラーを重ねた。","outcome":"定量・定性調査を組み合わせた包括的支援で経営層の疑問や社内の異論を調査結果で説得可能に。スピーディーな調査実施と軌道修正の柔軟性でテレワーク普及等の環境変化に迅速対応し、新規事業の継続的成長を支援した。","note":"","url":"https://corp.neo-m.jp/result/interview/research_002_kirin-beverages-new-business"},{"id":"c112","cat":"q3","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"BtoB企業の新入社員が顧客とエンドユーザー両者の価値を理解する必要がある一方、BtoB業界にマーケティング思考が浸透しておらず、「講座」でなく「マーケティングの考え方」を育てる教育が求められていた。","action":"2015年から月1〜2回、約5ヶ月間全10回のマーケティングプロジェクトを実施。前半は3C・4P・4C等の基礎座学、後半は調査設計から実査・分析・考察までのリサーチ体験を通じエンドユーザー理解を深める実践プログラムを展開。","outcome":"新入社員がブランドメーカーと同等レベルのマーケティング知識を習得し、エンドユーザー視点から顧客へ提案できる人材育成を実現。BtoBtoCビジネスにおいて受託製造を超えた高付加価値提案が可能になった。","note":"","url":"https://corp.neo-m.jp/result/interview/research_003_air-water-sol-enduser"},{"id":"c113","cat":"q3","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"売上1兆3000億円規模の「セブンプレミアム」だが、多数のPBが乱立する中で同質化の懸念があった。マスマーケット対応の優位性を保ちつつ顧客ニーズへの親和性向上と、組織としての新たな成長軸構築が必要だった。","action":"2022年から3回にわたり「インサイト・ドリブン®」を実施。カテゴリーの熱狂的ファンの自宅訪問観察を行い、その後ワークショップで「お客様視点」を全員で共有し「提供価値」を明確化してからソリューション創出へ進むプロセスを導入。","outcome":"エクストリームユーザーの行動観察により、従来のプロダクトアウト型開発から川下からの気づきを取り入れた開発へ転換。複数事業会社の垣根を越えた共通の「お客様」認識形成と、開発現場メンバーの新価値創造への意識改革を実現した。","note":"","url":"https://corp.neo-m.jp/result/interview/insight-driven_003_sevenandi-extremeuser"},{"id":"c114","cat":"q3","member":"(株)ネオマーケティング","kana":"ねおまーけてぃんぐ","issue":"人口減少と美容院でのニーズ増加でヘアカラー市販品の売上が減少。既存の毛見本等の店頭販促ツール（POP）が商品選びの参考にされておらず、店頭で新規ユーザーがどう情報を得れば購買につながるか明確化が必要だった。","action":"3段階の「インサイト共創プログラム」を実施。STEP1で店頭行動観察調査、STEP2で利用ユーザーへのデプスインタビュー、STEP3で愛用ユーザーとの共創ワークショップを、売場を再現したスタジオで実施し直接意見を収集。","outcome":"毛見本が不要な理由や白髪染め・おしゃれ染めの区別理解不足など具体的なユーザーインサイトを獲得。デジタルツール開発の方向転換、毛見本撤去検討、境界線POP導入案など調査結果に基づく複数の施策が実行段階へ進展した。","note":"","url":"https://corp.neo-m.jp/result/interview/insight-driven_002_hoyu-innovation"}]</script>
+<script type="application/json" id="svc-data">[{"id":"s001","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","name":"Concept Discovery","url":"https://www.cross-m.co.jp/service/consultancy/stage-gate/concept-discovery"},{"id":"s002","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","name":"Seeds-Needs Bridge","url":"https://www.cross-m.co.jp/service/consultancy/stage-gate/seeds-needs-bridge"},{"id":"s003","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","name":"Concept Pass","url":"https://www.cross-m.co.jp/service/consultancy/stage-gate/concept-pass"},{"id":"s004","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","name":"イノベーションサポートサービス","url":"https://www.cross-m.co.jp/service/consultancy/stage-gate/innovation-support-service"},{"id":"s005","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","name":"4P-MRI（4P-Marketing Result Index）","url":"https://www.cross-m.co.jp/service/marketing-research/4p-mri"},{"id":"s006","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","name":"BrandLink Compass","url":"https://www.cross-m.co.jp/service/consultancy/brandlink-compass"},{"id":"s007","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","name":"LTV パス・ファインダー","url":"https://www.cross-m.co.jp/service/data-marketing/ltv-path-finder"},{"id":"s008","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","name":"リサーチAIスターター","url":"https://www.cross-m.co.jp/service/data-marketing/research-data-genai-analysis"},{"id":"s009","member":"(株)クロス・マーケティング","kana":"くろすまーけてぃんぐ","name":"ジャーニーデータ分析","url":"https://www.cross-m.co.jp/landing/journey-data"},{"id":"s010","member":"(株)マクロミル","kana":"まくろみる","name":"9segsR×マクロミルブランド管理調査","url":"https://www.macromill.com/service/online-research/9segs-brand-management/"},{"id":"s011","member":"(株)マクロミル","kana":"まくろみる","name":"因果探索ソリューション【CausalAnalysis】","url":"https://www.macromill.com/service/digital-data/causal-analysis/"},{"id":"s012","member":"(株)マクロミル","kana":"まくろみる","name":"箱庭配信【AdLab】","url":"https://www.macromill.com/service/digital-data/ad-distribution-support-on-a-small-scale/"},{"id":"s013","member":"(株)マクロミル","kana":"まくろみる","name":"マーケティングミックスモデリング（MMM）","url":"https://www.macromill.com/service/digital-data/ad-roi/"},{"id":"s014","member":"(株)マクロミル","kana":"まくろみる","name":"コミュニケーション戦略構築支援（Strategic Planning）","url":"https://www.macromill.com/service/marketing-promotion/strategic-planning/"},{"id":"s015","member":"(株)マクロミル","kana":"まくろみる","name":"プロモーション","url":"https://www.macromill.com/service/marketing-promotion/promotion/"},{"id":"s016","member":"(株)マクロミル","kana":"まくろみる","name":"MacromillのCRM／CX支援","url":"https://www.macromill.com/service/crm-cx/"},{"id":"s017","member":"(株)マクロミル","kana":"まくろみる","name":"生活者データプラットフォーム「Coreka」","url":"https://www.macromill.com/service/platform/coreka/"},{"id":"s018","member":"(株)インテージ","kana":"いんてーじ","name":"マーケティングRe:デザインシリーズ","url":"https://www.intage.co.jp/service/services/marketing-support/re-design/"},{"id":"s019","member":"(株)インテージ","kana":"いんてーじ","name":"対話型プロモーション","url":"https://www.intage.co.jp/service/services/marketing-support/dialog-style-promotions/"},{"id":"s020","member":"(株)インテージ","kana":"いんてーじ","name":"Sales Impact Scope","url":"https://www.intage.co.jp/service/services/marketing-support/siscope/"},{"id":"s021","member":"(株)インテージ","kana":"いんてーじ","name":"広告目標マネジメントプログラム","url":"https://www.intage.co.jp/service/services/marketing-support/ad-management/"},{"id":"s022","member":"(株)インテージ","kana":"いんてーじ","name":"di-SCHOP","url":"https://www.intage.co.jp/service/services/marketing-support/di-schop/"},{"id":"s023","member":"(株)インテージ","kana":"いんてーじ","name":"di-PiNKR DMP","url":"https://www.intage.co.jp/service/services/marketing-support/di-pink/"},{"id":"s024","member":"(株)インテージ","kana":"いんてーじ","name":"CXマネジメント支援サービス","url":"https://www.intage.co.jp/service/services/marketing-support/cxm/"},{"id":"s025","member":"(株)インテージ","kana":"いんてーじ","name":"Brand Impact ScopeR","url":"https://www.intage.co.jp/service/services/marketing-research/biscope/"},{"id":"s026","member":"(株)インテージ","kana":"いんてーじ","name":"GenometricsR（ゲノメトリクス）","url":"https://www.intage.co.jp/service/services/data-analysis-and-forecasting/genometrics/"},{"id":"s027","member":"(株)インテージ","kana":"いんてーじ","name":"マーケティング・ミックス・モデリング","url":"https://www.intage.co.jp/service/services/data-analysis-and-forecasting/mmm/"},{"id":"s028","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"テレビCM×Prime Video広告のトータルリーチ計測を開始～テレビCM×動画広告のリーチ改善施策支援サービス『Cross Media Reach Report（CMR）』をアップデート～","url":"https://www.videor.co.jp/press/2026/260402.html"},{"id":"s029","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"テレビ×デジタル広告の統合シミュレーションを高度化 TVer・Amazon Prime Videoの広告リーチシミュレーションも可能に～『Key-Jack Simulator』を『Cross Media Ad Simulator』へ名称変更しリニューアル～","url":"https://www.videor.co.jp/press/2026/260317.html"},{"id":"s030","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"12の国と地域を対象に「タレント海外プレゼンス調査」を開始 タレントの国際的な評価の可視化を通じてグローバル戦略を支援～タレント知名度は「金城 武」が6の国と地域で1位、音楽アーティストの海外進出が加速～","url":"https://www.videor.co.jp/press/2025/250930.html"},{"id":"s031","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"『CTV広告データ』を10月より提供開始 コネクテッドTVでの広告接触をテレビ視聴率パネルで可視化","url":"https://www.videor.co.jp/press/2025/250925.html"},{"id":"s032","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"動画視聴者の感情をAIが解析する『Emolyzer（エモライザー）』を提供開始～動画広告・動画コンテンツのAIによる迅速なクリエイティブ評価を実現～","url":"https://www.videor.co.jp/press/2025/250729.html"},{"id":"s033","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"日本・世界各国のSVOD視聴実態をコンテンツ単位で把握できる『SoDA』を日本市場で本格提供開始～Digital i社との連携でNetflixやprime videoなどの視聴実態を提供～","url":"https://www.videor.co.jp/press/2025/250724.html"},{"id":"s034","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"『STREAMO』を全国32地区で10月より提供開始 動画配信プラットフォームの利用実態を可視化～コネクテッドTVの広告データサービス提供も視野にメディア環境の変化に対応～","url":"https://www.videor.co.jp/press/2025/250716.html"},{"id":"s035","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"テレビCM×デジタル広告運用の最適化を支援するシミュレーションツール『Key-Jack Simulator』をリニューアルし4月1日から提供開始～コネクテッドTVの広告出稿シミュレーション機能が追加～","url":"https://www.videor.co.jp/press/2025/250327.html"},{"id":"s036","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"テレビCMと動画配信広告の統合指標を提供するシステム『CM-UMPs（シーエムアンプ）』を2025年4月よりサービス開始～キャンペーンごとの広告到達実績を、延べ接触人数と累積接触人数の指標で提供～","url":"https://www.videor.co.jp/press/2025/250325.html"},{"id":"s037","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"名古屋地区における『テレビ視聴率』調査において調査エリアおよび調査世帯数を拡大","url":"https://www.videor.co.jp/press/2025/250219.html"},{"id":"s038","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"BS放送視聴データ提供サービス『全国BS視聴率』で1月10日開局の新チャンネル「BS10」データの提供を開始","url":"https://www.videor.co.jp/press/2025/250109.html"},{"id":"s039","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"放送局向けの新たな簡易考査支援システム「こあらーミニ」を2024年11月から提供開始～プラットイーズとの協業によるシステム開発で、考査業務の効率化とコスト削減を実現～","url":"https://www.videor.co.jp/press/2024/240917.html"},{"id":"s040","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"『枠ファインダ』で7月1日からSmart Ad Sales初のダイナミックプライシングへの対応を開始～ダイナミックプラス社の価格算出技術を読売テレビが初めて導入～","url":"https://www.videor.co.jp/press/2024/240724.html"},{"id":"s041","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"テレビCMの取引を支援する「枠ファインダ」 クライアントニーズに応じた視聴データのオンライン販売サービスを開始","url":"https://www.videor.co.jp/press/2024/240416.html"},{"id":"s042","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"動画配信プラットフォームの利用実態を把握できる新たなサービスの名称を『STREAMO』として提供をスタート～ASPツールでいつでも簡単に確認、課題に合わせた個別分析も提供～","url":"https://www.videor.co.jp/press/2024/240123.html"},{"id":"s043","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"テレビCMとYouTube広告のリーチを最大化する改善施策支援サービス「Cross Media Reach Report」を拡張し10月下旬より提供開始 コネクテッドTVでのYouTubeの共視聴データの提供により、条件を揃えた横並び評価が可能に","url":"https://www.videor.co.jp/press/2023/231017.html"},{"id":"s044","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"視聴率の測定領域を拡張し、テレビデバイスやPC・モバイル端末でのTVerやYouTubeなどの動画視聴の測定を開始 ～2024年4月関東地区にてβ版データ提供を開始～","url":"https://www.videor.co.jp/press/2023/230719.html"},{"id":"s045","member":"(株)ビデオリサーチ","kana":"びでおりさーち","name":"テレビ番組だけでなく配信コンテンツの評価もわかる“視聴質”サービス『コンテンツカルテ』の提供を開始","url":"https://www.videor.co.jp/press/2023/230627.html"},{"id":"s046","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"「NIKKEI Financial銀行ランキング」の消費者調査データ2026年版を販売 デジタルとリアルの融合が鍵～若年層の「対面ニーズ」とアッパーマス層以上の「デジタル重視」が鮮明に～","url":"https://service.nikkei-r.co.jp/news/20260520"},{"id":"s047","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"人的資本への投資対効果を可視化し、経営に資する人材戦略を支援する「Human Capital Intelligence（HCI）」をリリース","url":"https://service.nikkei-r.co.jp/news/20260424"},{"id":"s048","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"日経ヴェリタスの最新ランキング完全対応、IR面談等ファーストコンタクト窓口収録開始、カバレッジ情報の商品化！ 「アナリスト・エコノミスト名鑑＜2026年版＞」発売開始","url":"https://service.nikkei-r.co.jp/news/20260330"},{"id":"s049","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"消費者の金融行動・意識の把握に活用いただける 生活者金融定点調査「⾦融RADAR®」2025年版提供開始","url":"https://service.nikkei-r.co.jp/news/20260327"},{"id":"s050","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"身近な金融機関のNPS®（推奨意向）など、全国16万人の大規模データ 金融機関顧客評価調査「金融METER®」2025年版提供開始","url":"https://service.nikkei-r.co.jp/news/20260113"},{"id":"s051","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"データ起点でグローバルのブランド価値向上を支援 グローバルのブランド評価フレームワーク｜日経リサーチ「GLOBAL BRAND SURVEY 2025」をリリース","url":"https://service.nikkei-r.co.jp/news/20251010_2"},{"id":"s052","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"ヤマト運輸、3年連続首位、パナソニックは10年ぶりに総合2位。食品関連企業がランクアップ ー 企業ブランド調査「ブランド戦略サーベイ2025」発売","url":"https://service.nikkei-r.co.jp/news/250910"},{"id":"s053","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"「活気がある」鉄道路線、トップはJR山手線 ～首都圏の鉄道沿線イメージランキング～ 3万人調査の「施設と駅のセンサス」駅編の最新調査データ提供開始","url":"https://service.nikkei-r.co.jp/news/20250723"},{"id":"s054","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"個人と組織のパフォーマンスを最大化する人的資本経営|Human Resource Performance Surveyをリリース","url":"https://service.nikkei-r.co.jp/news/20250701"},{"id":"s055","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"「NIKKEI Financial銀行ランキング」の最新消費者調査データ販売 今回は約1万人の利用者が「商品力」「利便性」など本音で評価 若い世代、銀行の「デジタルサービス」「社会への貢献姿勢」を重視","url":"https://service.nikkei-r.co.jp/news/20250520"},{"id":"s056","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"日経ヴェリタスの最新ランキング完全対応、 ESGアナリスト増強し、合計収録人数は1200人超！ 「アナリスト・エコノミスト名鑑＜2025年版＞」予約受付開始","url":"https://service.nikkei-r.co.jp/news/20240311-0"},{"id":"s057","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"「Smart Work経営 診断プログラム」予約受け付け開始","url":"https://service.nikkei-r.co.jp/news/20241113"},{"id":"s058","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"身近な金融機関のNPS®（推奨意向）など、全国16万人の大規模データ 金融機関顧客評価調査「金融METER®」2024年版提供開始","url":"https://service.nikkei-r.co.jp/news/20241111"},{"id":"s059","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"首都圏商業施設の利用実態6万人調査｜「施設と駅のセンサス」施設編の最新データ発売 集客力ランキングも発表！ルミネ新宿が3年連続トップ","url":"https://service.nikkei-r.co.jp/news/20241015"},{"id":"s060","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"データ起点でグローバルのブランド価値向上を支援 新ブランド評価フレームワーク｜日経リサーチ「GLOBAL BRAND SURVEY」をリリース","url":"https://service.nikkei-r.co.jp/news/20241011"},{"id":"s061","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"ヤマト運輸、2年連続首位 「生成AI」関連企業、「インフレ時代の味方」小売業も上昇 企業ブランド調査「ブランド戦略サーベイ2024」発売","url":"https://service.nikkei-r.co.jp/news/20240918"},{"id":"s062","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"「日経統合ウェルビーイング調査（伊藤版Well-beingスコア）」サービスを新たにリリース","url":"https://service.nikkei-r.co.jp/news/20240719"},{"id":"s063","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"「NIKKEI Financial銀行ランキング」の消費者調査データを販売 約8000人の利用者が銀行の「商品力」「利便性」など本音で評価","url":"https://service.nikkei-r.co.jp/news/20240610"},{"id":"s064","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"あなたが知りたいターゲットの攻略法をChatGPTが答えてくれる！「KeyExplorer」で特徴を見つけたぺルソナに関する質問をできる新機能搭載！","url":"https://service.nikkei-r.co.jp/news/20240321"},{"id":"s065","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"日経ヴェリタスの最新ランキング完全対応、 ESGアナリスト増強し、合計収録人数は1200人超！ 「アナリスト・エコノミスト名鑑＜2024年版＞」予約受付開始","url":"https://service.nikkei-r.co.jp/news/20240311"},{"id":"s066","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"日経リサーチ、日本経済新聞社と共同で サプライチェーンのサステナビリティ活動を評価・支援する プラットフォームをスタート","url":"https://service.nikkei-r.co.jp/news/20240104"},{"id":"s067","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"「サステナビリティ情報開示支援サービス」を新たにリリース｜「日経SDGs経営調査」分析レポート予約受け付け開始","url":"https://service.nikkei-r.co.jp/news/20231122"},{"id":"s068","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"身近な金融機関のNPS®（推奨意向）など、全国17万人の大規模データ 金融機関顧客評価調査「金融METER®」2023年版提供開始","url":"https://service.nikkei-r.co.jp/news/20231114"},{"id":"s069","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"「Smart Work経営 診断プログラム」予約受け付け開始","url":"https://service.nikkei-r.co.jp/news/20231109"},{"id":"s070","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"ヤマト運輸、7年ぶりの1位。経済・社会活動の本格再開で運輸・鉄道企業に高評価 企業ブランド調査「ブランド戦略サーベイ2023」発売","url":"https://service.nikkei-r.co.jp/news/20230926"},{"id":"s071","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"ChatGPTと連携した機能で、SaaS型\"テキスト＆データ\"マイニングツール「KeyExplorer」が、より深い分析を短時間で可能に","url":"https://service.nikkei-r.co.jp/news/20230828"},{"id":"s072","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"「ビジネスと人権」対応支援サービス「ビジネスと人権Check＆Learning」を発売","url":"https://service.nikkei-r.co.jp/news/20230718"},{"id":"s073","member":"(株)日経リサーチ","kana":"にっけいりさーち","name":"アンケート結果から「インサイト」を見つけ出すフレームワークを日経リサーチが開発｜使用法をまとめた電子書籍をkindleで発売","url":"https://service.nikkei-r.co.jp/news/20230517"},{"id":"s074","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"「楽楽プロファイル」で生成したターゲットプロファイルをAIにより擬人化し、対話ができる「インタビュー機能」をリリース","url":"https://insight.rakuten.co.jp/news/20260218.html"},{"id":"s075","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"「楽楽リサーチャー™」リリース","url":"https://insight.rakuten.co.jp/news/20250904.html"},{"id":"s076","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"「R-Tele Digiブランドリフトサーベイ」リリース","url":"https://insight.rakuten.co.jp/digital_marketing/teledigi_brand_lift.html"},{"id":"s077","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"「R-GEO Data Insight」リリース","url":"https://insight.rakuten.co.jp/digital_marketing/geo_data.html"},{"id":"s078","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"デジタルマーケティングPDCA支援「ターゲティング広告利用」リリース","url":"https://insight.rakuten.co.jp/digital_marketing/targeting.html"},{"id":"s079","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"「楽楽プロファイル」リリース","url":"https://insight.rakuten.co.jp/news/20240912.html"},{"id":"s080","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"アスキングビッグデータ連携ツール「楽楽トッピング」リリースのお知らせ","url":"https://insight.rakuten.co.jp/asking_big_data/"},{"id":"s081","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"楽天インサイト関連サービス：楽天超ミニバイト「AIチャットインタビュー」リリースのお知らせ","url":"https://insight.rakuten.co.jp/minijob/aichatinterview/"},{"id":"s082","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"アスキングビッグデータ「デジタルメディアデータ」リリース","url":"https://insight.rakuten.co.jp/asking_big_data/digital_media_data.html"},{"id":"s083","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"「R-ブランドリフトサーベイ」が傾向スコア分析に対応しました","url":"https://insight.rakuten.co.jp/digital_marketing/brand_lift.html"},{"id":"s084","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"「R-Tele Digiブランドリフトサーベイ」リリース","url":"https://insight.rakuten.co.jp/digital_marketing/teledigi_brand_lift.html"},{"id":"s085","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"アスキングビッグデータ「ブランドデータ」リリース","url":"https://insight.rakuten.co.jp/asking_big_data/brand_data.html"},{"id":"s086","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"「R-ブランドリフトサーベイ」にてコネクテッドTVの広告効果測定も可能になりました","url":"https://insight.rakuten.co.jp/digital_marketing/brand_lift.html"},{"id":"s087","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"「アスキングビッグデータ」紹介ページリリース","url":"https://insight.rakuten.co.jp/asking_big_data/"},{"id":"s088","member":"楽天インサイト(株)","kana":"らくてんいんさいと","name":"「R-DCRブランドリフトサーベイ」リリース","url":"https://insight.rakuten.co.jp/digital_marketing/dcr_brand_lift.html"},{"id":"s089","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"クイックサーベイ（TenQuick®）｜医療業界特化・スピード重視のWebアンケート","url":"https://www.intage-healthcare.co.jp/service/research/quick/"},{"id":"s090","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"グローバルサービス｜マーケティングリサーチ","url":"https://www.intage-healthcare.co.jp/service/research/global/"},{"id":"s091","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"生活健康基礎調査｜マーケティングリサーチ","url":"https://www.intage-healthcare.co.jp/service/research/health/"},{"id":"s092","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"女性のヘルスケア実態調査｜マーケティングリサーチ","url":"https://www.intage-healthcare.co.jp/service/research/woman/"},{"id":"s093","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"プロモーション活動評価（Impact Track / SOC / Rep-i）","url":"https://www.intage-healthcare.co.jp/service/research/impact/"},{"id":"s094","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"医療機器プロモーショントラッキング｜マーケティングリサーチ","url":"https://www.intage-healthcare.co.jp/service/research/device_pr/"},{"id":"s095","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"患者起点（Patient Mindscape®）｜マーケティングリサーチ","url":"https://www.intage-healthcare.co.jp/service/research/patient_mindscape/"},{"id":"s096","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"治療実態（Doctor Mindscape® / Rx）｜マーケティングリサーチ","url":"https://www.intage-healthcare.co.jp/service/research/doctor_mindscape/"},{"id":"s097","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"データ融合分析サービス（Cross Effect®）｜マーケティングリサーチ","url":"https://www.intage-healthcare.co.jp/service/research/crosseffect/"},{"id":"s098","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"アドホック調査（患者・医師・医療従事者）","url":"https://www.intage-healthcare.co.jp/service/research/adhoc_rx/"},{"id":"s099","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"オンコロジー/希少・難病疾患領域サポート｜サービス","url":"https://www.intage-healthcare.co.jp/service/research/oncology/"},{"id":"s100","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"調査＋ワークショップ（Reコンパス）｜マーケティングリサーチ","url":"https://www.intage-healthcare.co.jp/service/research/ws/"},{"id":"s101","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"HTA（医療技術評価）｜HEOR・エビデンス構築支援","url":"https://www.intage-healthcare.co.jp/service/heor/hta/"},{"id":"s102","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"アンケート系医学研究・質的研究｜HEOR・エビデンス構築支援","url":"https://www.intage-healthcare.co.jp/service/heor/survey/"},{"id":"s103","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"医療政策関連調査・研究支援｜HEOR・エビデンス構築支援","url":"https://www.intage-healthcare.co.jp/service/heor/policy/"},{"id":"s104","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"厚生労働科学研究費等関連調査｜支援事例","url":"https://www.intage-healthcare.co.jp/service/heor/academia/"},{"id":"s105","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"創薬支援","url":"https://www.intage-healthcare.co.jp/service/data-science/insilico/"},{"id":"s106","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"Deep Quartet｜サービス","url":"https://www.intage-healthcare.co.jp/service/data-science/insilico/dq/"},{"id":"s107","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"ACISS: 創薬支援in silicoサービス","url":"https://www.intage-healthcare.co.jp/service/data-science/insilico/aciss/"},{"id":"s108","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"CGBVS: 化合物高速スクリーニングシステム｜サービス","url":"https://www.intage-healthcare.co.jp/service/data-science/insilico/cgbvs/"},{"id":"s109","member":"(株)インテージヘルスケア","kana":"いんてーじへるすけあ","name":"Recgen: 化合物構造生成プログラム｜サービス","url":"https://www.intage-healthcare.co.jp/service/data-science/insilico/recgen/"},{"id":"s110","member":"GMOリサーチ&AI(株)","kana":"じーえむおーりさーちあんどえーあい","name":"AIを駆使した調査リリース作成サービス「GMO Ask for 調査リリース」を提供開始 ～国内2,800万人のモニター・AIを活用し、調査・分析・作成をワンストップで対応～","url":"https://gmo-research.ai/pressroom/press-release/press-release-20240329"},{"id":"s111","member":"GMOリサーチ&AI(株)","kana":"じーえむおーりさーちあんどえーあい","name":"AI×ユーザーデータで実在する消費者に限りなく近い仮想モデルを再現！「GMOデジタルツインチャット（β版）」リリース ～AIとデータが生み出す新たな消費者インサイト～","url":"https://gmo-research.ai/pressroom/press-release/press-release-20241031"},{"id":"s112","member":"GMOリサーチ&AI(株)","kana":"じーえむおーりさーちあんどえーあい","name":"企業のブランド価値向上と消費者の選択を支援する「GMO顧客満足度ランキング」を提供開始～調査のプロが導く新たなランキングプラットフォーム～","url":"https://gmo-research.ai/pressroom/press-release/press-release-20250304"},{"id":"s113","member":"GMOリサーチ&AI(株)","kana":"じーえむおーりさーちあんどえーあい","name":"Spreadyと新規事業開発領域で業務提携 ～ユーザーリサーチと市場分析を組み合わせ、新規事業開発を支援～","url":"https://gmo-research.ai/pressroom/press-release/press-release-20241007"},{"id":"s114","member":"(株)アスマーク","kana":"あすまーく","name":"コンセプトの開発・評価","url":"https://www.asmarq.co.jp/researchsolution/concept/"},{"id":"s115","member":"(株)アスマーク","kana":"あすまーく","name":"官公庁・自治体向け調査サービス","url":"https://www.asmarq.co.jp/kankoucho/"},{"id":"s116","member":"(株)アスマーク","kana":"あすまーく","name":"市場調査・マーケティングリサーチ会社のアスマーク","url":"https://www.asmarq.co.jp/lp/net-research_n/v04/"},{"id":"s117","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","name":"公的統計支援事業","url":"https://www.intage-research.co.jp/business/gos/"},{"id":"s118","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","name":"リサーチ＆コンサルティング","url":"https://www.intage-research.co.jp/business/consulting/"},{"id":"s119","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","name":"市場調査","url":"https://www.intage-research.co.jp/business/marketing-research/"},{"id":"s120","member":"(株)インテージリサーチ","kana":"いんてーじりさーち","name":"「インテージ・インフレーション・トラッカー」を毎月公表開始","url":"https://www.intage-research.co.jp/news/single---id-31.html"},{"id":"s121","member":"(株)富士経済","kana":"ふじけいざい","name":"マルチクライアント特別調査企画","url":"https://www.fuji-keizai.co.jp/service/multi.html?la=en&la=ja"},{"id":"s122","member":"(株)富士経済","kana":"ふじけいざい","name":"教育DX/ICTソリューション市場総調査 2025","url":"https://www.fuji-keizai.co.jp/report/detail.html?code=832410819"},{"id":"s123","member":"(株)富士経済","kana":"ふじけいざい","name":"デジタルID/認証ソリューションビジネス市場調査要覧 2024","url":"https://www.fuji-keizai.co.jp/report/detail.html?code=832402824"},{"id":"s124","member":"(株)富士経済","kana":"ふじけいざい","name":"業種別IT投資/デジタルソリューション市場 2024年版","url":"https://www.fuji-keizai.co.jp/report/detail.html?code=832403830"},{"id":"s125","member":"(株)富士経済","kana":"ふじけいざい","name":"AIデータセンター向け液冷設備・建築物の動向調査","url":"https://www.fuji-keizai.co.jp/report/detail.html?code=832502723"},{"id":"s126","member":"(株)富士経済","kana":"ふじけいざい","name":"生産自動化(FA)に向けたロボットと構成部材、ソリューション・サービス市場調査","url":"https://www.fuji-keizai.co.jp/press/detail.html?cid=22046&view_type=2"},{"id":"s127","member":"(株)富士経済","kana":"ふじけいざい","name":"認証ソリューション関連の国内市場を調査","url":"https://www.fuji-keizai.co.jp/press/detail.html?cid=24066"},{"id":"s128","member":"(株)社会情報サービス","kana":"しゃかいじょうほうさーびす","name":"PatientsMap2026CN発売記念セミナー 中国市場の「いま」を捉える ～1万人超の医師調査と現地レポートで読み解く、中国医療市場の現在地～","url":"https://www.ssri.com/news/post/4463"},{"id":"s129","member":"(株)社会情報サービス","kana":"しゃかいじょうほうさーびす","name":"PatientsMap2025JP発売記念セミナー データから市場を読み解き、創薬の未来への戦略を描く","url":"https://www.ssri.com/news/post/3708"},{"id":"s130","member":"(株)社会情報サービス","kana":"しゃかいじょうほうさーびす","name":"肥満症のアンメットニーズについて講演（PatientsMap2024US発売記念セミナー開催）","url":"https://www.ssri.com/news/post/3143"},{"id":"s131","member":"(株)社会情報サービス","kana":"しゃかいじょうほうさーびす","name":"PatientsMap","url":"https://research.ssri.co.jp/pmap/"},{"id":"s132","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","name":"知財リサーチサービスのご紹介","url":"https://www.n-info.co.jp/service/intel/"},{"id":"s133","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","name":"ヒト試験サポートサービス","url":"https://www.n-info.co.jp/service/clinicaltrial/"},{"id":"s134","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","name":"VIRTUAL SHOPPERサービスのご紹介","url":"https://www.n-info.co.jp/service/virtual-shopper/"},{"id":"s135","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","name":"チャット型アンケート「FAST Feelings」","url":"https://www.n-info.co.jp/service/fast-feelings/"},{"id":"s136","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","name":"動画収集リサーチ「FASTVIDEO LOG」","url":"https://www.n-info.co.jp/service/fastvideo/"},{"id":"s137","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","name":"飲食店パネル調査サービスのご紹介","url":"https://www.n-info.co.jp/service/restaurant-panel/"},{"id":"s138","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","name":"メディカルリサーチとは？メリット・デメリットを解説","url":"https://www.n-info.co.jp/service/medical-research/"},{"id":"s139","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","name":"インフルエンサーリサーチとは？メリット・デメリットを解説","url":"https://www.n-info.co.jp/service/influencer-research/"},{"id":"s140","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","name":"オンラインインタビューとは？メリット・デメリット、活用例などを詳しく解説！","url":"https://www.n-info.co.jp/service/online/"},{"id":"s141","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","name":"インターネット・リサーチとは？メリット・デメリットを解説","url":"https://www.n-info.co.jp/service/net/"},{"id":"s142","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","name":"ホームビジット(家庭訪問観察調査）","url":"https://www.n-info.co.jp/service/visit/"},{"id":"s143","member":"日本インフォメーション(株)","kana":"にほんいんふぉめーしょん","name":"「リアルシェルフ」導入のご案内（CLT高円寺）","url":"https://www.n-info.co.jp/news/1310/"},{"id":"s144","member":"(株)マクロミル","kana":"まくろみる","name":"セルフサーベイツール","url":"https://questant.jp/"},{"id":"s145","member":"(株)マクロミル","kana":"まくろみる","name":"掲示板サービス","url":"https://milltalk.jp/"},{"id":"s146","member":"(株)マクロミル","kana":"まくろみる","name":"モニタス社、CRM領域","url":"https://monitas.co.jp/service/supercolo"}]</script>
+<script>
+(function(){
+'use strict';
+/* ============================================================================
+   JMRA 産業ビジョンLP — 共通ロジック
+   デザイン案A／案Bで完全に同一のスクリプトを共有しています。
+   ＝ 見た目（トークン・CSS）だけを差し替えれば、同じ機能がそのまま動く
+     ＝ 将来のDB化・追加改修でもトンマナと挙動を揃えられる、という設計の実演です。
+
+   【将来のDB化について】
+   本ファイルは <script type="application/json" id="case-data"> を読むだけです。
+   サーバ側がこのJSONを出力するようになれば、JSは1行も変えずに動きます。
+   URLパラメータ（?cat=...&mem=...&sort=...）もそのまま
+   サーバサイド絞り込みへ移行できる設計にしています。
+   ========================================================================== */
+
+document.documentElement.classList.add('js');
+/* URLパラメータは最初に一度だけ読み取る。
+   描画時の history.replaceState でクエリが書き換わるため、後から読むと失われる。 */
+var Q = new URLSearchParams(location.search);
+var STILL = Q.get('still')==='1';   // 撮影・印刷用の静止モード
+if(STILL) document.documentElement.classList.add('still');
+
+var CASES = JSON.parse(document.getElementById('case-data').textContent);
+var SVCS  = JSON.parse(document.getElementById('svc-data').textContent);
+
+/* ---------- カテゴリ定義（4象限＋基盤／最大6色まで） ---------- */
+var CATS = [
+  {k:'q1', l:'問いをつくる',     en:'FRAMING',    c:'#0B4DA2'},
+  {k:'q2', l:'予測をつくる',     en:'FORESIGHT',  c:'#12A5C8'},
+  {k:'q3', l:'共通言語をつくる', en:'ALIGNMENT',  c:'#2FA37A'},
+  {k:'q4', l:'カタチをつくる',   en:'SHAPING',    c:'#6B4FD6'},
+  {k:'q5', l:'その他',           en:'OTHER',      c:'#C86A12'},
+  {k:'un', l:'分類未設定',       en:'UNSET',      c:'#7A8698'}
+];
+function cat(k){ for(var i=0;i<CATS.length;i++) if(CATS[i].k===k) return CATS[i];
+                 return {k:k,l:'その他',en:'OTHER',c:'#7A8698'}; }   // 未定義カテゴリのフォールバック
+function catColor(k){ return cat(k).c; }
+function catLabel(k){ return cat(k).l; }
+
+function uniq(arr,key){ var o=[],m={}; arr.forEach(function(x){ if(!m[x[key]]){m[x[key]]=1;o.push(x[key]);} }); return o; }
+
+/* 事例は全件を一度に表示する（36件のため分割不要というご指示）。
+   将来106件規模になった場合は、この値を12等に戻せば「さらに表示」方式に切り替わる。 */
+var PAGE = 9999;
+var state = {cat:'all', mem:'all', sort:'mix', shown:PAGE, view:'card'};
+var grid = document.getElementById('grid');
+
+/* ---------- URL 同期 ---------- */
+(function readURL(){
+  var p = Q;
+  if(p.get('cat'))  state.cat  = p.get('cat');
+  if(p.get('mem'))  state.mem  = decodeURIComponent(p.get('mem'));
+  if(p.get('sort')) state.sort = p.get('sort');
+  if(p.get('view')) state.view = p.get('view');
+  if(p.get('all'))  state.shown = 9999;
+})();
+function writeURL(){
+  var p = new URLSearchParams();
+  if(state.cat!=='all')  p.set('cat', state.cat);
+  if(state.mem!=='all')  p.set('mem', state.mem);
+  if(state.sort!=='mix') p.set('sort', state.sort);
+  if(state.view!=='card')p.set('view', state.view);
+  var q = p.toString();
+  history.replaceState(null,'', location.pathname + (q ? '?'+q : ''));
+}
+
+/* ---------- チップ生成 ---------- */
+function buildCatChips(){
+  var h = '<button class="chip'+(state.cat==='all'?' on':'')+'" data-cat="all">すべて<span class="cn">'+CASES.length+'</span></button>';
+  CATS.forEach(function(c){
+    var n = CASES.filter(function(x){return x.cat===c.k;}).length;
+    if(!n) return;
+    h += '<button class="chip'+(state.cat===c.k?' on':'')+'" data-cat="'+c.k+'" style="--cat:'+c.c+'">'
+       + '<span class="dot"></span>'+c.l+'<span class="cn">'+n+'</span></button>';
+  });
+  document.getElementById('catChips').innerHTML = h;
+  document.getElementById('shCat').innerHTML = h;
+}
+function buildMemChips(){
+  var mems = uniq(CASES,'member').sort(function(a,b){
+    var ka=CASES.filter(function(x){return x.member===a;})[0].kana;
+    var kb=CASES.filter(function(x){return x.member===b;})[0].kana;
+    return ka.localeCompare(kb,'ja');
+  });
+  var h = '<button class="chip sm'+(state.mem==='all'?' on':'')+'" data-mem="all">すべて</button>';
+  mems.forEach(function(m){
+    h += '<button class="chip sm'+(state.mem===m?' on':'')+'" data-mem="'+m.replace(/"/g,'&quot;')+'">'+m+'</button>';
+  });
+  document.getElementById('memChips').innerHTML = h;
+  document.getElementById('shMem').innerHTML = h;
+}
+function paintQuadCounts(){
+  document.querySelectorAll('.qcount').forEach(function(el){
+    el.textContent = CASES.filter(function(x){return x.cat===el.dataset.cat;}).length;
+  });
+  document.querySelectorAll('[data-quad]').forEach(function(el){
+    el.classList.toggle('active', state.cat===el.dataset.quad);
+  });
+}
+
+/* ---------- 抽出・並べ替え ---------- */
+function filtered(){
+  var r = CASES.filter(function(x){
+    return (state.cat==='all' || x.cat===state.cat)
+        && (state.mem==='all' || x.member===state.mem);
+  });
+  var ORD = {};
+  CATS.forEach(function(c,i){ ORD[c.k] = i; });
+  if(state.sort==='kana')       r.sort(function(a,b){return a.kana.localeCompare(b.kana,'ja') || a.id.localeCompare(b.id);});
+  else if(state.sort==='cat')   r.sort(function(a,b){return (ORD[a.cat]-ORD[b.cat]) || a.id.localeCompare(b.id);});
+  else if(state.sort==='list')  r.sort(function(a,b){return a.id.localeCompare(b.id);});   // 掲載順（いただいたリストの並び）
+  else {
+    /* 既定＝「各社まんべんなく」。いただいたリストは会社ごとにまとまっているため、
+       そのまま並べると最初の画面が1社だけになる。会員企業を五十音で回しながら1件ずつ取り出す。 */
+    var by = {}, order = [];
+    r.slice().sort(function(a,b){return a.id.localeCompare(b.id);}).forEach(function(x){
+      if(!by[x.member]){ by[x.member] = []; order.push(x.member); }
+      by[x.member].push(x);
+    });
+    order.sort(function(a,b){
+      var ka=(by[a][0].kana||a), kb=(by[b][0].kana||b);
+      return String(ka).localeCompare(String(kb),'ja');
+    });
+    var out = [], left = true;
+    for(var n=0; left; n++){
+      left = false;
+      for(var i=0;i<order.length;i++){
+        var list = by[order[i]];
+        if(list[n]){ out.push(list[n]); left = true; }
+      }
+    }
+    r = out;
+  }
+  return r;
+}
+
+var ICO_BLD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 21V6l7-3v18"/><path d="M11 9h7v12"/><path d="M14 13h2M14 17h2M7 9h1M7 13h1M7 17h1"/></svg>';
+var ICO_ARR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg>';
+var ICO_EXT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function cardHTML(x){
+  var c = cat(x.cat);
+  /* 2026-09-24 協会様ご指示: 見出しはリストの「提供価値」（クライアント企業名は掲載しない）。本文は「課題」 */
+  return '<button class="case rv" data-id="'+x.id+'" style="--cat:'+c.c+'">'
+    + '<div class="top"><span class="cchip"><i class="ce">'+c.en+'</i>'+c.l+'</span></div>'
+    + '<h3>'+esc(x.outcome)+'</h3>'
+    + '<div class="member"><span class="ico">'+ICO_BLD+'</span>'+esc(x.member)+'</div>'
+    + '<p class="c-issue">'+esc(x.issue)+'</p>'
+    + '<div class="foot"><span class="more">事例の詳細'+ICO_ARR+'</span></div>'
+    + '</button>';
+}
+
+/* ---------- FLIP（並べ替え・絞り込みでカードが「移動する」動き） ---------- */
+function snapshot(){
+  var m={};
+  Array.prototype.forEach.call(grid.children,function(el){ m[el.dataset.id]=el.getBoundingClientRect(); });
+  return m;
+}
+function flip(prev){
+  Array.prototype.forEach.call(grid.children,function(el,i){
+    var o=prev[el.dataset.id]; if(!o) return;
+    var n=el.getBoundingClientRect(), dx=o.left-n.left, dy=o.top-n.top;
+    if(!dx && !dy) return;
+    el.style.willChange='transform';
+    var a=el.animate([{transform:'translate('+dx+'px,'+dy+'px)'},{transform:'none'}],
+      {duration:420, easing:'cubic-bezier(.22,.61,.36,1)', delay:Math.min(i*12,240)});  // stagger は 240ms でキャップ
+    a.finished.then(function(){el.style.willChange='';}).catch(function(){el.style.willChange='';});
+  });
+}
+
+/* ---------- 描画 ---------- */
+function render(animate){
+  var prev = animate ? snapshot() : null;
+  var list = filtered();
+  var vis  = list.slice(0, state.shown);
+
+  grid.className = 'grid' + (state.view==='list' ? ' list' : '');
+  grid.innerHTML = vis.map(cardHTML).join('');
+  Array.prototype.forEach.call(grid.children,function(el){ el.classList.add('in'); });
+
+  document.getElementById('empty').classList.toggle('on', list.length===0);
+  var rest = list.length - vis.length;
+  document.getElementById('loadWrap').style.display = rest>0 ? '' : 'none';
+  document.getElementById('restN').textContent = rest>0 ? '（残り'+rest+'件）' : '';
+
+  document.getElementById('bigCount').textContent = vis.length;
+  // 絞り込んでいない時に「該当36件（全36件）」と同じ数を二度出さない
+  document.getElementById('bigCountLbl').innerHTML =
+    (list.length === CASES.length)
+      ? '件（全'+CASES.length+'件を表示中）'
+      : '件を表示中 ／ 全'+CASES.length+'件中';
+
+  renderActive();
+  paintQuadCounts();
+  if(prev) flip(prev);
+  writeURL();
+}
+
+function renderActive(){
+  var h='', n=0;
+  if(state.cat!=='all'){ h += tagx('cat', catLabel(state.cat)); n++; }
+  if(state.mem!=='all'){ h += tagx('mem', state.mem); n++; }
+  if(n) h = '<span class="lbl">選択中</span>' + h + '<button class="clear-all" data-clear="1">すべて解除</button>';
+  document.getElementById('activeRow').innerHTML = h;
+  var c=document.getElementById('spCnt'); c.textContent=n; c.hidden=(n===0);
+}
+function tagx(k,l){ return '<span class="tagx">'+esc(l)+'<button data-off="'+k+'" aria-label="'+esc(l)+'の絞り込みを解除">×</button></span>'; }
+
+/* ============================================================================
+   サービス（本番181件想定）
+   ----------------------------------------------------------------------------
+   件数が多いため、カードを全部並べるのではなく「提供会社ごとに畳む」構成にしている。
+   38件／20社のサンプルで20行。本番181件でも会社数は変わらないため同じ行数に収まる。
+   ・注目サービスだけカードで数件フィーチャー（絞り込み中は非表示）
+   ・カテゴリチップで絞ると、該当サービスを持つ会社の行だけが残り、自動で開く
+   ・行をクリックするとサービス詳細モーダル
+   ========================================================================== */
+var svcState = {cat: Q.get('scat') || 'all', openAll: Q.get('sopen')==='1', open:{}};
+var svcAcc   = document.getElementById('svcAcc');
+
+function svcFiltered(){
+  return SVCS.filter(function(x){ return svcState.cat==='all' || x.cat===svcState.cat; });
+}
+/* 提供会社ごとにまとめる（会社名は五十音順） */
+function svcGroups(){
+  var list = svcFiltered(), map = {}, order = [];
+  list.forEach(function(x){
+    if(!map[x.member]){ map[x.member] = {member:x.member, kana:x.kana||x.member, items:[]}; order.push(x.member); }
+    map[x.member].items.push(x);
+  });
+  return order.map(function(m){ return map[m]; })
+              .sort(function(a,b){ return String(a.kana).localeCompare(String(b.kana),'ja'); });
+}
+
+function buildSvcChips(){
+  /* 実データのサービスリストにはカテゴリ列が無いため、絞り込みチップは出さない */
+  document.getElementById('svcCatChips').innerHTML = '';
+  return;
+  /* eslint-disable no-unreachable */
+  var h = '<button class="chip'+(svcState.cat==='all'?' on':'')+'" data-scat="all">すべて<span class="cn">'+SVCS.length+'</span></button>';
+  CATS.forEach(function(c){
+    var n = SVCS.filter(function(x){return x.cat===c.k;}).length;
+    if(!n) return;
+    h += '<button class="chip'+(svcState.cat===c.k?' on':'')+'" data-scat="'+c.k+'" style="--cat:'+c.c+'">'
+       + '<span class="dot"></span>'+c.l+'<span class="cn">'+n+'</span></button>';
+  });
+  document.getElementById('svcCatChips').innerHTML = h;
+}
+
+function renderSvcFeature(){
+  var box  = document.getElementById('svcFeature');
+  box.style.display = 'none'; return;   /* 「注目」の指定が実データに無いため非表示 */
+  var feat = SVCS.filter(function(x){ return x.featured; });
+  /* 絞り込み中は「注目」を隠す（関係ないものが残ると混乱するため） */
+  box.style.display = (svcState.cat === 'all' && feat.length) ? '' : 'none';
+  if(!feat.length) return;
+  document.getElementById('svcGrid').innerHTML = feat.map(function(x){
+    var c = cat(x.cat);
+    return '<div class="svc" style="--cat:'+c.c+'">'
+      + '<div class="stop"><span class="sc">'+c.l+'</span><span class="sm">'+esc(x.member)+'</span></div>'
+      + '<h3>'+esc(x.name)+'</h3><p>'+esc(x.body)+'</p>'
+      + '<div class="sval"><span class="vl">提供する価値</span>'+esc(x.value)+'</div>'
+      + '<button class="prov" data-sid="'+x.id+'">詳しく見る'+ICO_ARR+'</button></div>';
+  }).join('');
+}
+
+function renderSvcAcc(){
+  var gs = svcGroups(), total = 0;
+  svcAcc.innerHTML = gs.map(function(g){
+    total += g.items.length;
+    var opened = svcState.openAll || !!svcState.open[g.member] || svcState.cat !== 'all';
+    /* その会社が扱うカテゴリを色ドットで要約 */
+    var dots = '';
+    var rows = g.items.map(function(x){
+      return '<button class="srow" data-sid="'+x.id+'">'
+        + '<span class="sname">'+esc(x.name)+'</span>'
+        + '<span class="sarr">'+ICO_ARR+'</span></button>';
+    }).join('');
+    /* 開いたときの高さは行数から算出する。max-height を固定値にすると
+       件数の多い会社（1社20件超）で中身が切れるため。 */
+    return '<div class="acc-item'+(opened?' open':'')+'" style="--rows:'+g.items.length+'">'
+      + '<button class="acc-hd" data-acc="'+esc(g.member)+'" aria-expanded="'+(opened?'true':'false')+'">'
+      + '<span class="acc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>'
+      + '<span class="acc-name">'+esc(g.member)+'</span>'
+      + '<span class="acc-dots">'+dots+'</span>'
+      + '<span class="acc-n"><b>'+g.items.length+'</b>件</span></button>'
+      + '<div class="acc-bd"><div class="acc-inner">'+rows+'</div></div></div>';
+  }).join('');
+  document.getElementById('svcEmpty').classList.toggle('on', gs.length === 0);
+  document.getElementById('svcBig').textContent = total;
+  document.getElementById('svcBigLbl').innerHTML =
+    (svcState.cat === 'all' ? '件（全'+SVCS.length+'件）' : '件 ／ 全'+SVCS.length+'件中')
+    + '<br><span class="sub2">'+gs.length+'社が提供</span>';
+}
+function renderSvc(){ buildSvcChips(); renderSvcFeature(); renderSvcAcc(); }
+
+/* ---------- サービス詳細モーダル ---------- */
+var smodal = document.getElementById('smodal');
+var smTrigger = null;
+function openSvc(id, trigger){
+  var x = null;
+  for(var i=0;i<SVCS.length;i++) if(SVCS[i].id === id) x = SVCS[i];
+  if(!x) return;
+  document.getElementById('smName').textContent  = x.name;
+  document.getElementById('smMember').innerHTML  = '<span style="color:var(--c-primary)">'+ICO_BLD+'</span>'+esc(x.member);
+  document.getElementById('smActions').innerHTML = x.url
+    ? '<a class="btn-s" href="'+esc(x.url)+'" target="_blank" rel="noopener">サービス詳細を見る'+ICO_EXT+'</a>'
+    : '<span class="btn-s is-sample">サービス詳細を見る'+ICO_EXT+'</span>';
+  smTrigger = trigger || null;
+  openDialogKeepScroll(smodal, document.getElementById('smClose'));
+}
+document.getElementById('smClose').addEventListener('click', function(){ smodal.close(); });
+smodal.addEventListener('click', function(e){ if(e.target === smodal) smodal.close(); });
+smodal.addEventListener('close', function(){
+  if(smTrigger){ try{ smTrigger.focus({preventScroll:true}); }catch(e){} smTrigger = null; }
+});
+
+/* ---------- サービス側イベント ---------- */
+document.addEventListener('click', function(e){
+  var b;
+  if((b = e.target.closest('.chip[data-scat]'))){
+    svcState.cat = b.dataset.scat; svcState.openAll = false; svcState.open = {};
+    renderSvc(); return;
+  }
+  if((b = e.target.closest('[data-acc]'))){
+    var item = b.parentNode;
+    var willOpen = !item.classList.contains('open');
+    item.classList.toggle('open', willOpen);
+    b.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    svcState.open[b.dataset.acc] = willOpen;
+    return;
+  }
+  if((b = e.target.closest('[data-sid]'))){ openSvc(b.dataset.sid, b); return; }
+});
+(function(){ /* 初期状態をボタン表示へ反映 */
+  var t=document.getElementById('svcToggleAll');
+  t.setAttribute('aria-pressed', svcState.openAll?'true':'false');
+  t.querySelector('span').textContent = svcState.openAll ? 'すべて閉じる' : 'すべて開く';
+})();
+document.getElementById('svcToggleAll').addEventListener('click', function(){
+  svcState.openAll = !svcState.openAll;
+  svcState.open = {};
+  this.setAttribute('aria-pressed', svcState.openAll ? 'true' : 'false');
+  this.querySelector('span').textContent = svcState.openAll ? 'すべて閉じる' : 'すべて開く';
+  renderSvcAcc();
+});
+document.getElementById('svcClear').addEventListener('click', function(){
+  svcState.cat = 'all'; renderSvc();
+});
+
+/* ---------- イベント ---------- */
+function apply(animate){ state.shown=PAGE; buildCatChips(); buildMemChips(); render(animate!==false); }
+
+document.addEventListener('click', function(e){
+  var b;
+  if((b = e.target.closest('.chip[data-cat]'))){ state.cat=b.dataset.cat; apply(); return; }
+  if((b = e.target.closest('.chip[data-mem]'))){ state.mem=b.dataset.mem; apply(); return; }
+  if((b = e.target.closest('[data-quad]'))){                       // 象限クリックで事例一覧を絞り込む
+    state.cat = (state.cat===b.dataset.quad) ? 'all' : b.dataset.quad;
+    apply();
+    document.getElementById('cases').scrollIntoView({behavior:'smooth', block:'start'});
+    return;
+  }
+  if((b = e.target.closest('[data-off]'))){ state[b.dataset.off]='all'; apply(); return; }
+  if(e.target.closest('[data-clear]')){ state.cat='all'; state.mem='all'; apply(); return; }
+  if((b = e.target.closest('.case'))){ openModal(b.dataset.id, b); return; }
+});
+document.getElementById('selSort').addEventListener('change', function(){ state.sort=this.value; render(true); });
+document.getElementById('loadMore').addEventListener('click', function(){ state.shown+=PAGE; render(true); });
+document.getElementById('emptyClear').addEventListener('click', function(){ state.cat='all'; state.mem='all'; apply(); });
+
+function setView(v){
+  state.view=v;
+  document.getElementById('vCard').classList.toggle('on', v==='card');
+  document.getElementById('vList').classList.toggle('on', v==='list');
+  document.getElementById('vCard').setAttribute('aria-pressed', v==='card');
+  document.getElementById('vList').setAttribute('aria-pressed', v==='list');
+  render(true);
+}
+document.getElementById('vCard').addEventListener('click', function(){ setView('card'); });
+document.getElementById('vList').addEventListener('click', function(){ setView('list'); });
+
+/* ---------- モーダル（一覧は走査性、詳細は情報量） ---------- */
+var modal = document.getElementById('modal');
+var lastTrigger = null;
+
+/* showModal() は開いた瞬間にダイアログ内へフォーカスを移す。
+   そのとき scroll-behavior:smooth が効いていると、ページが一度上までスクロールしてから
+   モーダルが開いたように見える。フォーカスは preventScroll で当て、
+   万一スクロール位置が動いた場合はアニメーションなしで元に戻す。 */
+function openDialogKeepScroll(dlg, focusEl){
+  var html = document.documentElement;
+  var prevSB = html.style.scrollBehavior;
+  var sy = window.scrollY, sx = window.scrollX;
+  html.style.scrollBehavior = 'auto';
+  if(STILL){ dlg.setAttribute('open',''); html.classList.add('hasdialog'); }
+  else if(dlg.showModal){ dlg.showModal(); }
+  else { dlg.setAttribute('open',''); }
+  var box = dlg.querySelector('.md-in,.sheet-in');
+  if(box) box.scrollTop = 0;
+  if(focusEl){ try{ focusEl.focus({preventScroll:true}); }catch(e){ try{ focusEl.focus(); }catch(e2){} } }
+  if(window.scrollY !== sy || window.scrollX !== sx) window.scrollTo(sx, sy);
+  html.style.scrollBehavior = prevSB;
+}
+
+function openModal(id, trigger){
+  var x=null; for(var i=0;i<CASES.length;i++) if(CASES[i].id===id) x=CASES[i];
+  if(!x) return;
+  var c = cat(x.cat);
+  var el = document.getElementById('mdCat');
+  el.innerHTML = '<i class="ce">'+c.en+'</i>'+c.l;
+  el.style.cssText = 'color:'+c.c+';background:color-mix(in srgb,'+c.c+' 10%,#fff);border:1px solid color-mix(in srgb,'+c.c+' 25%,#fff)';
+  document.getElementById('mdTitle').textContent = x.outcome;   /* 見出し＝提供価値（クライアント名は出さない） */
+  document.getElementById('mdMember').innerHTML  = '<span style="color:'+c.c+'">'+ICO_BLD+'</span>'+esc(x.member);
+  document.getElementById('mdIssue').textContent   = x.issue;
+  document.getElementById('mdAction').textContent  = x.action;
+  /* 各社HPの事例ページへのリンク（依頼 2026-09-18 P5）。URL未設定の事例はグレー表示にする */
+  document.getElementById('mdActions').innerHTML = x.url
+    ? '<a class="btn-s" href="'+esc(x.url)+'" target="_blank" rel="noopener">各社サイトの事例ページを見る'+ICO_EXT+'</a>'
+    : '<span class="btn-s is-sample">各社サイトの事例ページを見る'+ICO_EXT+'</span>';
+  document.getElementById('mdNote').textContent   = x.note || '';   /* 空欄の行はCSS（:empty）で隠す */
+  document.getElementById('mdMeta').innerHTML = '';
+  lastTrigger = trigger || null;
+  openDialogKeepScroll(modal, document.getElementById('mdClose'));
+}
+/* 閉じたら、開くきっかけになったカードへフォーカスを戻す（キーボード操作の迷子防止） */
+modal.addEventListener('close', function(){
+  if(lastTrigger){ try{ lastTrigger.focus({preventScroll:true}); }catch(e){} lastTrigger=null; }
+});
+document.getElementById('mdClose').addEventListener('click', function(){ modal.close(); });
+modal.addEventListener('click', function(e){ if(e.target===modal) modal.close(); });
+
+/* ---------- SP ボトムシート ---------- */
+var sheet = document.getElementById('sheet');
+document.getElementById('spFilter').addEventListener('click', function(){
+  openDialogKeepScroll(sheet, document.getElementById('shClose'));
+});
+document.getElementById('shClose').addEventListener('click', function(){ sheet.close(); });
+document.getElementById('shApply').addEventListener('click', function(){ sheet.close(); });
+sheet.addEventListener('click', function(e){ if(e.target===sheet) sheet.close(); });
+
+/* ---------- ヘッダー / sticky ---------- */
+var hdr=document.getElementById('hdr'), fbar=document.getElementById('fbar');
+window.addEventListener('scroll', function(){
+  hdr.classList.toggle('solid', window.scrollY>12);
+  if(fbar){
+    var hh = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h'))||74;
+    fbar.classList.toggle('stuck', fbar.getBoundingClientRect().top <= hh+1);
+  }
+}, {passive:true});
+
+/* ---------- reveal（フォールバック必須：ヘッドレス撮影で白飛びさせない） ---------- */
+function revealAll(){ document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); }); }
+if(STILL){
+  revealAll();
+  document.getElementById('matrix').classList.add('in');
+  document.querySelectorAll('.cnt[data-to]').forEach(function(el){ el.textContent = el.dataset.to; });
+}else if('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{threshold:.14, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  var mio = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); mio.unobserve(en.target); } });
+  },{threshold:.28});
+  var mx=document.getElementById('matrix'); if(mx) mio.observe(mx);
+  setTimeout(function(){ revealAll(); if(mx) mx.classList.add('in'); }, 1200);
+}else{
+  revealAll(); document.getElementById('matrix').classList.add('in');
+}
+
+/* ---------- カウントアップ ---------- */
+function countUp(el){
+  var to=+el.dataset.to, t0=null, dur=1100;
+  function step(t){
+    if(!t0) t0=t;
+    var p=Math.min((t-t0)/dur,1);
+    el.textContent = Math.round(to*(1-Math.pow(1-p,3)));
+    if(p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+if(!STILL && 'IntersectionObserver' in window){
+  var cio = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){ countUp(en.target); cio.unobserve(en.target); } });
+  },{threshold:.6});
+  document.querySelectorAll('.cnt[data-to]').forEach(function(el){ cio.observe(el); });
+  setTimeout(function(){ document.querySelectorAll('.cnt[data-to]').forEach(function(el){
+    if(el.textContent!==el.dataset.to) el.textContent=el.dataset.to; }); },1500);
+}else if(!STILL){
+  document.querySelectorAll('.cnt[data-to]').forEach(function(el){ el.textContent=el.dataset.to; });
+}
+
+/* ---------- 言語切替（デザイン確認用のUIのみ） ---------- */
+document.querySelectorAll('.lang button').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('.lang button').forEach(function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
+    b.classList.add('on'); b.setAttribute('aria-pressed','true');
+  });
+});
+
+/* ---------- init ---------- */
+buildCatChips();
+buildMemChips();
+renderSvc();
+setView(state.view);
+var qCase = Q.get('case');
+if(qCase){ setTimeout(function(){ openModal(qCase); }, STILL?0:200); }
+if(Q.get('open')==='1'){
+  setTimeout(function(){ openDialogKeepScroll(sheet, document.getElementById('shClose')); },300);
+}
+})();
+
+
+/* 2026-09-21 SP・タブレットのメニュー（≡で開閉。項目・外側・Escで閉じる） */
+(function(){
+  var hdr = document.getElementById('hdr'), btn = hdr && hdr.querySelector('.burger');
+  if (!btn) return;
+  function set(open){
+    hdr.classList.toggle('nav-open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  }
+  btn.addEventListener('click', function(e){ e.stopPropagation(); set(!hdr.classList.contains('nav-open')); });
+  hdr.querySelectorAll('.gnav a').forEach(function(a){ a.addEventListener('click', function(){ set(false); }); });
+  document.addEventListener('click', function(e){ if (hdr.classList.contains('nav-open') && !hdr.contains(e.target)) set(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && hdr.classList.contains('nav-open')) { set(false); btn.focus(); } });
+  window.addEventListener('resize', function(){ if (window.innerWidth > 1023) set(false); });
+})();
+
+</script>
+<script>
+/* 案C: サイドナビ（本体スクリプトと分離） */
+/* ===== 案B：MVの動き（スクロール連動分）
+   ・背景の町とリボンをわずかに視差で動かす（参考サイトの"奥行き"）
+   ・描画アニメーション本体は CSS（_style_mv_b.css）。still / prefers-reduced-motion では動かさない */
+;(function(){
+  var hero=document.querySelector('.hero'); if(!hero) return;
+  var bg=hero.querySelector('.hero-bg'), rb=hero.querySelector('.hero-ribbon');
+  var still=document.documentElement.classList.contains('still') ||
+            (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  if(still) return;
+  function onScroll(){
+    var y=window.scrollY, h=hero.offsetHeight||1;
+    if(y<h*1.3){
+      if(bg) bg.style.setProperty('--py', (y*.14).toFixed(1)+'px');
+      if(rb) rb.style.setProperty('--py', (y*.07).toFixed(1)+'px');
+    }
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+
+</script>
+</body>
+</html>
